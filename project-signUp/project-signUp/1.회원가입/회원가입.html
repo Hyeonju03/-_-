@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DCS_signUp</title>
+    <!-- 위치변경필요 -->
+    <link rel="stylesheet" href="/project-signUp/project-signUp/1.회원가입/회원가입.css" />
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <div style="font-size: x-large; text-align: center;">반갑습니다!</div><br/>
+      <div style="font-size: large; text-align: center;">회원가입을 위해 정보를 입력해주세요.</div><br/>
+    </div>
+
+    <!-- 아이디 부분 -->
+     <br/>
+    <div name="signUp_id">
+      <div name="signUp_id_txt" >
+        <label for="signUp_id">아이디</label><br />
+        <input
+          type="text"
+          name="signUp_id"
+          id="signUp_id"
+          class="inputBox marginR_10 inBlock width320"
+          style="width: 365px;"
+          placeholder="아이디를 입력하세요."
+        />
+        <div
+        name="signUp_id_check"
+        class="btn1 inBlock"
+        onclick="goClick()"
+      >
+        확인
+      </div>
+      </div>
+      <!-- 확인 눌렀을 때 함수명 생각, 스토리지 아이디랑 비교하는 것도 추가해야됨 -->
+ 
+    </div>
+
+    <!-- 비밀번호 관련 -->
+    <br/>
+    <div name="signUp_pw_main">
+      <div name="signUp_pw">
+        <label for="signUp_pw"> 비밀번호 </label><br />
+        <input
+          type="text"
+          name="signUp_pw"
+          id="signUp_pw"
+          class="inputBox  inBlock"
+          placeholder="비밀번호를 입력하세요."
+        />
+      </div>
+      <!-- 비밀번호 일치하지 않으면, 문구 띄우기 -->
+      
+      <div name="signUp_pw_check" class="marginT_8">
+        <label for="signUp_pw_check"> 비밀번호 확인 </label> <br />
+        <input
+          type="text"
+          name="signUp_pw_check"
+          id="signUp_pw_check"
+          class="inputBox inBlock"
+          placeholder="확인을 위해 비밀번호를 다시 입력해주세요."
+        />
+      </div>
+    </div>
+    <!-- 이름 -->
+     <br/>
+    <div name="signUp_name" class="inBlock">
+      <label for="signUp_name"> 이름 </label><br />
+      <input
+        type="text"
+        name="signUp_name"
+        id="signUp_name"
+        class="inputBox inBlock width320"
+        placeholder="이름을 입력하세요."
+      />
+    </div>
+
+    <!-- 성별 -->
+    <div name="signUp_gender" id = "signUp_gender" class="inBlock">
+      성별<br />
+      <label for="signUp_gender1">
+        남
+        <input
+          type="radio"
+          name="signUp_gender"
+          id="signUp_gender1"
+          value="gender01"
+        />
+      </label>
+      <label for="signUp_gender2" class="marginL_10">
+        여
+        <input
+          type="radio"
+          name="signUp_gender"
+          id="signUp_gender2"
+          value="gender02"
+        />
+      </label>
+    </div>
+
+    <!-- 전화번호 -->
+    
+    <div name="signUp_phone">
+      <br/>
+      <div name="signUp_phoneNo" class="inBlock">
+        <label for="signUp_phoneNo"> 전화번호</label><br />
+        <input
+          type="text"
+          name="signUp_phoneNo"
+          id="signUp_phoneNo"
+          class="inputBox inBlock width320"
+          placeholder="전화번호를 입력하세요."
+        />
+        <div
+        name="signUp_phone_check"
+        class="inBlock btn2"
+        onclick="sendSms()"
+      >
+        인증번호받기
+      </div>
+
+      </div>
+      
+    </div>
+
+    <!-- 이메일 부분 -->
+     <br/>
+    <div name="signUp_email">
+      <label for="signUp_email"> 이메일 </label><br />
+      <input
+        type="text"
+        name="signUp_email"
+        id="signUp_email"
+        class="inputBox inBlock"
+        placeholder="이메일을 입력하세요."
+      />
+    </div>
+
+    <!-- 제출버튼 -->
+     <br/>
+    <input type="submit" value="회원가입" class="signUpBtn">
+
+    <script>
+      console.log(document.getElementById(signUp_id))
+      
+    </script>
+    <!-- <script src="/1.회원가입/send_sms.js"></script> -->
+  </body>
+</html>
