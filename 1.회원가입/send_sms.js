@@ -1,19 +1,19 @@
-import coolsms from "coolsms-node-sdk";
-
-export function sendSms() {
-  const messageApiKey = "NCS9L2EWZZQKBULJ";
-  const apiSecret = "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B";
-
-  const sms = coolsms.default;
-  const smsService = new sms(messageApiKey, apiSecret);
-
-  smsService
+function sendSms(phone, random) {
+  const coolsms = require("coolsms-node-sdk").default;
+  const messageService = new coolsms(
+    "NCS9L2EWZZQKBULJ",
+    "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
+  );
+  messageService
     .sendOne({
-      to: "01063640525",
-      from: "SDC",
-      text: `인증번호: ${random()}`,
+      to: phone,
+      from: "01063640525",
+      text: `인증번호: ${random}`,
     })
-    .then((res) => console.log(res));
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.error(err));
 }
 
 function random() {
