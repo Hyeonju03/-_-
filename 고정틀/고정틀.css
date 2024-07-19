@@ -721,7 +721,7 @@ p {
 }
 
 /* 3336줄 */
-@media (max-width: 1236px) and (min-width: 1024px) {
+@media (max-width: 1300px) {
   .quickMenu {
     display: none;
   }
