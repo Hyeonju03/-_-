@@ -134,6 +134,7 @@ html {
 .headerTop .top_link h1 {
   /* top: 15px; */
   position: absolute;
+  top: -10px;
 }
 
 /* 17줄 */
@@ -246,7 +247,8 @@ optgroup {
 }
 
 /* 74줄 */
-a {
+a,
+p {
   color: #333;
 }
 
@@ -271,6 +273,7 @@ a:hover {
 /* 94줄 */
 .headerBottom .mainMenu {
   margin: 0px auto;
+
   width: 980px;
   overflow: hidden;
   display: table;
@@ -341,7 +344,10 @@ button.btn_s span {
 
 /* 138줄 */
 .policy .policyBtn {
+  width: 20%;
+  display: flex;
   float: right;
+  justify-content: space-around;
 }
 
 /* 140줄 */
@@ -363,7 +369,7 @@ a.btn_m {
 #nav {
   background-position: top;
   width: 100%;
-  height: 60px;
+  height: 95px;
   background-color: rgb(255, 183, 0);
   background-repeat: no-repeat;
   background-size: cover;
@@ -381,6 +387,7 @@ a.btn_m {
 /* 187줄 */
 #nav .navBox ul {
   margin: 0px;
+  padding-top: 45px;
   padding-left: 20px;
 }
 
@@ -528,10 +535,12 @@ a.btn_m {
   border-radius: 3px;
   border: 1px solid rgb(211, 213, 217);
   border-image: none;
-  top: 50px;
+  top: 240px;
   width: 86px;
-  right: -110px;
-  position: absolute;
+  right: 18%;
+  position: fixed;
+  background-color: white;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 /* 613줄 */
@@ -579,12 +588,12 @@ a.btn_m {
 }
 
 /* 628줄 */
-.quickMenu a.gotoTop {
+.gotoTop {
   /* background: url(../img/common/icons.png) no-repeat -235px 16px; */
   height: 42px;
   text-align: center;
   /* text-indent: -8000px; */
-  padding: 12px;
+  padding: 6px;
   font-size: 15px;
   border-top-color: rgb(239, 239, 239);
   border-top-width: 1px;
@@ -602,8 +611,9 @@ a.btn_m {
 
 /* 667줄 */
 .policy {
+  height: 40px;
   margin: 0px auto;
-  padding: 20px 0px;
+  padding: 10px 0px;
   width: 980px;
   display: block;
 }
@@ -632,6 +642,13 @@ a.btn_m {
 /* 679줄 */
 .policy .policyBtn {
   float: right;
+}
+
+.policyBtn a {
+  background-color: #f9f9fc;
+  border: 1px solid rgb(43, 0, 0);
+  border-radius: 4px;
+  padding: 2px 3px;
 }
 
 /* 682줄 */
@@ -708,4 +725,57 @@ p {
   .quickMenu {
     display: none;
   }
+}
+
+.headerBottom {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  z-index: 500;
+  border-bottom: 1px solid #333;
+  box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.2);
+}
+
+.headerBottom > div {
+  width: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mainMenu > li {
+  display: block;
+  float: left;
+  box-sizing: border-box;
+}
+.mainMenu > li > a {
+  position: relative;
+  display: block;
+  width: 180px;
+  padding: 18px 0;
+}
+
+.subMenu {
+  display: none;
+  background: #fff;
+}
+
+.mainMenu li:hover .subMenu {
+  display: block;
+  border: 1px solid goldenrod;
+}
+
+.mainMenu li:hover {
+  font-weight: bold;
+}
+
+.subMenu > li > a {
+  position: relative;
+  display: block;
+  width: 180px;
+  padding: 18px 0;
+}
+
+.mainMenu li:hover .subMenu li:hover {
+  background-color: rgba(243, 243, 243, 0.55);
 }
