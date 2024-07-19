@@ -534,12 +534,12 @@ a.btn_m {
 .quickMenu {
   border-radius: 3px;
   border: 1px solid rgb(211, 213, 217);
-  border-image: none;
-  top: 225px;
-  width: 86px;
-  right: %;
-  position: fixed;
   background-color: white;
+  border-image: none;
+  top: 205px;
+  width: 86px;
+  right: 15%;
+  position: fixed;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
