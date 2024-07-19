@@ -538,7 +538,7 @@ a.btn_m {
   border-image: none;
   top: 205px;
   width: 86px;
-  right: 15%;
+  right: 17%;
   position: fixed;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
