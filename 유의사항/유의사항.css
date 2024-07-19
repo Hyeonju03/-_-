@@ -234,7 +234,8 @@ p {
 
 /* 1795 */
 .content_panel > .text_info_list01 {
-  margin-top: 0px !important;
+  /* margin-top: 0px !important; */
+  padding: 5px;
 }
 
 /* 1807 */
