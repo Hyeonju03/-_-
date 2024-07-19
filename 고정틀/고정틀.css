@@ -535,9 +535,9 @@ a.btn_m {
   border-radius: 3px;
   border: 1px solid rgb(211, 213, 217);
   border-image: none;
-  top: 240px;
+  top: 225px;
   width: 86px;
-  right: 18%;
+  right: %;
   position: fixed;
   background-color: white;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
