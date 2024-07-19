@@ -201,13 +201,14 @@ p {
 
 /* 1540 */
 .sub_title_01 {
-  background: url(../img/common/bullet_subtitle1.png) no-repeat left;
-  padding: 5px 0px 5px 20px;
+  background: url(/imgs/icons8-원-64.png) no-repeat left;
+  height: 50px;
+  padding: 9px 0px 5px 63px;
   color: rgb(17, 17, 17);
   line-height: 1.6;
   font-size: 19px;
   font-weight: 400;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   display: block;
 }
 
@@ -243,7 +244,7 @@ p {
 
 /* 1816 */
 .text_info_list01 dt {
-  background: url(../img/common/bullet_subtitle5.png) no-repeat 0px 9px;
+  /* background: url(/imgs/icons8-앞으로.png) no-repeat 0px 9px; */
   color: rgb(17, 17, 17);
   padding-left: 10px;
   margin-bottom: 5px;
@@ -255,9 +256,14 @@ dt {
   unicode-bidi: isolate;
 }
 
+.text_info_list01 li::before,
+.text_info_list01 dt::before {
+  content: url(/imgs/icons8-앞으로.png);
+}
+
 /* 1828 */
 .text_info_list01 li {
-  background: url(../img/common/bullet_subtitle5.png) no-repeat 0px 9px;
+  /* background: url(/imgs/icons8-앞으로-64.png) no-repeat 0px 9px; */
   color: rgb(17, 17, 17);
   padding-left: 10px;
   margin-bottom: 5px;
