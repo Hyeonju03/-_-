@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>고정틀</title>
     <link rel="stylesheet" href="/project--/고정틀/고정틀.css" />
+    <link rel="stylesheet" href="/3.계정찾기/아이디찾기.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -130,7 +131,7 @@
                   <li><a href="#">FAQ</a></li>
                   <li><a href="#">1대1문의</a></li>
                   <li><a href="#">공지사항</a></li>
-                  <li><a href="/유의사항/유의사항.html">수험자유의사항</a></li>
+                  <li><a href="#">수험자유의사항</a></li>
                 </ul>
               </li>
               <li>
@@ -143,6 +144,7 @@
               </li>
             </ul>
           </div>
+          <div></div>
         </div>
         <!-- //headerBottom -->
         <!-- //header -->
@@ -160,10 +162,12 @@
         <!-- container -->
         <div id="container">
           <div id="snb">
-            <h3>자격소개</h3>
+            <h3>회원정보</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a class="holder csp"> "자격소개" </a>
+                <a class="holder csp"> 회원가입 </a>
+                <a class="holder csp"> 아이디 찾기 </a>
+                <a class="holder csp"> 비밀번호 찾기 </a>
                 <ul style="display: none">
                   <!-- 여기 display none 은 자격소개탭 펼쳐지면 block 으로 바꾸는 
                      js 필요 -->
@@ -181,7 +185,7 @@
             <div id="content">
               <div class="depth_title">
                 <h2>
-                  자격 이름
+                  아이디 찾기
                   <a
                     href="#"
                     class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
@@ -192,8 +196,31 @@
               </div>
               <!-- section -->
               <div class="section q_into">
-                <div class="article tab_qbox">카테고리? 부분 없으면 삭제</div>
-                <div id="qlfintContent">내용</div>
+                <div
+                  class="article tab_qbox tapHead click"
+                  onclick="changeIdBg()"
+                >
+                  아이디찾기
+                </div>
+                <div class="article tab_qbox tapHead" onclick=" changePwBg()">
+                  비밀번호찾기
+                </div>
+                <div id="articleId">
+                  <div>이름</div>
+                  <div>전화번호</div>
+                  <div>인증번호받기</div>
+                  <div>인증번호</div>
+                  <div>확인</div>
+                  <div>인증번호가 안오시나요?</div>
+                </div>
+                <div id="articlePw" class="hidden">
+                  <div>아이디</div>
+                  <div>확인</div>
+                  <div>전화번호</div>
+                  <div>인증번호받기</div>
+                  <div>확인</div>
+                  <div>인증번호가 안오시나요?</div>
+                </div>
               </div>
               <!-- //section -->
             </div>
@@ -299,5 +326,6 @@
     </div>
 
     <script src="/project--/고정틀/고정틀.js"></script>
+    <script src="/3.계정찾기/아이디찾기.js"></script>
   </body>
 </html>

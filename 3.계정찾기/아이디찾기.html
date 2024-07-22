@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>고정틀</title>
+    <title>아이디찾기</title>
     <link rel="stylesheet" href="/project--/고정틀/고정틀.css" />
     <link rel="stylesheet" href="/3.계정찾기/아이디찾기.css" />
     <style>
@@ -165,8 +165,9 @@
             <h3>회원정보</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a class="holder csp"> "회원가입" </a>
-                <a class="holder csp"> "아이디/비밀번호 찾기" </a>
+                <a class="holder csp"> 회원가입 </a>
+                <a class="holder csp"> 아이디 찾기 </a>
+                <a class="holder csp"> 비밀번호 찾기 </a>
                 <ul style="display: none">
                   <!-- 여기 display none 은 자격소개탭 펼쳐지면 block 으로 바꾸는 
                      js 필요 -->
@@ -184,7 +185,7 @@
             <div id="content">
               <div class="depth_title">
                 <h2>
-                  자격 이름
+                  아이디 찾기
                   <a
                     href="#"
                     class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
@@ -195,30 +196,71 @@
               </div>
               <!-- section -->
               <div class="section q_into">
-                <div
-                  class="article tab_qbox tapHead click"
-                  onclick="changeIdBg()"
-                >
-                  아이디찾기
-                </div>
-                <div class="article tab_qbox tapHead" onclick=" changePwBg()">
-                  비밀번호찾기
-                </div>
-                <div id="articleId">
-                  <div>이름</div>
-                  <div>전화번호</div>
-                  <div>인증번호받기</div>
-                  <div>인증번호</div>
-                  <div>확인</div>
-                  <div>인증번호가 안오시나요?</div>
-                </div>
-                <div id="articlePw" class="hidden">
-                  <div>아이디</div>
-                  <div>확인</div>
-                  <div>전화번호</div>
-                  <div>인증번호받기</div>
-                  <div>확인</div>
-                  <div>인증번호가 안오시나요?</div>
+                <div id="articleId" class="article tab_qbox lonIn_container">
+                  <div id="find_Name">
+                    <lable for="findId_name">이름</lable>
+                    <input
+                      type="text"
+                      id="findId_name"
+                      placeholder="이름을 입력하세요."
+                      class="login_inputBox"
+                    />
+                  </div>
+                  <div id="find_ph" class="flex">
+                    <label for="findId_ph">전화번호</label><br />
+                    <input
+                      type="text"
+                      id="findId_ph"
+                      placeholder="전화번호를 입력하세요"
+                      class="login_inputBox2"
+                    />
+                    <div
+                      id="phCheck"
+                      class="inBlock findIdbtn"
+                      onclick="sendSms()"
+                    >
+                      인증번호받기
+                    </div>
+                  </div>
+                  <div id="find_ph" class="flex">
+                    <label for="findId_ph">인증번호</label><br />
+                    <input
+                      type="text"
+                      id="findId_ph"
+                      placeholder="전화번호를 입력하세요"
+                      class="login_inputBox2"
+                    />
+                    <div
+                      id="phCheck"
+                      class="inBlock findIdbtn"
+                      onclick="sendSms()"
+                    >
+                      확인
+                    </div>
+                  </div>
+                  <!-- 인증번호 모달 -->
+                  <div id="modalBtn" class="quset">인증번호가 안오시나요?</div>
+                  <div id="q_Modal" class="modal">
+                    <div class="modal-content">
+                      <span class="close" , id="closebtn">&times;</span>
+                      <div class="modal-text">
+                        1. 휴대폰 스팸 메시지를 확인해보세요.
+                      </div>
+                      <div class="modal-text">
+                        2. 통신사에서 인증문자를 차단한건 아닌지 확인해보세요.
+                      </div>
+                      <div class="modal-text">
+                        3. 휴대폰 내 차단 설정을 확인해보세요.
+                      </div>
+                      <div class="modal-text">
+                        4. 휴대폰 용량을 확인해보세요.
+                      </div>
+                      <div class="modal-text">
+                        5. 스팸이나 수신 차단 설정이 되어있지 않다면, 일시적인
+                        장애일 수 있으므로 시간을 두고 다시 인증을 시도하세요.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <!-- //section -->

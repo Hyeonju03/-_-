@@ -1,17 +1,129 @@
-.tapHead {
-  display: inline-flex;
-  border: 1px rgb(255, 183, 0) solid;
-  width: 25%;
-  height: 35px;
-  font-size: larger;
-  font-weight: bold;
-  justify-content: center;
+.lonIn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+  border: 1px solid gainsboro;
+  height: 600px;
   border-radius: 5px;
 }
 
-.click {
+.login_inputBox {
+  display: block;
+  margin: 10px auto;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 300px;
+  outline: none;
+  color: #201818;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.login_inputBox2 {
+  margin: 10px auto;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 300px;
+  outline: none;
+  color: #201818;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.inBlock {
+  display: inline-block;
+}
+.findIdbtn {
+  /* display: flex; */
+  border: 0;
+  background: gainsboro;
+  color: #201818;
+  border-radius: 8px;
+  width: 90px;
+  height: 39px;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 410px;
+  margin-left: 90px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  border-radius: 10px;
+  background-color: rgba(238, 235, 235, 0.418);
+  pointer-events: none;
+  /* 고려하기 */
+  padding: 17px;
+}
+
+.modla-content {
+  max-width: 500px;
+  width: 800px;
+  /* height: 10px; */
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: scale(0.8);
+}
+
+.modal-text {
+  width: 380px;
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.madal.show .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+.findIdbtn:hover {
   background-color: rgb(255, 183, 0);
+  font-weight: bold;
+}
+.quset:hover {
+  font-weight: bold;
+  color: rgb(255, 183, 0);
+  cursor: pointer;
 }
 .hidden {
   display: none;
