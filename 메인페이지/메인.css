@@ -348,6 +348,11 @@ optgroup {
   width: 40%;
 }
 
+/*  */
+.margin_35 {
+  margin-left: 35px;
+}
+
 /* 62 */
 .col-6 {
   width: 50%;
@@ -668,7 +673,7 @@ a.btn_m {
 /* 201 */
 .btn_pager a.active {
   background-position: 0px 0px;
-  background-color: rgb(255, 82, 94);
+  background-color: rgb(255, 183, 0);
 }
 
 /* 202 */
@@ -721,10 +726,11 @@ a.btn_m {
 
 /* 244 */
 .customer .sp-img {
-  /* background: url(../img/main/icon_cm_01.png) no-repeat right 20px top 0%; */
-  margin: 0px 25%;
+  background: url(/imgs/icon_cm_01.png) no-repeat right 70px top 10%;
+  /* margin: 0px 25%; */
   padding: 20px 0px;
   width: 300px;
+  margin-left: 120px;
 }
 
 /* 247 */
@@ -743,9 +749,10 @@ a.btn_m {
 
 /* 253 */
 .customer_time {
-  margin: 0px auto;
+  /* margin: 0px auto; */
   width: 78%;
   padding-top: 0px;
+  margin-left: 120px;
 }
 
 /* 256 */
@@ -801,6 +808,10 @@ a.btn_m {
   display: inline-block;
 }
 
+.faq {
+  width: 171px;
+}
+
 /* 310 */
 .btn_img_arrow span {
   background: url(/imgs/arrow_right.png) no-repeat right;
@@ -816,9 +827,9 @@ a.btn_m {
 }
 
 /* 319 */
-.guide_text {
+.guid_text {
   background: url(../img/main/icon_cm_04.png) no-repeat center 30px;
-  height: 155px;
+  height: 167px;
   position: relative;
 }
 
@@ -897,7 +908,7 @@ a.btn_m {
 
 /* 439 */
 .tab_container1 .tab_container_btn a {
-  background: url(../img/main/icon_more.png) no-repeat right;
+  background: url(/imgs/icon_more.png) no-repeat right;
   height: 16px;
   line-height: 1.2;
   padding-right: 21px;
@@ -1217,8 +1228,8 @@ ul.tabs1 {
 
 /* 715 */
 ul.tabs {
-  background: rgb(255, 82, 94);
-  border-color: rgb(255, 82, 94);
+  background: rgb(255, 183, 0);
+  border-color: rgb(255, 183, 0);
 }
 
 /* 718 */
@@ -1259,7 +1270,7 @@ ul.tabs1 li a {
 
 /* 733 */
 ul.tabs li a {
-  border-color: rgb(255, 82, 94);
+  border-color: rgb(255, 183, 0);
 }
 
 /* 736 */
@@ -1315,12 +1326,12 @@ ul.tabs1 li span {
 
 /* 760 */
 ul.tabs li.active a span {
-  color: rgb(255, 69, 92);
+  color: rgb(255, 183, 0);
 }
 
 /* 763 */
 ul.tabs1 li.active a span {
-  color: rgb(255, 69, 92);
+  color: rgb(255, 183, 0);
 }
 
 /* 766 */
