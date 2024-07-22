@@ -1,4 +1,4 @@
-const user = {
+let user = {
   id: "",
   pw: "",
   name: "",
@@ -6,6 +6,7 @@ const user = {
   phone: "",
   email: "",
   delete: "0",
+  login: "0",
 };
 let userNo = 0;
 const signId = document.getElementById("signUp_id"); //입력받는 아이디
@@ -20,22 +21,24 @@ const signGender = document.querySelectorAll("[name='gender']"); //성별
 // 이부분 폼의 라디오박스 부분 확인하기
 
 //아이디 확인 함수
-signId.addEventListener("blur", function (e) {
+signId.addEventListener("blur", function () {
   alert("아이디 확인 버튼을 누르세요");
 });
 
 function idCheck() {
-  const newId = signId.value;
-  for (let i = 0; i < userNo; i++) {
-    if (user.id == newId) {
+  const newId = signId.value; //입력받은 아이디
+  for (let i = 0; i < localStorage.length; i++) {
+    //로컬스토리지 돌면서 비교
+    const userId = JSON.parse(localStorage.getItem(i)).id; // 키가 0인거부터 순서대로 id를 담음
+    if (userId == newId) {
       alert("이미 존재하는 아이디입니다.");
       idConfrim = false;
       return;
     }
   }
-  user.id = newId;
-  localStorage.setItem(userNo, JSON.stringify(user));
-  userNo++;
+  // user.id = newId;
+  // localStorage.setItem(userNo, JSON.stringify(user));
+
   idConfrim = true;
   alert("사용 가능한 아이디입니다.");
 }
@@ -53,10 +56,12 @@ let pwConfirm = false; //비밀번호 확인여부
 pwCheck.addEventListener("blur", function (e) {
   const pw = signPw.value;
   const pCheck = pwCheck.value;
-  if (pw === pCheck) {
-    user.pw = pw;
-    localStorage.setItem(userNo, JSON.stringify(user));
+  if (pw == pCheck) {
+    alert("비밀번호가 일치합니다.");
+    // user.pw = pw;
+    // localStorage.setItem(userNo, JSON.stringify(user));
     pwConfirm = true;
+    return;
   } else {
     alert("비밀번호가 일치하지 않습니다.");
     e.preventDefault();
@@ -82,12 +87,12 @@ signName.addEventListener("input", function () {
 signName.addEventListener("blur", function (e) {
   let name = this.value;
   if (name.length < 2 || name.length > 5) {
-    console.log(name.length);
     alert("이름은 2~5글자까지 입력가능합니다.");
-    e.preventDefault();
+    // e.preventDefault();
+    return;
   }
-  user.name = name;
-  localStorage.setItem(userNo, JSON.stringify(user));
+  // user.name = name;
+  // localStorage.setItem(userNo, JSON.stringify(user));
 });
 
 // //성별체크 값 받는 함수
@@ -124,8 +129,8 @@ signPh.addEventListener("blur", function () {
     );
     return false;
   }
-  user.phone = signPh.value;
-  localStorage.setItem(userNo, JSON.stringify(user));
+  // user.phone = signPh.value;
+  // localStorage.setItem(userNo, JSON.stringify(user));
 });
 
 //인증번호 생성
@@ -192,8 +197,8 @@ signEmail.addEventListener("blur", function () {
     );
     return false;
   }
-  user.email = signEmail.value;
-  localStorage.setItem(userNo, JSON.stringify(user));
+  // user.email = signEmail.value;
+  // localStorage.setItem(userNo, JSON.stringify(user));
 });
 
 //유효성검사
@@ -233,8 +238,8 @@ function valCheck() {
     return false;
   } else {
     wGen.classList.add("hidden");
-    user.gender = genderCehck();
-    localStorage.setItem(userNo, JSON.stringify(user));
+    // user.gender = genderCehck();
+    // localStorage.setItem(userNo, JSON.stringify(user));
   }
 
   if (!signPh.value) {
@@ -260,6 +265,29 @@ function valCheck() {
   return true;
 }
 
+//회원가입 완료 전, 키값 설정
+function findMaxKey() {
+  // 모든 키값을 순회한다.
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+
+    // 숫자 키만 확인한다.
+    if (!isNaN(key)) {
+      // 키값을 숫자로 변환한다.
+      const keyNum = parseInt(key);
+
+      // 최대 키값을 저장하는 변수를 초기화하거나 갱신한다.
+      if (userNo === undefined || keyNum > userNo) {
+        userNo = keyNum;
+      }
+    }
+  }
+  // 최대 키값을 반환한다.
+  return userNo;
+}
+
+const maxKey = findMaxKey();
+
 function goSign() {
   const res = valCheck();
   //빠진 부분이 없을경우 비밀번호, 인증번호 확인
@@ -276,12 +304,15 @@ function goSign() {
       id: signId.value,
       pw: signPw.value,
       name: signName.value,
+      gender: genderCehck(),
       phone: signPh.value,
       email: signEmail.value,
       delete: "0",
       login: "0",
     };
-    localStorage.setItem(userNo, JSON.stringify(user));
+    console.log(user);
+    localStorage.setItem(`${findMaxKey() + 1}`, JSON.stringify(user));
+
     alert("회원가입완료");
   }
 }
