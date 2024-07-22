@@ -24,7 +24,18 @@
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-
+.flex {
+  display: flex;
+  /* flex-direction: column; */
+}
+.sub_login {
+  justify-content: space-evenly;
+  margin: 10px;
+}
+.borderRight {
+  border-right: 1px solid;
+  padding-right: 15px;
+}
 .hidden {
   display: none;
 }
