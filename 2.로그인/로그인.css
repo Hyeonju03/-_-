@@ -31,6 +31,11 @@
 .sub_login {
   justify-content: space-evenly;
   margin: 10px;
+  cursor: pointer;
+}
+.sub_login:hover {
+  color: rgb(255, 183, 0);
+  font-weight: bold;
 }
 .borderRight {
   border-right: 1px solid;
@@ -38,8 +43,22 @@
 }
 .hidden {
   display: none;
+  text-align: justify;
+}
+.tapHead {
+  display: inline-flex;
+  border: 1px rgb(255, 183, 0) solid;
+  width: 25%;
+  height: 35px;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
+.click {
+  background-color: rgb(255, 183, 0);
+}
 .warn {
   font-size: small;
   color: rgb(255, 183, 0);
@@ -64,7 +83,7 @@
 
 .logInBtn {
   border: 0;
-  background: gainsbor;
+  background: gainsboro;
   color: #201818;
   border-radius: 5px;
   width: 320px;
@@ -81,7 +100,30 @@
   background: rgb(255, 183, 0);
   font-weight: bold;
 }
-
+.modar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modarPopup {
+  color: rgb(255, 183, 0);
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  border: 1px black solid;
+  position: absolute;
+  top: 30%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: gainsboro;
+  border-radius: 5px;
+}
 .marginR_10 {
   margin-right: 10px;
 }

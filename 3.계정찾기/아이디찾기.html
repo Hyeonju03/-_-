@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인</title>
+    <title>고정틀</title>
     <link rel="stylesheet" href="/project--/고정틀/고정틀.css" />
-    <link rel="stylesheet" href="/2.로그인/로그인.css" />
+    <link rel="stylesheet" href="/3.계정찾기/아이디찾기.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -73,7 +73,7 @@
             <div>
               <h1>
                 <a id="dcs_home" href="#" title="홈 바로가기">
-                  <img src="/project--/imgs/로고.png" alt="dcs" />
+                  <img src="/imgs/로고.png" alt="dcs" />
                 </a>
               </h1>
               <ul>
@@ -162,10 +162,10 @@
         <!-- container -->
         <div id="container">
           <div id="snb">
-            <h3>자격소개</h3>
+            <h3>회원정보</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a class="holder csp"> "회원소개" </a>
+                <a class="holder csp"> "회원가입" </a>
                 <a class="holder csp"> "아이디/비밀번호 찾기" </a>
                 <ul style="display: none">
                   <!-- 여기 display none 은 자격소개탭 펼쳐지면 block 으로 바꾸는 
@@ -196,83 +196,29 @@
               <!-- section -->
               <div class="section q_into">
                 <div
-                  id="logIn"
-                  class="article tab_qbox tapHead click txtLer ft_larger ft_bold"
-                  style="margin-bottom: 3px"
+                  class="article tab_qbox tapHead click"
+                  onclick="changeIdBg()"
                 >
-                  로그인
+                  아이디찾기
                 </div>
-                <div style="border-bottom: rgb(255, 183, 0) solid"></div>
-                <div id="article">
-                  <div id="lonIn_container" class="logIn_con">
-                    <div id="logIn_id">
-                      <label for="logIn_id_text"> 아이디 </label>
-                      <input
-                        type="text"
-                        id="logIn_id_text"
-                        placeholder="아이디를 입력하세요"
-                        class="login_inputBox"
-                      />
-                      <div id="wUserId" class="hidden warn">
-                        아이디를 입력해주세요.
-                      </div>
-                    </div>
-                    <div id="noId_modar" class="modar">
-                      <div id="noId" class="modarPopup">
-                        존재하지 않는 아이디입니다.
-                      </div>
-                    </div>
-
-                    <div id="logIn_pw">
-                      <label for="logIn_pw_txt" class="block marginL_30">
-                        비밀번호
-                      </label>
-                      <input
-                        type="password"
-                        name="logIn_pw"
-                        id="logIn_pw_txt"
-                        class="login_inputBox inBlock marginL_30"
-                        placeholder="비밀번호를 입력하세요."
-                      />
-                      <div class="inBlock" onclick="pwEye()">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-eye-fill marginL_10"
-                          viewBox="0 0 16 16"
-                          id="eye"
-                        >
-                          <path
-                            d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"
-                          />
-                          <path
-                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"
-                          />
-                        </svg>
-                      </div>
-                      <div id="wUserPw" class="hidden warn marginL_30">
-                        비밀번호를 입력해주세요.
-                      </div>
-                    </div>
-
-                    <div id="longin_btn">
-                      <input
-                        type="submit"
-                        value="로그인"
-                        class="logInBtn"
-                        onclick="login()"
-                      />
-                    </div>
-                    <div id="sub_lonIn_cont" class="flex">
-                      <div class="sub_login borderRight" onclick="goSignUp()">
-                        회원가입
-                      </div>
-                      <div class="sub_login borderRight">아이디 찾기</div>
-                      <div class="sub_login">비밀번호 찾기</div>
-                    </div>
-                  </div>
+                <div class="article tab_qbox tapHead" onclick=" changePwBg()">
+                  비밀번호찾기
+                </div>
+                <div id="articleId">
+                  <div>이름</div>
+                  <div>전화번호</div>
+                  <div>인증번호받기</div>
+                  <div>인증번호</div>
+                  <div>확인</div>
+                  <div>인증번호가 안오시나요?</div>
+                </div>
+                <div id="articlePw" class="hidden">
+                  <div>아이디</div>
+                  <div>확인</div>
+                  <div>전화번호</div>
+                  <div>인증번호받기</div>
+                  <div>확인</div>
+                  <div>인증번호가 안오시나요?</div>
                 </div>
               </div>
               <!-- //section -->
@@ -286,7 +232,7 @@
                 <li>
                   <a href="#">
                     <img
-                      src="/project--/imgs/card-list.svg"
+                      src="/imgs/card-list.svg"
                       alt="자격소개"
                       class="img-size"
                     />
@@ -296,7 +242,7 @@
                 <li>
                   <a href="#">
                     <img
-                      src="/project--/imgs/calendar2-week.svg"
+                      src="/imgs/calendar2-week.svg"
                       alt="시험일정"
                       class="img-size"
                     />
@@ -306,7 +252,7 @@
                 <li>
                   <a href="#">
                     <img
-                      src="/project--/imgs/megaphone-fill.svg"
+                      src="/imgs/megaphone-fill.svg"
                       alt="공지사항"
                       class="img-size"
                     />
@@ -316,7 +262,7 @@
                 <li>
                   <a href="#">
                     <img
-                      src="/project--/imgs/question-circle.svg"
+                      src="/imgs/question-circle.svg"
                       alt="FAQ"
                       class="img-size"
                     />
@@ -326,7 +272,7 @@
                 <li>
                   <a href="#">
                     <img
-                      src="/project--/imgs/person-fill.svg"
+                      src="/imgs/person-fill.svg"
                       alt="마이페이지"
                       class="img-size"
                     />
@@ -360,7 +306,7 @@
           <!-- //policy -->
           <div class="info">
             <p class="footLogo">
-              <img src="/project--/imgs/로고.png" alt="dcs" />
+              <img src="/imgs/로고.png" alt="dcs" />
             </p>
             <div class="add">
               <p>
@@ -377,7 +323,8 @@
       <!-- //wrap -->
       <!-- //bottom -->
     </div>
-    <script src="/2.로그인/로그인.js"></script>
+
     <script src="/project--/고정틀/고정틀.js"></script>
+    <script src="/3.계정찾기/아이디찾기.js"></script>
   </body>
 </html>
