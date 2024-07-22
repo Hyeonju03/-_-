@@ -14,21 +14,33 @@ function idCheck() {
     alert("존재하지 않는 아이디입니다.");
     return false;
   }
-  return inputId;
+  return true;
 }
 
-//비밀번호 확인
-function pwCheck() {
-  const inputPw = userPw.value;
-  let checkedPw = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    checkedPw.push(JSON.parse(localStorage.getItem(i)).pw); // 키가 0인거부터 순서대로 id를 담음
+// 아이디가 있는 키값
+let keyNo = 0;
+function keyCheck() {
+  for (let key = 0; key < localStorage.length; key++) {
+    const storeDate = JSON.parse(localStorage.getItem(key));
+
+    if (storeDate && storeDate.id == userId.value) {
+      keyNo = key;
+      return keyNo;
+    }
   }
-  if (!checkedPw.includes(inputPw)) {
+}
+
+//비밀번호 다시
+function pwCheck() {
+  const res = keyCheck();
+  let inputPw = userPw.value;
+  let pw = JSON.parse(localStorage.getItem(res)).pw;
+  if (inputPw != pw) {
     alert("비밀번호가 일치하지 않습니다.");
     return false;
   }
-  return inputPw;
+
+  return true;
 }
 
 //유효성검사
@@ -56,9 +68,13 @@ function login() {
   const res = validationCheck();
   const idC = idCheck();
   const pwC = pwCheck();
+  const loginState = JSON.parse(localStorage.getItem(keyNo));
   if (res && idC && pwC) {
     //메인사이트로 이동하게 링크 바꾸기.
-    window.location.href = "#";
+    loginState.login = "1";
+    localStorage.setItem(keyNo, JSON.stringify(loginState));
+    window.location.href =
+      "http://192.168.0.33:5501/project--/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80/%EB%A9%94%EC%9D%B8.html";
   }
   // else {
   //   // alert("오류발생");
