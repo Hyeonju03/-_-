@@ -3,8 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>빅데이터분석기사</title>
+    <title>고정틀</title>
+    <link rel="stylesheet" href="/고정틀/고정틀.css" />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 300 to 800 */
+
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 100 to 900 */
+
+      .noto-sans-kr-uniquifier {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+      }
+
+      #dcs_home img {
+        width: 23%;
+        height: 23%;
+        object-fit: cover;
+      }
+
+      img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+
+      .footLogo {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        position: relative;
+        top: -20px;
+      }
+
+      .img-size {
+        height: 25px;
+        width: 25px;
+      }
+
+      .add {
+        position: relative;
+        top: 20px;
+        left: -80px;
+      }
+
       .line-height {
         line-height: 230%;
       }
@@ -24,6 +80,12 @@
         margin-top: 40px;
         margin-left: 20px;
       }
+
+      .margin2 {
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+
       th,
       td {
         width: 310px;
@@ -47,168 +109,447 @@
       .inherit {
         color: inherit;
       }
+
+      .text-align {
+        text-align: center;
+      }
+
+      .btn {
+        margin: 0;
+        padding: 0.5rem 1rem;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        text-decoration: none;
+        display: inline-block;
+        width: auto;
+        background-color: navy;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+        transition: 0.7s;
+      }
     </style>
   </head>
-  <body>
-    <div class="line-height margin border-bottom">
-      <h2>
-        <a
-          class="text-decoration-line inherit"
-          href="https://www.dataq.or.kr/www/sub/a_07.do"
-          >빅데이터분석기사</a
-        >
-      </h2>
+  <body class="noto-sans-kr-uniquifier">
+    <div id="wrap">
+      <!-- header_Top -->
+      <div id="header">
+        <div class="headerTop">
+          <!-- top_link -->
+          <div class="top_link">
+            <div>
+              <h1>
+                <a id="dcs_home" href="" title="홈 바로가기">
+                  <img src="/imgs/로고.png" alt="dcs" />
+                </a>
+              </h1>
+              <ul>
+                <li>
+                  <a id="login" href="#">로그인</a>
+                </li>
+                <li>
+                  <a href="#">회원가입</a>
+                </li>
+              </ul>
+            </div>
+            <!-- //top_link -->
+          </div>
+          <!-- //headerTop -->
+        </div>
+        <!-- headerBottom -->
+        <div class="headerBottom">
+          <div>
+            <ul class="mainMenu">
+              <li>
+                <a href="#">자격소개</a>
+                <ul class="subMenu">
+                  <li><a href="/정보처리기사.html">정보처리기사</a></li>
+                  <li><a href="/임베디드기사.html">임베디드기사</a></li>
+                  <li>
+                    <a href="/전자계산기조직응용기사.html"
+                      >전자계산기조직응용기사</a
+                    >
+                  </li>
+                  <li><a href="/정보보안기사.html">정보보안기사</a></li>
+                  <li><a href="/무선설비기사.html">정보보안기사</a></li>
+                  <li><a href="/정보통신기사.html">정보보안기사</a></li>
+                  <li><a href="/전파전자통신기사.html">정보보안기사</a></li>
+                  <li>
+                    <a href="/빅데이터분석기사.html">빅데이터분석기사</a>
+                  </li>
+                  <li>
+                    <a href="/SQLP.html">SQLP</a>
+                  </li>
+                  <li>
+                    <a href="/데이터분석전문가.html">데이터분석전문가</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">시험일정</a>
+                <ul class="subMenu">
+                  <li><a href="#">시험일정안내</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">게시판</a>
+                <ul class="subMenu">
+                  <li><a href="#">시험후기글</a></li>
+                  <li><a href="#">활용사례</a></li>
+                  <li><a href="#">기출문제</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">고객센터</a>
+                <ul class="subMenu">
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">1대1문의</a></li>
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="/유의사항/유의사항.html">수험자유의사항</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">마이페이지</a>
+                <ul class="subMenu">
+                  <li><a href="#">회원정보수정</a></li>
+                  <li><a href="#">취득자격증관리</a></li>
+                  <li><a href="#">회원탈퇴</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+        <!-- //headerBottom -->
+        <!-- //header -->
+        <!-- nav -->
+        <div id="nav">
+          <div class="navBox">
+            <ul>
+              <li class="home">홈</li>
+              <li>자격소개</li>
+              <li>빅데이터분석기사</li>
+            </ul>
+          </div>
+        </div>
+        <!-- //nav -->
+        <!-- container -->
+        <div id="container">
+          <div id="snb">
+            <h3>자격소개</h3>
+            <ul class="menuList">
+              <li class="has-sub has-submenu">
+                <a href="/정보처리기사.html" class="holder csp">정보처리기사</a>
+                <a href="/임베디드기사.html" class="holder csp">임베디드기사</a>
+                <a href="/전자계산기조직응용기사.html" class="holder csp"
+                  >전자계산기조직응용기사</a
+                >
+                <a href="/정보보안기사.html" class="holder csp">정보보안기사</a>
+                <a href="/무선설비기사.html" class="holder csp">무선설비기사</a>
+                <a href="/정보통신기사.html" class="holder csp">정보통신기사</a>
+                <a href="/전파전자통신기사.html" class="holder csp"
+                  >전파전자통신기사</a
+                >
+                <a href="/빅데이터분석기사.html" class="holder csp"
+                  >빅데이터분석기사</a
+                >
+                <a href="/SQLP.html" class="holder csp">SQLP</a>
+                <a href="/데이터분석전문가.html" class="holder csp"
+                  >데이터분석전문가</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div id="container-contents">
+            <div id="content">
+              <div class="depth_title">
+                <h2>
+                  빅데이터분석기사
+                  <a
+                    href="https://www.dataq.or.kr/www/sub/a_07.do"
+                    class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
+                    target="_blank"
+                  >
+                    <span>접수신청</span>
+                  </a>
+                </h2>
+              </div>
+              <!-- section -->
+              <div class="section q_into">
+                <!-- <div class="article tab_qbox">카테고리? 부분 없으면 삭제</div> -->
+                <div id="qlfintContent noto-sans-kr-uniquifier">
+                  <img
+                    src="/자격소개/Kdata.jpg"
+                    class="float-left"
+                    width="300px"
+                    alt="Kdata 빅데이터분석기사"
+                  />
+
+                  <div class="line-height">
+                    <span
+                      >빅데이터 이해를 기반으로 빅데이터 분석 기획, 빅데이터
+                      수집·저장·처리, 빅데이터 분석 및 시각화를 수행하는
+                      실무자를 말한다.</span
+                    >
+                  </div>
+
+                  <div class="line-height">
+                    <span
+                      >전 세계적으로 빅데이터가 미래성장동력으로 인식돼, 각국
+                      정부에서는 관련 기업투자를 끌어내는 등 국가·기업의 주요
+                      전략분야로 부상하고 있다.</span
+                    >
+                  </div>
+
+                  <div class="line-height">
+                    <span
+                      >국가와 기업의 경쟁력 확보를 위해 빅데이터 분석 전문가의
+                      수요는 증가하고 있으나, 수요 대비 공급 부족으로 인력
+                      확보에 어려움이 높은 실정이다.</span
+                    >
+                  </div>
+
+                  <div class="line-height">
+                    <span
+                      >이에 정부차원에서 빅데이터 분석 전문가 양성과 함께
+                      체계적으로 역량을 검증할 수 있는 국가기술자격 수요가 높은
+                      편이다.</span
+                    >
+                  </div>
+
+                  <div class="line-height">
+                    <span
+                      >대용량의 데이터 집합으로부터 유용한 정보를 찾고 결과를
+                      예측하기 위해 목적에 따라 분석기술과 방법론을 기반으로
+                      정형/비정형 대용량 데이터를 구축, 탐색, 분석하고 시각화를
+                      수행하는 업무를 수행한다.</span
+                    >
+                  </div>
+
+                  <div class="line-height margin">
+                    <h1><strong>필기</strong></h1>
+                  </div>
+
+                  <div class="line-height clear margin">
+                    <table>
+                      <tr>
+                        <th>구분</th>
+                        <th>과목명</th>
+                        <th>배점</th>
+                      </tr>
+                      <tr>
+                        <td>1과목</td>
+                        <td>빅데이터 분석기획</td>
+                        <td>25</td>
+                      </tr>
+                      <tr>
+                        <td>2과목</td>
+                        <td>빅데이터 탐색</td>
+                        <td>25</td>
+                      </tr>
+                      <tr>
+                        <td>3과목</td>
+                        <td>빅데이터 모델링</td>
+                        <td>25</td>
+                      </tr>
+                      <tr>
+                        <td>4과목</td>
+                        <td>빅데이터 결과 해석</td>
+                        <td>25</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height clear margin">
+                    <span
+                      >시험 방식은 객관식, 각 과목당 20문제로 구성되어 있다.
+                      시험 시간은 총 120분이다. 과목당 8문제 이상을 맞혀야 하며,
+                      한 과목이라도 8문제 미만으로 맞힐 경우 총점이 평균 60점
+                      이상이라도 과락으로 불합격이다. 문제는 공개하지 않으며,
+                      시험장에서 시험지를 걷어간다. 현행 기사 제도에서는 유일한
+                      필기 비공개 시험이다. 최초 시행된 2021년 제2회
+                      필기시험에서는 예상보다 통계 관련 문제가 많이 나와
+                      수험생들을 멘붕에 빠트렸다. 합격률이 한 자릿수가 아니냐는
+                      의견도 나왔으나 필기 합격률은 40%대로 꽤 높은
+                      편이다.</span
+                    >
+                  </div>
+
+                  <div class="line-height margin"><h2>실기</h2></div>
+
+                  <div class="line-height clear margin">
+                    <table>
+                      <tr>
+                        <th>실기 과목명</th>
+                        <th>주요항목</th>
+                      </tr>
+                      <tr>
+                        <th>빅데이터 분석실무</th>
+                        <td>
+                          <div>데이터 수집 작업</div>
+                          <div>데이터 전처리 작업</div>
+                          <div>데이터 전처리 작업</div>
+                          <div>데이터 모형 평가 작업</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height clear margin">
+                    <span
+                      >실기 프로그램은 R(프로그래밍 언어) 또는 Python 중에서
+                      수험자가 직접 선택하여 응시 가능하다. 시험 시간은 180분.
+                      필기는 과목마다 과락이 있으나, 실기는 3유형인데도 과락이
+                      없어, 특정 유형을 0점 맞아도 패스가 가능하며, 실제로 합격
+                      인증사진을 보면 3과목 0점자들이 꽤 많다. 통계모듈을 사용할
+                      줄 몰라도 합격이 가능하다는 말이다.</span
+                    >
+                  </div>
+
+                  <div class="line-height clear margin">
+                    <span
+                      >제5회 실기시험까지 단답형 10문제(각 3점씩)와 데이터
+                      전처리 능력을 보는 작업형1 3문제(각 10점씩), 제공되는
+                      데이터를 전처리하여 예측 모델링을 수행하는 작업형2
+                      1문제(40점)가 출제되었으나, 제6회 실기시험부터는 단답형
+                      10문제가 없어지고 가설검정 능력을 평가하는 작업형3
+                      2문제(30점)가 출제된다. 총점 60점을 넘으면 합격한다.</span
+                    >
+                  </div>
+
+                  <div class="line-height clear margin">
+                    <span
+                      >실제 6회 시험에서는 작업형3 문제가 3문제 출제되었고,
+                      출간된 교재나 강의에서 다루는 범위가 아닌 회귀 문제도
+                      나왔다. 문제 오류로 인해서 전원 정답처리된 문제가 2문제
+                      가량 있었는데, 시험 유형 자체가 자리를 잡지 못하고 매번
+                      유형이 바뀌고 있는 점이 수험생들에게는 난이도 떡상의
+                      요인이 될 것으로 보인다.</span
+                    >
+                  </div>
+
+                  <div class="line-height clear margin">
+                    <span
+                      >작업형3 문제를 풀기 위해서는 통계학 개론 수준의 내용은
+                      알고 있어야 하는 만큼 철저한 통계검정에 대한 준비가
+                      필요하다. 7회 시험에서는 작업형 1과 작업형 2는 무난하게
+                      나왔고 이전 기출과 비슷한 난이도로 출제된 것으로 보인다.
+                      작업형 3 문제에서는 파이썬 기준 scipy 라이브러리 안에 있는
+                      stats 모듈로는 도저히 풀 수 없는 문제들만 나왔고,
+                      statsmodels 모듈을 알아야 풀 수 있는 문제만 출제되었다.
+                      출제 기조가 statsmodels 모듈만을 활용할 수 있어야 문제를
+                      풀 수 있는 방향으로 변모하였다.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- //section -->
+            </div>
+            <!-- //content -->
+            <!-- bottom -->
+            <!-- quickMenu -->
+            <div class="quickMenu">
+              <h3>빠른메뉴</h3>
+              <ul>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/card-list.svg"
+                      alt="자격소개"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">자격소개</span>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/calendar2-week.svg"
+                      alt="시험일정"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">시험일정</span>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/megaphone-fill.svg"
+                      alt="공지사항"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">공지사항</span>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/question-circle.svg"
+                      alt="FAQ"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">FAQ</span>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/person-fill.svg"
+                      alt="마이페이지"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">마이페이지</span>
+                </li>
+              </ul>
+              <p class="gotoTop csp">TOP</p>
+            </div>
+            <!-- //quickMenu -->
+          </div>
+          <!-- //container-contents -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div id="footer">
+          <div class="policy">
+            <ul>
+              <li>
+                <a href="#">자격소개</a>
+              </li>
+              <li>
+                <a href="#">수험자 유의사항</a>
+              </li>
+            </ul>
+            <div class="policyBtn">
+              <a href="#"> 이용약관 </a>
+              <a href="#"> 개인정보처리방침 </a>
+            </div>
+          </div>
+          <!-- //policy -->
+          <div class="info">
+            <p class="footLogo">
+              <img src="/imgs/로고.png" alt="dcs" />
+            </p>
+            <div class="add">
+              <p>
+                (34856) 대전광역시 중구 계룡로 825 (용두동, 희영빌딩 2층) Email:
+                nextit_center@naver.com | Fax: 042-719-8851
+              </p>
+              <p>Copyright © Next IT Edu-Center 2016</p>
+            </div>
+          </div>
+          <!-- //info -->
+        </div>
+        <!-- //footer -->
+      </div>
+      <!-- //wrap -->
+      <!-- //bottom -->
     </div>
 
-    <img
-      src="/Kdata_빅데이터분석기사.jpg"
-      class="float-left margin"
-      width="300px"
-      alt="Kdata 빅데이터분석기사"
-    />
-
-    <div class="line-height">
-      <span
-        >빅데이터 이해를 기반으로 빅데이터 분석 기획, 빅데이터 수집·저장·처리,
-        빅데이터 분석 및 시각화를 수행하는 실무자를 말한다.</span
-      >
-    </div>
-
-    <div class="line-height">
-      <span
-        >전 세계적으로 빅데이터가 미래성장동력으로 인식돼, 각국 정부에서는 관련
-        기업투자를 끌어내는 등 국가·기업의 주요 전략분야로 부상하고 있다.</span
-      >
-    </div>
-
-    <div class="line-height">
-      <span
-        >국가와 기업의 경쟁력 확보를 위해 빅데이터 분석 전문가의 수요는 증가하고
-        있으나, 수요 대비 공급 부족으로 인력 확보에 어려움이 높은
-        실정이다.</span
-      >
-    </div>
-
-    <div class="line-height">
-      <span
-        >이에 정부차원에서 빅데이터 분석 전문가 양성과 함께 체계적으로 역량을
-        검증할 수 있는 국가기술자격 수요가 높은 편이다.</span
-      >
-    </div>
-
-    <div class="line-height">
-      <span
-        >대용량의 데이터 집합으로부터 유용한 정보를 찾고 결과를 예측하기 위해
-        목적에 따라 분석기술과 방법론을 기반으로 정형/비정형 대용량 데이터를
-        구축, 탐색, 분석하고 시각화를 수행하는 업무를 수행한다.</span
-      >
-    </div>
-
-    <div class="line-height margin"><h2>필기</h2></div>
-
-    <div class="line-height clear margin">
-      <table>
-        <tr>
-          <th>구분</th>
-          <th>과목명</th>
-          <th>배점</th>
-        </tr>
-        <tr>
-          <td>1과목</td>
-          <td>빅데이터 분석기획</td>
-          <td>25</td>
-        </tr>
-        <tr>
-          <td>2과목</td>
-          <td>빅데이터 탐색</td>
-          <td>25</td>
-        </tr>
-        <tr>
-          <td>3과목</td>
-          <td>빅데이터 모델링</td>
-          <td>25</td>
-        </tr>
-        <tr>
-          <td>4과목</td>
-          <td>빅데이터 결과 해석</td>
-          <td>25</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="line-height clear margin">
-      <span
-        >시험 방식은 객관식, 각 과목당 20문제로 구성되어 있다. 시험 시간은 총
-        120분이다. 과목당 8문제 이상을 맞혀야 하며, 한 과목이라도 8문제 미만으로
-        맞힐 경우 총점이 평균 60점 이상이라도 과락으로 불합격이다. 문제는
-        공개하지 않으며, 시험장에서 시험지를 걷어간다. 현행 기사 제도에서는
-        유일한 필기 비공개 시험이다. 최초 시행된 2021년 제2회 필기시험에서는
-        예상보다 통계 관련 문제가 많이 나와 수험생들을 멘붕에 빠트렸다. 합격률이
-        한 자릿수가 아니냐는 의견도 나왔으나 필기 합격률은 40%대로 꽤 높은
-        편이다.</span
-      >
-    </div>
-
-    <div class="line-height margin"><h2>실기</h2></div>
-
-    <div class="line-height clear margin">
-      <table>
-        <tr>
-          <th>실기 과목명</th>
-          <th>주요항목</th>
-        </tr>
-        <tr>
-          <th>빅데이터 분석실무</th>
-          <td>
-            <div>데이터 수집 작업</div>
-            <div>데이터 전처리 작업</div>
-            <div>데이터 전처리 작업</div>
-            <div>데이터 모형 평가 작업</div>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="line-height clear margin">
-      <span
-        >실기 프로그램은 R(프로그래밍 언어) 또는 Python 중에서 수험자가 직접
-        선택하여 응시 가능하다. 시험 시간은 180분. 필기는 과목마다 과락이
-        있으나, 실기는 3유형인데도 과락이 없어, 특정 유형을 0점 맞아도 패스가
-        가능하며, 실제로 합격 인증사진을 보면 3과목 0점자들이 꽤 많다.
-        통계모듈을 사용할 줄 몰라도 합격이 가능하다는 말이다.</span
-      >
-    </div>
-
-    <div class="line-height clear margin">
-      <span
-        >제5회 실기시험까지 단답형 10문제(각 3점씩)와 데이터 전처리 능력을 보는
-        작업형1 3문제(각 10점씩), 제공되는 데이터를 전처리하여 예측 모델링을
-        수행하는 작업형2 1문제(40점)가 출제되었으나, 제6회 실기시험부터는 단답형
-        10문제가 없어지고 가설검정 능력을 평가하는 작업형3 2문제(30점)가
-        출제된다. 총점 60점을 넘으면 합격한다.</span
-      >
-    </div>
-
-    <div class="line-height clear margin">
-      <span
-        >실제 6회 시험에서는 작업형3 문제가 3문제 출제되었고, 출간된 교재나
-        강의에서 다루는 범위가 아닌 회귀 문제도 나왔다. 문제 오류로 인해서 전원
-        정답처리된 문제가 2문제 가량 있었는데, 시험 유형 자체가 자리를 잡지
-        못하고 매번 유형이 바뀌고 있는 점이 수험생들에게는 난이도 떡상의 요인이
-        될 것으로 보인다.</span
-      >
-    </div>
-
-    <div class="line-height clear margin">
-      <span
-        >작업형3 문제를 풀기 위해서는 통계학 개론 수준의 내용은 알고 있어야 하는
-        만큼 철저한 통계검정에 대한 준비가 필요하다. 7회 시험에서는 작업형 1과
-        작업형 2는 무난하게 나왔고 이전 기출과 비슷한 난이도로 출제된 것으로
-        보인다. 작업형 3 문제에서는 파이썬 기준 scipy 라이브러리 안에 있는 stats
-        모듈로는 도저히 풀 수 없는 문제들만 나왔고, statsmodels 모듈을 알아야 풀
-        수 있는 문제만 출제되었다. 출제 기조가 statsmodels 모듈만을 활용할 수
-        있어야 문제를 풀 수 있는 방향으로 변모하였다.</span
-      >
-    </div>
+    <script src="/고정틀/고정틀.js"></script>
   </body>
 </html>
