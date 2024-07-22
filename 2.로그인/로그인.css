@@ -1,0 +1,107 @@
+#lonIn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid gainsboro;
+  height: 350px;
+  border-radius: 5px;
+}
+
+.login_inputBox {
+  display: block;
+  margin: 10px auto;
+  /* background: #262e49; */
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 300px;
+  outline: none;
+  color: #201818;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+.warn {
+  font-size: small;
+  color: rgb(255, 183, 0);
+}
+
+.login_inputBox:hover {
+  border: 3px solid rgb(255, 183, 0);
+}
+
+.typcn {
+  position: absolute;
+  left: 339px;
+  top: 282px;
+  color: #3b476b;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.typcn.active {
+  color: #7f60eb;
+}
+
+.logInBtn {
+  border: 0;
+  background: gainsbor;
+  color: #201818;
+  border-radius: 5px;
+  width: 320px;
+  height: 45px;
+  font-size: 16px;
+  line-height: 45px;
+  text-align: center;
+  margin-top: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.logInBtn:hover {
+  background: rgb(255, 183, 0);
+  font-weight: bold;
+}
+
+.marginR_10 {
+  margin-right: 10px;
+}
+
+.marginL_10 {
+  margin-left: 10px;
+}
+.marginL_30 {
+  margin-left: 30px;
+}
+.marginT_8 {
+  margin-top: 8px;
+}
+
+.inBlock {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+.width320 {
+  width: 320px;
+}
+
+.ft_larger {
+  font-size: larger;
+}
+.ft_large {
+  font-size: large;
+}
+.ft_bold {
+  font-weight: bold;
+}
