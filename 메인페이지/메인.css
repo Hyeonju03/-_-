@@ -39,6 +39,8 @@ p {
 }
 
 .bx-wrapper {
+  width: 770px;
+  height: 175px;
   padding: 0px;
   margin-right: 204px;
   position: relative;
@@ -387,7 +389,6 @@ a:hover {
 
 /* 77 */
 .bx-wrapper .bx-controls-direction a {
-  top: 50%;
   width: 32px;
   height: 32px;
   text-indent: -100px;
@@ -467,18 +468,19 @@ button.btn {
   overflow: visible;
   display: inline-block;
   border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
   line-height: normal;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.045);
+}
+
+.marign50 {
+  margin-bottom: 50px;
 }
 
 /* 122 */
@@ -831,6 +833,7 @@ a.btn_m {
   background: url(../img/main/icon_cm_04.png) no-repeat center 30px;
   height: 167px;
   position: relative;
+  top: 20px;
 }
 
 /* 322 */
@@ -858,6 +861,7 @@ a.btn_m {
 /* 367 */
 .main_quickMenu {
   margin: 30px 0px;
+  /* padding-left: 110px; */
   width: 100%;
   clear: both;
   display: inline-block;
@@ -872,6 +876,7 @@ a.btn_m {
 .main_quickMenu ul li {
   text-align: center;
   float: left;
+  margin: 0px 15px;
 }
 
 /* 376 */
@@ -1514,6 +1519,12 @@ hr {
   border-image: none;
   padding-bottom: 10px;
   clear: both;
+}
+
+.margin50 {
+  margin-bottom: 0px;
+  padding-bottom: 41px;
+  /* border-image: none; */
 }
 
 /* 1900 */
