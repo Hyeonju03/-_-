@@ -779,3 +779,7 @@ p {
 .mainMenu li:hover .subMenu li:hover {
   background-color: rgba(243, 243, 243, 0.55);
 }
+
+a.holder:hover {
+  background-color: rgba(243, 243, 243, 0.55);
+}
