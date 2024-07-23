@@ -103,7 +103,7 @@ function genderCehck() {
 signBirth.addEventListener("input", function () {
   this.value = this.value.replace(/[^0-9]/g, ""); // 숫자만 남기기
   if (this.value.length > 6) {
-    alert("숫자는 6자리까지 입력가능합니다.");
+    alert("생년월일은 6자리 숫자로 입력해야 합니다.");
   }
 });
 
@@ -122,7 +122,7 @@ signPh.addEventListener("input", function () {
     index++;
   }
   phNo = result.replaceAll("-", "");
-  this.value = result; // 결과 문자열을 다시 입력 요소에 설정
+  this.value = result; // 하이픈 입력한 값을 value로 설정
   return phNo;
 });
 
@@ -133,6 +133,21 @@ function checkPh() {
     alert(
       "휴대폰 번호 형식을 확인하세요. (예: 010-1234-5678, 10자리 또는 11자리)"
     );
+    return false;
+  }
+  return true;
+}
+
+//전화번호 중복 제거
+
+function phDup() {
+  const ph = signPh.value; //입력받은 전화번호
+  let checkPh = []; //비교할 로컬 번호
+  for (let i = 0; i < localStorage.length; i++) {
+    checkPh.push(JSON.parse(localStorage.getItem(i)).phone); // 키가 0인거부터 순서대로 전화번호를 담음
+  }
+  if (checkPh.includes(ph)) {
+    alert("이미 사용중인 전화번호 입니다.");
     return false;
   }
   return true;
@@ -153,28 +168,33 @@ let random = "";
 function sendSms() {
   //1.숫자 형식 확인
   const ph = checkPh();
-  if (signPh.value && ph) {
-    let ranNo = randomNo();
-    console.log(ranNo);
-    //   const coolsms = require("coolsms-node-sdk").default;
-    // const messageService = new coolsms(
-    //   "NCS9L2EWZZQKBULJ",
-    //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
-    // );
+  if (ph) {
+    //2.전화중복확인
+    const dupli = phDup();
+    if (signPh.value && dupli) {
+      console.log(dupli);
+      let ranNo = randomNo();
+      console.log(ranNo);
+      //   const coolsms = require("coolsms-node-sdk").default;
+      // const messageService = new coolsms(
+      //   "NCS9L2EWZZQKBULJ",
+      //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
+      // );
 
-    // messageService
-    //   .sendOne({
-    //     to: "01063640525",
-    //     from: "01063640525",
-    //     text: "SM 수 있습니다.",
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => console.error(err));
-    phConfrim = true;
-    random = ranNo;
-    return ranNo;
+      // messageService
+      //   .sendOne({
+      //     to: "01063640525",
+      //     from: "01063640525",
+      //     text: "SM 수 있습니다.",
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((err) => console.error(err));
+      phConfrim = true;
+      random = ranNo;
+      return ranNo;
+    }
   }
 }
 
@@ -305,6 +325,10 @@ function goSign() {
   const res = valCheck();
   //빠진 부분이 없을경우 비밀번호, 인증번호 확인
   if (res) {
+    if (signBirth.value != 6) {
+      alert("6자리 숫자를 입력해주세요.");
+      return;
+    }
     if (!idConfrim) {
       alert("아이디 확인 버튼을 누르세요.");
       return;
