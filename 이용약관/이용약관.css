@@ -237,7 +237,6 @@ a:hover {
 }
 
 #nav .navBox ul li {
-  background: url(../img/common/arrow_depth_right.png) no-repeat right;
   padding: 0px 16px 0px 10px;
   font-weight: 400;
   float: left;
@@ -408,7 +407,6 @@ a:hover {
 }
 
 .policy ul li {
-  background: url(../img/common/icons.png) no-repeat 6px -88px;
   padding-left: 15px;
   float: left;
 }
