@@ -121,7 +121,6 @@ p {
   background: rgb(248, 248, 248);
   overflow: auto;
   clear: both;
-  -ms-overflow-y: hidden;
 }
 
 /* 1513 */
@@ -373,8 +372,6 @@ html {
 
 body {
   line-height: 1;
-  word-break: break-all;
-  -ms-word-break: break-all;
 }
 
 ol,
