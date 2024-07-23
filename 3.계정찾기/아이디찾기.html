@@ -152,9 +152,9 @@
         <div id="nav">
           <div class="navBox">
             <ul>
-              <li class="home">홈</li>
-              <li>경로에 맞는</li>
-              <li>이름들 적기</li>
+              <li class="home">회원정보</li>
+              <li>아이디찾기</li>
+              <!-- <li>이름들 적기</li> -->
             </ul>
           </div>
         </div>
@@ -165,6 +165,7 @@
             <h3>회원정보</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
+                <a class="holder csp"> 로그인 </a>
                 <a class="holder csp"> 회원가입 </a>
                 <a class="holder csp"> 아이디 찾기 </a>
                 <a class="holder csp"> 비밀번호 찾기 </a>
@@ -184,15 +185,7 @@
           <div id="container-contents">
             <div id="content">
               <div class="depth_title">
-                <h2>
-                  아이디 찾기
-                  <a
-                    href="#"
-                    class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
-                  >
-                    <span>접수신청</span>
-                  </a>
-                </h2>
+                <h2>아이디 찾기</h2>
               </div>
               <!-- section -->
               <div class="section q_into">
@@ -205,6 +198,9 @@
                       placeholder="이름을 입력하세요."
                       class="login_inputBox"
                     />
+                  </div>
+                  <div id="warnName" class="hiddenSt warn">
+                    이름을 입력하세요.
                   </div>
                   <div id="find_ph" class="flex">
                     <label for="findId_ph">전화번호</label><br />
@@ -222,27 +218,37 @@
                       인증번호받기
                     </div>
                   </div>
-                  <div id="find_ph" class="flex">
-                    <label for="findId_ph">인증번호</label><br />
+                  <div id="warnPh" class="hiddenSt warn">
+                    전화번호를 입력하세요.
+                  </div>
+                  <div id="certi" class="flex">
+                    <label for="findId_certi">인증번호</label><br />
                     <input
                       type="text"
-                      id="findId_ph"
-                      placeholder="전화번호를 입력하세요"
+                      id="findId_certi"
+                      placeholder="인증번호를 입력하세요"
                       class="login_inputBox2"
                     />
                     <div
                       id="phCheck"
                       class="inBlock findIdbtn"
-                      onclick="sendSms()"
+                      onclick="cerCheck()"
                     >
                       확인
                     </div>
                   </div>
+                  <div id="warnCer" class="hiddenSt warn">
+                    인증번호를 입력하세요.
+                  </div>
+                  <div id="findBtn" class="submitBtn" onclick="findId()">
+                    아이디찾기
+                  </div>
+
                   <!-- 인증번호 모달 -->
                   <div id="modalBtn" class="quset">인증번호가 안오시나요?</div>
                   <div id="q_Modal" class="modal">
                     <div class="modal-content">
-                      <span class="close" , id="closebtn">&times;</span>
+                      <span class="closeBtn" id="closebtn">&times;</span>
                       <div class="modal-text">
                         1. 휴대폰 스팸 메시지를 확인해보세요.
                       </div>

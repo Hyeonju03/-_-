@@ -21,10 +21,8 @@ const signGender = document.querySelectorAll("[name='gender']"); //성별
 // 이부분 폼의 라디오박스 부분 확인하기
 
 //아이디 확인 함수
-signId.addEventListener("blur", function () {
-  alert("아이디 확인 버튼을 누르세요");
-});
 
+let idConfrim = false;
 function idCheck() {
   const newId = signId.value; //입력받은 아이디
   for (let i = 0; i < localStorage.length; i++) {
@@ -36,9 +34,6 @@ function idCheck() {
       return;
     }
   }
-  // user.id = newId;
-  // localStorage.setItem(userNo, JSON.stringify(user));
-
   idConfrim = true;
   alert("사용 가능한 아이디입니다.");
 }
@@ -53,13 +48,11 @@ pwCheck.addEventListener("input", function () {
 });
 
 let pwConfirm = false; //비밀번호 확인여부
-pwCheck.addEventListener("blur", function (e) {
+function rePw() {
   const pw = signPw.value;
   const pCheck = pwCheck.value;
   if (pw == pCheck) {
     alert("비밀번호가 일치합니다.");
-    // user.pw = pw;
-    // localStorage.setItem(userNo, JSON.stringify(user));
     pwConfirm = true;
     return;
   } else {
@@ -67,7 +60,7 @@ pwCheck.addEventListener("blur", function (e) {
     e.preventDefault();
     pwConfirm = false;
   }
-});
+}
 
 let count = 1;
 function pwEye() {
@@ -86,7 +79,7 @@ signName.addEventListener("input", function () {
 
 signName.addEventListener("blur", function (e) {
   let name = this.value;
-  if (name.length < 2 || name.length > 5) {
+  if (name.length < 2 || name.length > 4) {
     alert("이름은 2~5글자까지 입력가능합니다.");
     // e.preventDefault();
     return;
@@ -105,6 +98,7 @@ function genderCehck() {
 }
 
 //전화번호 입력함수
+let phNo = "";
 signPh.addEventListener("input", function () {
   const inputValue = this.value.replace(/[^0-9]/g, ""); // 숫자만 남기기
   let result = ""; //화면에 보이는 숫자(하이픈 포함)
@@ -117,11 +111,13 @@ signPh.addEventListener("input", function () {
     result += inputValue[i];
     index++;
   }
+  phNo = result.replaceAll("-", "");
   this.value = result; // 결과 문자열을 다시 입력 요소에 설정
+  return phNo;
 });
 
 //전화번호 형식(3,4,3) 맞는지 확인
-signPh.addEventListener("blur", function () {
+function checkPh() {
   const expHp = /^\d{3}-\d{3,4}-\d{4}$/; // 휴대폰 번호 형식 정규 표현식
   if (!expHp.test(signPh.value)) {
     alert(
@@ -129,24 +125,27 @@ signPh.addEventListener("blur", function () {
     );
     return false;
   }
-  // user.phone = signPh.value;
-  // localStorage.setItem(userNo, JSON.stringify(user));
-});
+  return true;
+}
 
 //인증번호 생성
-let random = "";
 function randomNo() {
-  for (i = 0; i < 5; i++) {
+  let random = "";
+  while (random.length < 5) {
     random += Math.floor(Math.random() * 10);
   }
   return random;
 }
 
 //전화번호 형식이 맞을때 인증번호 발송
+let phConfrim = false;
+let random = "";
 function sendSms() {
-  if (signPh.value != false) {
-    random = randomNo();
-    console.log(random);
+  //1.숫자 형식 확인
+  const ph = checkPh();
+  if (signPh.value && ph) {
+    let ranNo = randomNo();
+    console.log(ranNo);
     //   const coolsms = require("coolsms-node-sdk").default;
     // const messageService = new coolsms(
     //   "NCS9L2EWZZQKBULJ",
@@ -163,21 +162,23 @@ function sendSms() {
     //     console.log(res);
     //   })
     //   .catch((err) => console.error(err));
-  } else {
-    alert("전화번호를 확인해주세요.");
+    phConfrim = true;
+    random = ranNo;
+    return ranNo;
   }
 }
 
 //인증번호 일치여부
-let phConfrim = false;
+let cerConfrim = false;
 function phCheck() {
+  console.log(random);
   if (random != certiPh.value) {
     alert("인증번호가 일치하지 않습니다.");
-    phConfrim = false;
+    cerConfrim = false;
   } else {
     alert("인증번호가 일치합니다.");
     console.log(certiPh.value);
-    phConfrim = true;
+    cerConfrim = true;
   }
 }
 
@@ -292,12 +293,20 @@ function goSign() {
   const res = valCheck();
   //빠진 부분이 없을경우 비밀번호, 인증번호 확인
   if (res) {
+    if (!idConfrim) {
+      alert("아이디 확인 버튼을 누르세요.");
+      return;
+    }
     if (!pwConfirm) {
-      alert("비밀번호를 확인하세요");
+      alert("비밀번호를 확인 버튼을 누르세요");
       return;
     }
     if (!phConfrim) {
-      alert("인증번호를 확인하세요");
+      alert("인증번호받기 버튼을 누르세요.");
+      return;
+    }
+    if (!cerConfrim) {
+      alert("인증번호확인 버튼을 누르세요.");
       return;
     }
     user = {

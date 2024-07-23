@@ -1,4 +1,4 @@
-.lonIn_container {
+.find_container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -8,9 +8,9 @@
   border-radius: 5px;
 }
 
-.login_inputBox {
-  display: block;
+.inputBox {
   margin: 10px auto;
+
   border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
   padding: 10px 10px;
@@ -24,25 +24,11 @@
   transition: all 0.2s ease-out;
 }
 
-.login_inputBox2 {
-  margin: 10px auto;
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 5px;
-  padding: 10px 10px;
-  width: 300px;
-  outline: none;
-  color: #201818;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
 .inBlock {
   display: inline-block;
 }
 
-.findIdbtn {
+.comBtn {
   /* display: flex; */
   border: 0;
   background: gainsboro;
@@ -61,6 +47,22 @@
   cursor: pointer;
 }
 
+.visible {
+  visibility: visible;
+}
+.hide {
+  visibility: hidden;
+  background-color: white;
+}
+
+.hiddenSt {
+  /* position: absolute; */
+  display: none;
+  color: rgb(255, 183, 0) !important;
+  font-size: small !important;
+  font-weight: bold !important;
+}
+
 .submitBtn {
   border: 0;
   background: gainsboro;
@@ -73,7 +75,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-top: 20xpx;
+  margin-top: 20px;
   margin-left: 90px;
   transition: 0.3s;
   cursor: pointer;
@@ -93,10 +95,7 @@
   /* 고려하기 */
   padding: 17px;
 }
-.warn {
-  font-size: small;
-  color: rgb(255, 183, 0);
-}
+
 .modla-content {
   max-width: 500px;
   width: 800px;
@@ -122,16 +121,11 @@
   opacity: 1;
   pointer-events: auto;
 }
-
-.close {
-  display: none;
-}
 .madal.show .modal-content {
   opacity: 1;
   transform: scale(1);
 }
-
-.closeBtn {
+.close {
   color: #aaa;
   float: right;
   margin-right: 10px;
@@ -142,25 +136,18 @@
 .quset {
   margin-left: 80px;
 }
-.closeBtn:hover {
+.close:hover {
   color: black;
 }
 
-.findIdbtn:hover,
-.submitBtn:hover {
-  background-color: rgb(255, 183, 0);
-  font-weight: bold;
-}
 .quset:hover {
   font-weight: bold;
   color: rgb(255, 183, 0);
   cursor: pointer;
 }
-.hiddenSt {
-  /* position: absolute; */
-  display: none;
-  text-align: justify;
-  color: rgb(255, 183, 0) !important;
-  font-size: small !important;
-  font-weight: bold !important;
+
+.comBtn:hover,
+.submitBtn:hover {
+  background-color: rgb(255, 183, 0);
+  font-weight: bold;
 }

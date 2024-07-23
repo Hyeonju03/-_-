@@ -152,9 +152,9 @@
         <div id="nav">
           <div class="navBox">
             <ul>
-              <li class="home">홈</li>
-              <li>경로에 맞는</li>
-              <li>이름들 적기</li>
+              <li class="home">회원정보</li>
+              <li>로그인</li>
+              <!-- <li>이름들 적기</li> -->
             </ul>
           </div>
         </div>
@@ -162,11 +162,13 @@
         <!-- container -->
         <div id="container">
           <div id="snb">
-            <h3>자격소개</h3>
+            <h3>회원정보</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a class="holder csp"> "회원소개" </a>
-                <a class="holder csp"> "아이디/비밀번호 찾기" </a>
+                <a class="holder csp"> 로그인 </a>
+                <a class="holder csp"> 회원가입 </a>
+                <a class="holder csp"> 아이디찾기 </a>
+                <a class="holder csp"> 비밀번호찾기 </a>
                 <ul style="display: none">
                   <!-- 여기 display none 은 자격소개탭 펼쳐지면 block 으로 바꾸는 
                      js 필요 -->
@@ -183,28 +185,12 @@
           <div id="container-contents">
             <div id="content">
               <div class="depth_title">
-                <h2>
-                  자격 이름
-                  <a
-                    href="#"
-                    class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
-                  >
-                    <span>접수신청</span>
-                  </a>
-                </h2>
+                <h2>로그인</h2>
               </div>
               <!-- section -->
               <div class="section q_into">
-                <div
-                  id="logIn"
-                  class="article tab_qbox tapHead click txtLer ft_larger ft_bold"
-                  style="margin-bottom: 3px"
-                >
-                  로그인
-                </div>
-                <div style="border-bottom: rgb(255, 183, 0) solid"></div>
                 <div id="article">
-                  <div id="lonIn_container" class="logIn_con">
+                  <div id="lonIn_container">
                     <div id="logIn_id">
                       <label for="logIn_id_text"> 아이디 </label>
                       <input
@@ -269,8 +255,12 @@
                       <div class="sub_login borderRight" onclick="goSignUp()">
                         회원가입
                       </div>
-                      <div class="sub_login borderRight">아이디 찾기</div>
-                      <div class="sub_login">비밀번호 찾기</div>
+                      <div class="sub_login borderRight" onclick=" goFindId()">
+                        아이디 찾기
+                      </div>
+                      <div class="sub_login" onclick="goFindPw()">
+                        비밀번호 찾기
+                      </div>
                     </div>
                   </div>
                 </div>
