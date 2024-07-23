@@ -124,11 +124,6 @@ html {
   color: #555;
 }
 
-/* 14줄 */
-html {
-  -webkit-text-size-adjust: none;
-}
-
 /* 16줄 */
 .headerTop .top_link h1 {
   /* top: 15px; */
@@ -138,22 +133,17 @@ html {
 
 /* 17줄 */
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 /* 19줄 */
-.headerTop .top_link h1 img {
+/* .headerTop .top_link h1 img {
   width: 100%;
-}
+} */
 
 /* 20줄 */
 body {
   line-height: 1;
-  word-break: break-all;
-  -ms-word-break: break-all;
-  -webkit-text-size-adjust: none;
 }
 
 /* 21줄 */
@@ -179,18 +169,16 @@ menu {
 }
 
 /* 26줄 */
-input,
+/* input,
 select,
 textarea,
 button,
 optgroup {
   font-size: 100%;
   vertical-align: middle;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
   border-radius: 0;
   margin: 0;
-}
+} */
 
 /* 28줄 */
 .headerTop .top_link ul li a {
@@ -211,39 +199,9 @@ optgroup {
 }
 
 /* 46줄 */
-.mbtop_btn {
+/* .mbtop_btn {
   display: none;
-}
-
-/* 55줄 */
-.col-1,
-.col-1-s,
-.col-2,
-.col-2-s,
-.col-3,
-.col-3-s,
-.col-4,
-.col-4-s,
-.col-5,
-.col-5-s,
-.col-6,
-.col-6-s,
-.col-7,
-.col-7-s,
-.col-8,
-.col-8-s,
-.col-9,
-.col-9-s,
-.col-10,
-.col-10-s,
-.col-11,
-.col-11-s,
-.col-12,
-.col-12-s {
-  margin: 0;
-  display: inline-block;
-  box-sizing: border-box;
-}
+} */
 
 /* 74줄 */
 a,
@@ -263,10 +221,7 @@ a:hover {
 /* 91줄 */
 .headerBottom {
   margin: 0px auto;
-  width: 100%;
   height: 58px;
-  position: relative;
-  z-index: 99;
 }
 
 /* 94줄 */
@@ -276,32 +231,6 @@ a:hover {
   width: 980px;
   overflow: hidden;
   display: table;
-}
-
-/* 97줄 */
-.headerBottom .mainMenu > ul {
-  margin: 0px auto;
-  width: 980px;
-  display: table;
-}
-
-/* 100줄 */
-.headerBottom .mainMenu > ul > li {
-  text-align: center;
-  /* float: left; */
-  display: inline-block;
-}
-
-/* 103줄 */
-.headerBottom .mainMenu > ul > li > a {
-  margin: 0px;
-  padding: 20px 50px 20px 15px;
-  border: 0px currentColor;
-  border-image: none;
-  color: rgb(51, 51, 51);
-  font-size: 18px;
-  font-weight: 500;
-  display: block;
 }
 
 /* 110줄 */
@@ -315,12 +244,9 @@ button.btn {
   overflow: visible;
   display: inline-block;
   border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   cursor: pointer;
   text-align: center;
   box-sizing: border-box;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   text-align: center;
   vertical-align: middle;
@@ -330,7 +256,7 @@ button.btn {
 }
 
 /* 135줄 */
-a.btn_lg span,
+/* a.btn_lg span,
 button.btn_lg span,
 a.btn_m span,
 button.btn_m span,
@@ -339,7 +265,7 @@ button.btn_s span {
   margin: 0;
   padding: 0;
   vertical-align: top;
-}
+} */
 
 /* 138줄 */
 .policy .policyBtn {
@@ -357,12 +283,12 @@ a.btn_m {
 }
 
 /* 148줄 */
-.btn_default {
+/* .btn_default {
   background: #f9f9fb;
   background: #f9f9fc;
   color: #555;
   border: 1px solid #c8c8d0;
-}
+} */
 
 /* 181줄 */
 #nav {
@@ -392,7 +318,6 @@ a.btn_m {
 
 /* 190줄 */
 #nav .navBox ul li {
-  background: url(../img/common/arrow_depth_right.png) no-repeat right;
   padding: 0px 16px 0px 10px;
   font-weight: 400;
   float: left;
@@ -421,7 +346,6 @@ a.btn_m {
 /* 445줄 */
 #container-contents {
   width: 760px;
-  /* float: left; */
   display: inline-block;
   position: relative;
 }
@@ -480,12 +404,12 @@ a.btn_m {
 }
 
 /* 472줄 */
-#snb .menuList li > ul > li {
+/* #snb .menuList li > ul > li {
   background: rgb(243, 244, 246);
-}
+} */
 
 /* 481줄 */
-#snb .menuList li > ul > li > a {
+/* #snb .menuList li > ul > li > a {
   background: rgb(243, 244, 246);
   padding: 10px 0px 11px 14px;
   font-size: 13px;
@@ -496,7 +420,7 @@ a.btn_m {
   border-left-width: 0px;
   border-bottom-style: solid;
   border-left-style: none;
-}
+} */
 
 /* 517줄 */
 .depth_title {
@@ -525,9 +449,9 @@ a.btn_m {
 }
 
 /* 604줄 */
-.q_info > .article {
+/* .q_info > .article {
   margin-bottom: 30px;
-}
+} */
 
 /* 610줄 */
 .quickMenu {
@@ -588,10 +512,8 @@ a.btn_m {
 
 /* 628줄 */
 .gotoTop {
-  /* background: url(../img/common/icons.png) no-repeat -235px 16px; */
   height: 42px;
   text-align: center;
-  /* text-indent: -8000px; */
   padding: 6px;
   font-size: 15px;
   border-top-color: rgb(239, 239, 239);
@@ -638,11 +560,6 @@ a.btn_m {
   float: left;
 }
 
-/* 679줄 */
-.policy .policyBtn {
-  float: right;
-}
-
 .policyBtn a {
   background-color: #f9f9fc;
   border: 1px solid rgb(43, 0, 0);
@@ -651,9 +568,9 @@ a.btn_m {
 }
 
 /* 682줄 */
-.policy .policyBtn .sns_face {
+/* .policy .policyBtn .sns_face {
   font-weight: 700;
-}
+} */
 
 /* 685줄 */
 .policy::after {
@@ -715,9 +632,9 @@ p {
 }
 
 /* 2341줄 */
-.tab_qbox {
+/* .tab_qbox {
   margin-bottom: 35px !important;
-}
+} */
 
 /* 3336줄 */
 @media (max-width: 1300px) {
