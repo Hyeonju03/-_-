@@ -183,7 +183,7 @@
             </ul>
           </div>
           <div id="container-contents">
-            <div id="content" style="height: 950px">
+            <div id="content" style="height: 1000px">
               <div class="depth_title">
                 <h2>회원가입</h2>
               </div>
@@ -300,7 +300,7 @@
                     id="signUp_name"
                     class="inputBox inBlock width320"
                     style="margin-left: 150px"
-                    placeholder="이름을 한글만 입력가능합니다."
+                    placeholder="입력이 안되면 한글 키를 눌러주세요(한글만 가능)."
                   />
                 </div>
 
@@ -332,7 +332,25 @@
                 <div id="warnGend" class="hidden warn marginL150">
                   성별을 선택해주세요.
                 </div>
-
+                <br />
+                <!-- 생년월일 -->
+                <div>
+                  <br />
+                  <label for="userBirth" class="inBlock marginL150">
+                    생년월일 </label
+                  ><br />
+                  <input
+                    type="text"
+                    name="userBirth"
+                    id="userBirth"
+                    class="inputBox inBlock"
+                    style="margin-left: 150px"
+                    placeholder="6자리 숫자를 입력해주세요. 예: 900815"
+                  />
+                </div>
+                <div id="warnBirth" class="hidden warn marginL150">
+                  생년월일을 입력해주세요.
+                </div>
                 <!-- 전화번호 -->
 
                 <br />
@@ -400,6 +418,7 @@
                 <div id="warnEmail" class="hidden warn marginL150">
                   이메일를 입력해주세요.
                 </div>
+                <br />
 
                 <!-- 제출버튼 -->
                 <br />

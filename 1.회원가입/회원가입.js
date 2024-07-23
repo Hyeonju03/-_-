@@ -3,6 +3,7 @@ let user = {
   pw: "",
   name: "",
   gender: "",
+  birth: "",
   phone: "",
   email: "",
   delete: "0",
@@ -13,6 +14,7 @@ const signId = document.getElementById("signUp_id"); //입력받는 아이디
 const signPw = document.getElementById("signUp_pw"); //입력받는 비밀번호
 const pwCheck = document.getElementById("signUp_pw_check"); // 입력받는 비밀번호 확인
 const signName = document.getElementById("signUp_name"); // 입력받는 이름
+const signBirth = document.getElementById("userBirth"); // 입력받는 생년월일
 const signPh = document.getElementById("signUp_phoneNo"); // 입력받는 전화번호
 const certiPh = document.getElementById("certiNo"); // 입력받는 인증번호
 const signEmail = document.getElementById("signUp_email"); //입력받는 이메일
@@ -57,7 +59,7 @@ function rePw() {
     return;
   } else {
     alert("비밀번호가 일치하지 않습니다.");
-    e.preventDefault();
+    // e.preventDefault();
     pwConfirm = false;
   }
 }
@@ -96,6 +98,14 @@ function genderCehck() {
     }
   }
 }
+
+//생년월일
+signBirth.addEventListener("input", function () {
+  this.value = this.value.replace(/[^0-9]/g, ""); // 숫자만 남기기
+  if (this.value.length > 6) {
+    alert("숫자는 6자리까지 입력가능합니다.");
+  }
+});
 
 //전화번호 입력함수
 let phNo = "";
@@ -206,6 +216,7 @@ signEmail.addEventListener("blur", function () {
 const wId = document.getElementById("warnId");
 const wPw = document.getElementById("warnPw");
 const wName = document.getElementById("warnName");
+const wBir = document.getElementById("warnBirth");
 const wGen = document.getElementById("warnGend");
 const wCer = document.getElementById("warnCer");
 const wPh = document.getElementById("warnPh");
@@ -225,24 +236,25 @@ function valCheck() {
   } else {
     wPw.classList.add("hidden");
   }
-
   if (!signName.value) {
     wName.classList.remove("hidden");
     return false;
   } else {
     wName.classList.add("hidden");
   }
-
   const res = genderCehck();
   if (!res) {
     wGen.classList.remove("hidden");
     return false;
   } else {
     wGen.classList.add("hidden");
-    // user.gender = genderCehck();
-    // localStorage.setItem(userNo, JSON.stringify(user));
   }
-
+  if (!signBirth.value) {
+    wBir.classList.remove("hidden");
+    return false;
+  } else {
+    wBir.classList.add("hidden");
+  }
   if (!signPh.value) {
     wPh.classList.remove("hidden");
     return false;
@@ -314,6 +326,7 @@ function goSign() {
       pw: signPw.value,
       name: signName.value,
       gender: genderCehck(),
+      birth: signBirth.value,
       phone: signPh.value,
       email: signEmail.value,
       delete: "0",
