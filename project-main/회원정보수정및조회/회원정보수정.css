@@ -698,7 +698,37 @@ a.holder:hover {
 }
 
 /* 184 */
+.editMain {
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
 .editCont {
   width: 50%;
   display: inline;
+}
+.profile {
+  border: 1px solid;
+  border-radius: 10px;
+  width: 120px;
+  height: 160px;
+}
+
+.profileTxt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+
+.mgB20 {
+  margin-bottom: 20px;
+}
+
+.fileUp {
+  display: flex;
+  width: 230px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 5px;
 }
