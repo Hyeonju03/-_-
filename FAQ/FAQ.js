@@ -6,6 +6,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+for (let i = 0; i < localStorage.length; i++) {
+  const FAQ = JSON.parse(localStorage.getItem(`FQA${i}`));
+  const SubFAQ = FAQ.제목;
+  const ConFAQ = FAQ.내용;
+
+  const titleElement = document.getElementById("sub");
+  titleElement.textContent = SubFAQ;
+
+  const contentElement = document.getElementById("sub-content");
+  contentElement.textContent = ConFAQ;
+}
+
+// 클릭하면 내용보임,안보임 설정해야함.
+const titleElement = document.getElementById("sub");
+addEventListener;
+// //////아직 완성 안된거임 ^ ///////////////////////
+
 let logintext = document.getElementById("login");
 let mypagetext = document.getElementById("mypage");
 

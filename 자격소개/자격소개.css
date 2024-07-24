@@ -624,10 +624,6 @@ p {
 .bg_darkgray {
   border-width: 1px;
   border-color: transparent !important;
-}
-
-/* 1417줄 */
-.bg_darkgray {
   background-color: rgb(79, 87, 108) !important;
 }
 

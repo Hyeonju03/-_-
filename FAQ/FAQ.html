@@ -66,16 +66,18 @@
           <div class="top_link">
             <div>
               <h1>
-                <a id="dcs_home" href="#" title="홈 바로가기">
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
                   <img src="/imgs/로고.png" alt="dcs" />
                 </a>
               </h1>
               <ul>
                 <li>
-                  <a id="login" href="#">로그인</a>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
                 </li>
                 <li>
-                  <a id="mypage" href="#">회원가입</a>
+                  <a id="mypage" href="/login/1.회원가입/회원가입.html"
+                    >회원가입</a
+                  >
                 </li>
               </ul>
             </div>
@@ -159,7 +161,7 @@
             <h3>고객센터</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a href="" class="holder csp"> FAQ </a>
+                <a href="/FAQ/FAQ.html" class="holder csp"> FAQ </a>
                 <a href="" class="holder csp"> 1대1 문의 </a>
                 <a href="" class="holder csp"> 공지사항 </a>
                 <a href="/유의사항/유의사항.html" class="holder csp">
@@ -171,7 +173,16 @@
           <div id="container-contents">
             <div id="content">
               <div class="depth_title">
-                <h2>FAQ 질문과 답</h2>
+                <h2>
+                  FAQ 질문과 답
+                  <a
+                    href="/FAQ작성창/FAQ작성.html"
+                    class="btn bg_darkgray text_color_white btn_m float_right"
+                    target="_blank"
+                  >
+                    <span>작성하기</span>
+                  </a>
+                </h2>
               </div>
               <!-- section -->
               <div class="article" style="margin-bottom: 0px; margin-top: 10px">
@@ -207,9 +218,15 @@
               <div id="bbsArea">
                 <div class="faq_list">
                   <dl>
-                    <dt data-nttid="65125" class="on"></dt>
-                    <dd style="display: block">
-                      <div class="faq_view"></div>
+                    <dt>
+                      <a id="sub" class="">
+                        <!-- 제목 -->
+                      </a>
+                    </dt>
+                    <dd id="sub-content" style="display: block">
+                      <a class="faq_view">
+                        <!-- 내용 -->
+                      </a>
                     </dd>
                   </dl>
                 </div>
