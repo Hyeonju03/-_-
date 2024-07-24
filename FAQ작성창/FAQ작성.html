@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ 질문과 답 작성</title>
-    <link rel="stylesheet" href="/FAQ/FAQ.css" />
+    <link rel="stylesheet" href="/FAQ작성창/FAQ작성.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -75,7 +75,7 @@
                   <a id="login" href="#">로그인</a>
                 </li>
                 <li>
-                  <a href="#">회원가입</a>
+                  <a id="mypage" href="#">회원가입</a>
                 </li>
               </ul>
             </div>
@@ -189,7 +189,7 @@
                           <col style="width: 85%" />
                         </colgroup>
                         <tbody>
-                          <tr>
+                          <tr style="height: 30px">
                             <th>
                               <span>제목</span>
                             </th>
@@ -207,31 +207,40 @@
                               <span>종목</span>
                             </th>
                             <td class="tl">
-                              <select
-                                class="col-8 col-12-s"
-                                id="certiCode"
-                                name="certiCode"
-                              >
-                                <option value="EIP">정보처리기사</option>
-                                <option value="EE">임베디드기사</option>
-                                <option value="ECSA">
-                                  전자계산기조직응용기사
+                              <select class="col-8 col-12-s" id="category">
+                                <option name="category" value="submit">
+                                  원서접수
                                 </option>
-                                <option value="EIS">정보보안기사</option>
-                                <option value="ERTE">무선설비기사</option>
-                                <option value="EIC">정보통신기사</option>
-                                <option value="EREC">전파전자통신기사</option>
-                                <option value="BDAE">빅데이터분석기사</option>
-                                <option value="SQLP">SQLP</option>
-                                <option value="DAE">데이터분석전문가</option>
-                                <option value="ETC">기타</option>
+                                <option name="category" value="testI">
+                                  시험시행
+                                </option>
+                                <option name="category" value="testQ">
+                                  시험문제
+                                </option>
+                                <option name="category" value="testQ">
+                                  자격증 및 인증서
+                                </option>
+                                <option name="category" value="testQ">
+                                  성적 및 회원정보
+                                </option>
                               </select>
                             </td>
                           </tr>
-                          <tr colspan="2"></tr>
                         </tbody>
                       </table>
+                      <div>
+                        <textarea
+                          style="
+                            width: 100%;
+                            height: 350px;
+                            margin-top: 20px;
+                            padding: 10px;
+                          "
+                          placeholder="내용 입력"
+                        ></textarea>
+                      </div>
                     </div>
+                    <div id="writeBtn" class="inBlock btn2">작성하기</div>
                   </div>
                 </form>
               </div>
@@ -340,6 +349,6 @@
       <!-- //bottom -->
     </div>
 
-    <script src="/유의사항/유의사항.js"></script>
+    <script src="/FAQ작성창/FAQ작성.js"></script>
   </body>
 </html>
