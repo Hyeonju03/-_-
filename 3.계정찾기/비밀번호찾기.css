@@ -1,0 +1,153 @@
+.find_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid gainsboro;
+  height: 600px;
+  border-radius: 5px;
+}
+
+.inputBox {
+  margin: 10px auto;
+
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 300px;
+  outline: none;
+  color: #201818;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.inBlock {
+  display: inline-block;
+}
+
+.comBtn {
+  /* display: flex; */
+  border: 0;
+  background: gainsboro;
+  color: #201818;
+  border-radius: 8px;
+  width: 90px;
+  height: 39px;
+  line-height: 40px;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.visible {
+  visibility: visible;
+}
+.hide {
+  visibility: hidden;
+  background-color: white;
+}
+
+.hiddenSt {
+  /* position: absolute; */
+  display: none;
+  color: rgb(255, 183, 0) !important;
+  font-size: small !important;
+  font-weight: bold !important;
+}
+
+.submitBtn {
+  border: 0;
+  background: gainsboro;
+  color: #201818;
+  border-radius: 8px;
+  width: 410px;
+  height: 39px;
+  line-height: 40px;
+  /* position: absolute; */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 90px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  width: 430px;
+  margin-left: 90px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  border-radius: 10px;
+  background-color: rgba(238, 235, 235, 0.418);
+  pointer-events: none;
+  /* 고려하기 */
+  padding: 17px;
+}
+
+.modla-content {
+  max-width: 500px;
+  width: 800px;
+  /* height: 10px; */
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: scale(0.8);
+}
+
+.modal-text {
+  width: 410px;
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.madal.show .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+.close {
+  color: #aaa;
+  float: right;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quset {
+  margin-left: 80px;
+}
+.close:hover {
+  color: black;
+}
+
+.quset:hover {
+  font-weight: bold;
+  color: rgb(255, 183, 0);
+  cursor: pointer;
+}
+
+.comBtn:hover,
+.submitBtn:hover {
+  background-color: rgb(255, 183, 0);
+  font-weight: bold;
+}
