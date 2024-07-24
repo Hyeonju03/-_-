@@ -325,7 +325,7 @@ function goSign() {
   const res = valCheck();
   //빠진 부분이 없을경우 비밀번호, 인증번호 확인
   if (res) {
-    if (signBirth.value != 6) {
+    if (signBirth.value.length != 6) {
       alert("6자리 숫자를 입력해주세요.");
       return;
     }
@@ -357,7 +357,8 @@ function goSign() {
       login: "0",
     };
     console.log(user);
-    localStorage.setItem(`${findMaxKey() + 1}`, JSON.stringify(user));
+    localStorage.setItem(`${findMaxKey()}`, JSON.stringify(user));
+    userNo++;
 
     alert("회원가입완료");
   }

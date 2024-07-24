@@ -74,8 +74,7 @@ function login() {
       //메인사이트로 이동하게 링크 바꾸기.
       loginState.login = "1";
       localStorage.setItem(keyNo, JSON.stringify(loginState));
-      window.location.href =
-        "http://192.168.0.33:5501/project--/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80/%EB%A9%94%EC%9D%B8.html";
+      window.location.href = "/project--/메인페이지/메인.html";
     }
   }
 }
@@ -91,20 +90,28 @@ function pwEye() {
 }
 
 //회원가입 누르면 회원가입 창으로 이동
-function goSignUp() {
-  window.history.back();
-  window.location.href =
-    "http://192.168.0.33:5501/1.%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.html";
-}
+// function goSignUp() {
+//   window.history.back();
+//   window.location.href =
+//     "http://192.168.0.33:5501/1.%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.html";
+// }
 
-function goFindId() {
-  window.history.back();
-  window.location.href =
-    "http://192.168.0.33:5501/3.%EA%B3%84%EC%A0%95%EC%B0%BE%EA%B8%B0/%EC%95%84%EC%9D%B4%EB%94%94%EC%B0%BE%EA%B8%B0.html";
-}
+// function goFindId() {
+//   window.history.back();
+//   window.location.href =
+//     "http://192.168.0.33:5501/3.%EA%B3%84%EC%A0%95%EC%B0%BE%EA%B8%B0/%EC%95%84%EC%9D%B4%EB%94%94%EC%B0%BE%EA%B8%B0.html";
+// }
 
-function goFindPw() {
-  window.history.back();
-  window.location.href =
-    "http://192.168.0.33:5501/3.%EA%B3%84%EC%A0%95%EC%B0%BE%EA%B8%B0/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%EC%B0%BE%EA%B8%B0.html";
-}
+// function goFindPw() {
+//   window.history.back();
+//   window.location.href =
+//     "http://192.168.0.33:5501/3.%EA%B3%84%EC%A0%95%EC%B0%BE%EA%B8%B0/%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%EC%B0%BE%EA%B8%B0.html";
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const clickTop = document.querySelector(".gotoTop");
+  clickTop.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
