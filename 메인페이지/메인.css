@@ -1607,3 +1607,23 @@ hr {
 a.holder:hover {
   background-color: rgba(243, 243, 243, 0.55);
 }
+
+.slide {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+
+.slide_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0px;
+  width: 100%;
+  height: 175px;
+  flex-shrink: 0;
+}
