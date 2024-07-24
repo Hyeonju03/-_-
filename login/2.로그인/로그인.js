@@ -74,7 +74,7 @@ function login() {
       //메인사이트로 이동하게 링크 바꾸기.
       loginState.login = "1";
       localStorage.setItem(keyNo, JSON.stringify(loginState));
-      window.location.href = "/project--/메인페이지/메인.html";
+      window.location.href = "/DCS_main/메인.html";
     }
   }
 }
