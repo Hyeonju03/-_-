@@ -75,7 +75,7 @@
                   <a id="login" href="#">로그인</a>
                 </li>
                 <li>
-                  <a href="#">회원가입</a>
+                  <a id="mypage" href="#">회원가입</a>
                 </li>
               </ul>
             </div>
@@ -175,53 +175,41 @@
               </div>
               <!-- section -->
               <div class="article" style="margin-bottom: 0px; margin-top: 10px">
-                <div class="search_box">
-                  <form action onsubmit="return false;">
-                    <fieldset class="blind">검색폼</fieldset>
-                    <select
-                      class="col-2 col-12-s"
-                      id="searchCondition"
-                      name="searchCondition"
-                    >
-                      <option value="0">제목</option>
-                      <option value="1">내용</option>
-                      <option value="2">제목+내용</option>
+                <div id="search_box">
+                  <form id="selectBox">
+                    <div id="writeBtn" class="inBlock btn2">원서접수</div>
+                    <div id="writeBtn" class="inBlock btn2">시험시행</div>
+                    <div id="writeBtn" class="inBlock btn2">시험문제</div>
+                    <div id="writeBtn" class="inBlock btn2">
+                      자격증 및 인증서
+                    </div>
+                    <div id="writeBtn" class="inBlock btn2">
+                      성적 및 회원정보
+                    </div>
+                  </form>
+                  <form id="inputKeyword">
+                    <select id="searchCondition">
+                      <option name="searchCondition" value="0">제목</option>
+                      <option name="searchCondition" value="1">내용</option>
+                      <option name="searchCondition" value="2">
+                        제목+내용
+                      </option>
                     </select>
                     <input
                       type="text"
-                      class="col-3 col-12-s"
                       name="searchKeyword"
                       id="searchKeyword"
-                      value
-                      onkeypress="if(event.keyCode==13){btnSearchOnClick();}"
                     />
-                    <button
-                      class="btn btn_s btn_default col-12-s"
-                      id="btnSearchBoard"
-                      onclick="btnSearchOnClick()"
-                      type="button"
-                    >
-                      검색
-                    </button>
+                    <button id="btnSearchBoard" type="button">검색</button>
                   </form>
                 </div>
               </div>
               <div id="bbsArea">
                 <div class="faq_list">
                   <dl>
-                    <dt data-nttid="65125" class="on">
-                      <p>성적 재심사 결과는 언제 나오나요?</p>
-                    </dt>
+                    <dt data-nttid="65125" class="on"></dt>
                     <dd style="display: block">
-                      <div class="faq_view">
-                        <p>
-                          성적재심사 신청은 합격자공고 기간 동안만 신청
-                          가능하며, 신청일로부터 1주일 정도 소요됩니다.
-                          <br />
-                          면밀한 재채점과 재심사로 시간이 걸릴 수 있으니 이점
-                          양해바라며 결과가 나올때까지 기다려주시기 바랍니다.
-                        </p>
-                      </div>
+                      <div class="faq_view"></div>
                     </dd>
                   </dl>
                 </div>
@@ -331,6 +319,6 @@
       <!-- //bottom -->
     </div>
 
-    <script src="/유의사항/유의사항.js"></script>
+    <script src="/FAQ/FAQ.js"></script>
   </body>
 </html>

@@ -752,3 +752,61 @@ p {
 a.holder:hover {
   background-color: rgba(243, 243, 243, 0.55);
 }
+
+#inputKeyword {
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  border: 2px solid rgb(228, 228, 228);
+  border-radius: 5px;
+}
+
+#searchCondition,
+#searchKeyword {
+  width: 20%;
+  height: 30px;
+  line-height: 25px;
+  padding-left: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid #c2c3cf;
+}
+
+#searchKeyword {
+  width: 40%;
+}
+
+#selectBox {
+  display: flex;
+  width: 100%;
+  height: 65px;
+  margin-bottom: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn2 {
+  border: 1px solid rgb(228, 228, 228);
+  background: white;
+  color: #201818;
+  border-radius: 20px;
+  width: 130px;
+  height: 45px;
+  font-size: 16px;
+  line-height: 45px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  display: block;
+}
+
+.btn2:hover {
+  border: 2px solid rgb(255, 183, 0);
+}
+
+.click-yellow {
+  background-color: rgb(255, 183, 0);
+  color: white;
+}
