@@ -5,27 +5,34 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  let FAQno = parseInt(localStorage.getItem("FAQno")) || 0; // 현재 no 값 가져오기
+  let INQUIREno = parseInt(localStorage.getItem("INQUIREno")) || 0; // 현재 no 값 가져오기
 
   const writeBtn = document.getElementById("writeBtn");
+
   writeBtn.addEventListener("click", () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("title-content").value;
     const select = document.getElementById("category");
     const category = select.options[select.selectedIndex].text;
 
-    const faq = {
+    const inquire = {
       title: title,
       content: content,
       category: category,
+      adminAnswer: 0,
     };
 
-    localStorage.setItem(`FAQ${FAQno}`, JSON.stringify(faq));
-    alert("작성 완료 되었습니다.");
+    //sessionStorage 로 비교해서 login 안되어있으면(데이터가 없다는 의미일듯?)
+    //로그인먼저 해주세요alert 후 로그인페이지로 이동
+
+    localStorage.setItem(`INQURE${INQUIREno}`, JSON.stringify(inquire));
 
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
-    FAQno++;
-    localStorage.setItem("FAQno", FAQno);
+    INQUIREno++;
+    localStorage.setItem("INQUIREno", INQUIREno);
+
+    alert("작성 완료 되었습니다.");
+    window.location.href = "/DCS_main/메인.html";
   });
 
   //로그인 상태 여부

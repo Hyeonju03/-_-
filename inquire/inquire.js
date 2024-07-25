@@ -8,13 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const faqItems = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key.startsWith("FAQ")) {
+    if (key.startsWith("INQUIRE")) {
       const faqData = JSON.parse(localStorage.getItem(key));
       faqItems.push({
         id: key,
         title: faqData.title,
         content: faqData.content,
         category: faqData.category,
+        adminAnswer: 0,
       });
     }
   }

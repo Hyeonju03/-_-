@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ 질문과 답 작성</title>
-    <link rel="stylesheet" href="/문의창/문의창.css" />
+    <title>inquirer</title>
+    <link rel="stylesheet" href="/inquirer/inquirer.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -150,7 +150,7 @@
             <ul>
               <li class="home">홈</li>
               <li>고객센터</li>
-              <li>FAQ 질문과 답</li>
+              <li>1:1 문의</li>
             </ul>
           </div>
         </div>
@@ -173,7 +173,7 @@
           <div id="container-contents">
             <div id="content">
               <div class="depth_title">
-                <h2>FAQ 질문과 답</h2>
+                <h2>1:1 문의</h2>
               </div>
               <!-- section -->
               <div class="bbsArea">
@@ -219,11 +219,14 @@
                                 <option name="category" value="testQ">
                                   시험문제
                                 </option>
-                                <option name="category" value="testQ">
+                                <option name="category" value="certificate">
                                   자격증 및 인증서
                                 </option>
-                                <option name="category" value="testQ">
+                                <option name="category" value="info">
                                   성적 및 회원정보
+                                </option>
+                                <option name="category" value="etc">
+                                  기타
                                 </option>
                               </select>
                             </td>
@@ -239,13 +242,11 @@
                             margin-top: 20px;
                             padding: 10px;
                           "
-                          placeholder="내용 입력"
+                          placeholder="관련이 없는 내용은 관리자에 의해 삭제될 수 있습니다."
                         ></textarea>
                       </div>
                     </div>
-                    <a href="/FAQ/FAQ.html" id="writeBtn" class="inBlock btn2"
-                      >작성하기</a
-                    >
+                    <a href="#" id="writeBtn" class="inBlock btn2">작성하기</a>
                   </div>
                 </form>
               </div>
@@ -354,6 +355,6 @@
       <!-- //bottom -->
     </div>
 
-    <script src="/문의창/문의창.js"></script>
+    <script src="/inquirer/inquirer.js"></script>
   </body>
 </html>
