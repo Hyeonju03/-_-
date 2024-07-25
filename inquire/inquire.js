@@ -5,30 +5,30 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  const faqItems = [];
+  const inqItems = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     if (key.startsWith("INQUIRE")) {
-      const faqData = JSON.parse(localStorage.getItem(key));
-      faqItems.push({
+      const inqData = JSON.parse(localStorage.getItem(key));
+      inqItems.push({
         id: key,
-        title: faqData.title,
-        content: faqData.content,
-        category: faqData.category,
+        title: inqData.title,
+        content: inqData.content,
+        category: inqData.category,
         adminAnswer: 0,
       });
     }
   }
 
-  const dlList = document.getElementById("faqList");
-  faqItems.forEach((item, index) => {
+  const dlList = document.getElementById("inqList");
+  inqItems.forEach((item, index) => {
     const container = document.createElement("div");
-    container.classList.add("faq_item_container");
+    container.classList.add("inq_item_container");
 
     const dt = document.createElement("dt");
     const dd = document.createElement("dd");
-    dt.classList.add("faq_title");
-    dd.classList.add("faq_view");
+    dt.classList.add("inq_title");
+    dd.classList.add("inq_view");
     dt.textContent = item.title;
     dd.textContent = item.content;
     dt.id = `dt${index}`;
@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const category = btn.textContent.trim(); // 클릭한 버튼의 카테고리
-      const containers = document.querySelectorAll(".faq_item_container");
+      const containers = document.querySelectorAll(".inq_item_container");
+      console.log(containers);
 
       // 모든 FAQ 항목을 숨기기
       containers.forEach((container) => {
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // 클릭한 버튼의 카테고리와 일치하는 FAQ 항목만 보이기
-      faqItems.forEach((item, index) => {
+      inqItems.forEach((item, index) => {
         if (item.category == category) {
           containers[index].style.display = "block";
         }
@@ -106,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ///////////////////////////////admin 이면 button 보이게 하는거 추가 수정 필요 sesssion 보고 되면 하고 안되면 ㅅㅂ 모르겠다 진짜 aaa한테도 버튼보임 조졌.
 
   const writeBtn = document.getElementById("writeBtn");
-  console.log(getuserData());
+  console.log(getUserData());
   for (let i = 0; i < localStorage.length; i++) {
     const userData = JSON.parse(localStorage.getItem(i));
     console.log(userData);
