@@ -26,10 +26,26 @@ const cerNo = document.getElementById("findId_certi");
 
 //이름 입력시 로컬에 있는지 확인
 function nameCheck() {
-  const inputName = newName.value;
-  let checkedName = [];
+  const inputName = newName.value; //입력받은 이름
+  let checkedName = []; // 비교할 이름목록
   for (let i = 0; i < localStorage.length; i++) {
-    checkedName.push(JSON.parse(localStorage.getItem(i)).name); // 키가 0인거부터 순서대로 name를 담음
+    const storedItem = localStorage.getItem(i);
+    if (storedItem === null) {
+      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      continue;
+    }
+    try {
+      const userData = JSON.parse(storedItem);
+      const userName = userData.name;
+
+      if (userName) {
+        // phone 필드가 유효한 경우에만 배열에 추가
+        checkedName.push(userName);
+      }
+    } catch (error) {
+      console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
+      // 예외 처리
+    }
   }
   if (!checkedName.includes(inputName)) {
     alert("일치하는 이름이 없습니다.");
@@ -42,12 +58,24 @@ function nameCheck() {
 let keyObj = [];
 function keyCheck() {
   for (let key = 0; key < localStorage.length; key++) {
-    const storeDate = JSON.parse(localStorage.getItem(key));
-    if (storeDate.name == newName.value) {
-      keyObj.push(key);
+    const storeDate = localStorage.getItem(key);
+    if (storeDate === null) {
+      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      continue;
     }
+    try {
+      const userData = JSON.parse(storeDate);
+      const userName = userData.name;
+      if (userName == newName.value) {
+        // phone 필드가 유효한 경우에만 배열에 추가
+        keyObj.push(key);
+      }
+    } catch (error) {
+      console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
+      // 예외 처리
+    }
+    return keyObj;
   }
-  return keyObj;
 }
 
 //전화번호 하이픈 넣기

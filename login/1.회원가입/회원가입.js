@@ -10,7 +10,7 @@ let user = {
   login: "0",
   profile: "0",
 };
-
+let userNo = -1;
 const signId = document.getElementById("signUp_id"); //입력받는 아이디
 const signPw = document.getElementById("signUp_pw"); //입력받는 비밀번호
 const pwCheck = document.getElementById("signUp_pw_check"); // 입력받는 비밀번호 확인
@@ -30,21 +30,37 @@ function idCheck() {
   const newId = signId.value; //입력받은 아이디
 
   for (let i = 0; i < localStorage.length; i++) {
+    const storedItem = localStorage.getItem(i);
+
+    if (storedItem === null) {
+      // console.log("null");
+      continue;
+    }
+
+    try {
+      const userData = JSON.parse(storedItem);
+      const userId = userData.id;
+
+      if (userId == newId) {
+        alert("이미 존재하는 아이디입니다.");
+        idConfrim = false;
+        return;
+      }
+    } catch (error) {
+      // console.error(`${error.message}`);
+      //예외처리
+    }
+
     //로컬스토리지 돌면서 비교
-    const userId = JSON.parse(localStorage.getItem(i)).id; // 키가 0인거부터 순서대로 id를 담음
-    if (userId == false) {
-      alert("첫번쨰회원");
-      return true;
-    }
-    if (userId == newId) {
-      alert("이미 존재하는 아이디입니다.");
-      idConfrim = false;
-      return;
-    }
+    // const userId = JSON.parse(localStorage.getItem(i)).id; // 키가 0인거부터 순서대로 id를 담음
+    // if (userId == newId) {
+    //   alert("이미 존재하는 아이디입니다.");
+    //   idConfrim = false;
+    //   return;
+    // }
   }
-  console.log("함수 진행되긴하는지");
-  alert("사용 가능한 아이디입니다.");
   idConfrim = true;
+  alert("사용 가능한 아이디입니다.");
 }
 
 //비밀번호 확인 함수
@@ -148,17 +164,53 @@ function checkPh() {
 //전화번호 중복 제거
 
 function phDup() {
-  const ph = signPh.value; //입력받은 전화번호
-  let checkPh = []; //비교할 로컬 번호
+  const ph = signPh.value; // 입력받은 전화번호
+  let checkPh = []; // 비교할 로컬 전화번호 목록
+
   for (let i = 0; i < localStorage.length; i++) {
-    checkPh.push(JSON.parse(localStorage.getItem(i)).phone); // 키가 0인거부터 순서대로 전화번호를 담음
+    const storedItem = localStorage.getItem(i);
+
+    if (storedItem === null) {
+      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      continue; // null일 경우 다음 반복으로 넘어감
+    }
+
+    try {
+      const userData = JSON.parse(storedItem);
+      const userPhone = userData.phone;
+
+      if (userPhone) {
+        // phone 필드가 유효한 경우에만 배열에 추가
+        checkPh.push(userPhone);
+      }
+    } catch (error) {
+      console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
+      // 예외 처리
+    }
   }
+
   if (checkPh.includes(ph)) {
     alert("이미 사용중인 전화번호 입니다.");
     return false;
   }
+
   return true;
 }
+
+/////////////////////////////////////////////////////////////////
+// function phDup() {
+//   const ph = signPh.value; //입력받은 전화번호
+//   let checkPh = []; //비교할 로컬 번호
+//   for (let i = 0; i < localStorage.length; i++) {
+//     checkPh.push(JSON.parse(localStorage.getItem(i)).phone); // 키가 0인거부터 순서대로 전화번호를 담음
+//   }
+//   if (checkPh.includes(ph)) {
+//     alert("이미 사용중인 전화번호 입니다.");
+//     return false;
+//   }
+//   return true;
+// }
+/////////////////////////////////////////////////////////////////
 
 //인증번호 생성
 function randomNo() {
@@ -173,45 +225,71 @@ function randomNo() {
 let phConfrim = false;
 let random = "";
 function sendSms() {
-  //1.숫자 형식 확인
-  const ph = checkPh();
-  if (ph) {
-    //2.전화중복확인
-    const dupli = phDup();
-    if (signPh.value && dupli) {
-      let ranNo = randomNo();
-      console.log(ranNo);
-      //   const coolsms = require("coolsms-node-sdk").default;
-      // const messageService = new coolsms(
-      //   "NCS9L2EWZZQKBULJ",
-      //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
-      // );
-
-      // messageService
-      //   .sendOne({
-      //     to: "01063640525",
-      //     from: "01063640525",
-      //     text: "SM 수 있습니다.",
-      //   })
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((err) => console.error(err));
-      phConfrim = true;
-      random = ranNo;
-      return ranNo;
-    }
+  //전화번호 유효성 검사
+  const validPh = checkPh();
+  if (!validPh) {
+    return; //전화번호 형식이 유효하지 않으면 함수 종료
   }
+
+  //전화번호 중복 확인
+  const duplicate = phDup();
+  if (!duplicate) {
+    return; //전화번호가 이미 사용중이면 함수 종료
+  }
+
+  //전화번호 유효성 및 중복 확인 후 실행
+  const ranNo = randomNo();
+  console.log(ranNo);
+
+  phConfrim = true;
+  random = ranNo;
+
+  return ranNo;
+
+  /////////////////////////////////////////////////////////////////
+  // //1.숫자 형식 확인
+  // const ph = checkPh();
+  // if (ph) {
+  //   //2.전화중복확인
+  //   const dupli = phDup();
+  //   if (signPh.value && dupli) {
+  //     console.log(dupli);
+  //     let ranNo = randomNo();
+  //     console.log(ranNo);
+  //     //   const coolsms = require("coolsms-node-sdk").default;
+  //     // const messageService = new coolsms(
+  //     //   "NCS9L2EWZZQKBULJ",
+  //     //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
+  //     // );
+
+  //     // messageService
+  //     //   .sendOne({
+  //     //     to: `${phNo},
+  //     //     from: "01063640525",
+  //     //     text: "SM 수 있습니다.",
+  //     //   })
+  //     //   .then((res) => {
+  //     //     console.log(res);
+  //     //   })
+  //     //   .catch((err) => console.error(err));
+  //     phConfrim = true;
+  //     random = ranNo;
+  //     return ranNo;
+  //   }
+  // }
+  /////////////////////////////////////////////////////////////////
 }
 
 //인증번호 일치여부
 let cerConfrim = false;
 function phCheck() {
+  console.log(random);
   if (random != certiPh.value) {
     alert("인증번호가 일치하지 않습니다.");
     cerConfrim = false;
   } else {
     alert("인증번호가 일치합니다.");
+    console.log(certiPh.value);
     cerConfrim = true;
   }
 }
@@ -303,30 +381,28 @@ function valCheck() {
 }
 
 //회원가입 완료 전, 키값 설정
-// function findMaxKey() {
-//   // 모든 키값을 순회한다.
-//   for (let i = 0; i < localStorage.length; i++) {
-//     const key = localStorage.key(i);
-//     // 숫자 키만 확인한다.
-//     if (!isNaN(key)) {
-//       // 키값을 숫자로 변환한다.
-//       const keyNum = parseInt(key);
+function findMaxKey() {
+  // 모든 키값을 순회한다.
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
 
-//       // 최대 키값을 저장하는 변수를 초기화하거나 갱신한다.
-//       if (userNo === undefined || keyNum > userNo) {
-//         userNo = keyNum;
-//       }
-//     }
-//   }
-//   // 최대 키값을 반환한다.
-//   return userNo;
-// }
+    // 숫자 키만 확인한다.
+    if (!isNaN(key)) {
+      // 키값을 숫자로 변환한다.
+      const keyNum = parseInt(key);
 
-// const maxKey = findMaxKey();
+      // 최대 키값을 저장하는 변수를 초기화하거나 갱신한다.
+      if (userNo === undefined || keyNum > userNo) {
+        userNo = keyNum;
+      }
+    }
+  }
+  // 최대 키값을 반환한다.
+  return userNo;
+}
 
-let no = 0;
-localStorage.setItem("no", no);
-const keyNo = JSON.parse(sessionStorage.getItem("no"));
+const maxKey = findMaxKey();
+let USERno = parseInt(localStorage.getItem("USERno")) || 0;
 
 function goSign() {
   const res = valCheck();
@@ -364,10 +440,11 @@ function goSign() {
       login: "0",
       profile: "0",
     };
-    console.log(keyNo);
-    localStorage.setItem(keyNo, JSON.stringify(user));
+    console.log(user);
+    localStorage.setItem(`${USERno}`, JSON.stringify(user));
+    USERno++;
+    localStorage.setItem("USERno", USERno);
     alert("회원가입완료");
-    no++;
   }
 }
 
@@ -403,40 +480,56 @@ document.addEventListener("DOMContentLoaded", function () {
 //     });
 //   }
 // }
+document.addEventListener("DOMContentLoaded", function () {
+  //로그인 상태 여부
+  const loginLink = document.getElementById("login");
+  const signupLink = document.getElementById("mypage");
 
-let logintext = document.getElementById("login");
-let mypagetext = document.getElementById("mypage");
-console.log(logintext);
-for (let i = 0; i < localStorage.length; i++) {
-  if (JSON.parse(localStorage.getItem(i)).login == false) {
-    alert("유저없음");
-  }
-  if (JSON.parse(localStorage.getItem(i)).login) {
-    // 로그인시 뜨는거
-    logintext.innerText = "로그아웃";
-    mypagetext.innerText = "마이페이지";
+  let userData = getUserData();
 
-    //로그아웃 클릭시
-    logintext.addEventListener("click", () => {
-      // 글씨 바꾸기
-      logintext.innerText = "로그인";
-      mypagetext.innerText = "회원가입";
-      const item = JSON.parse(localStorage.getItem(i));
-      item.login = "0";
-      localStorage.setItem(i, JSON.stringify(item));
-      console.log(JSON.parse(localStorage.getItem(i)).login);
-      // 이거 1나옴 왜지?
-
-      //한번 더 누르면
-      logintext.addEventListener("click", () => {
-        //로그아웃탭으로 이동
-        logintext.href = "/login/2.로그인/로그인.html";
-      });
+  if (userData && userData.login == "1") {
+    // 로그인 상태일 때
+    loginLink.innerText = "로그아웃";
+    loginLink.addEventListener("click", () => {
+      // 로그아웃 처리
+      userData.login = "0";
+      saveUserData(userData);
+      location.reload(); // 페이지 새로고침
     });
 
-    //마이페이지 이동
-    mypagetext.addEventListener("click", () => {
-      mypagetext.href = "#";
-    });
+    signupLink.innerText = "마이페이지";
+    signupLink.href = "#";
+  } else {
+    // 로그아웃 상태일 때
+    loginLink.innerText = "로그인";
+    loginLink.href = "/login/2.로그인/로그인.html";
+
+    signupLink.innerText = "회원가입";
+    signupLink.href = "/login/1.회원가입/회원가입.html";
   }
+});
+
+function getUserData() {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+
+    const userData = JSON.parse(localStorage.getItem(key));
+    if (userData) {
+      return userData;
+    }
+  }
+  return null; // 사용자 데이터가 없거나 null인 경우
+}
+
+function saveUserData(userData) {
+  localStorage.setItem(`user${getUserCount()}`, JSON.stringify(userData));
+}
+
+function getUserCount() {
+  let count = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    count++;
+  }
+  return count;
 }

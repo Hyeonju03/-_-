@@ -7,9 +7,20 @@ let idConfirm = 0;
 function idCheck() {
   const inputId = userId.value;
   let checkedId = [];
+
   for (let i = 0; i < localStorage.length; i++) {
-    checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
+    const key = localStorage.key(i);
+    const item = JSON.parse(localStorage.getItem(key));
+
+    if (!item || !item.id) {
+      continue;
+    }
+    checkedId.push(item.id);
   }
+
+  // for (let i = 0; i < localStorage.length; i++) {
+  //   checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
+  // }
   if (!checkedId.includes(inputId)) {
     alert("아이디가 존재하지 않습니다.");
     idConfirm = false;
@@ -20,13 +31,14 @@ function idCheck() {
 }
 
 // 아이디가 있는 키값
-let keyNo = 0;
+let key = 0;
 function keyCheck() {
-  for (let key = 0; key < localStorage.length; key++) {
-    const storeDate = JSON.parse(localStorage.getItem(key));
-    if (storeDate && storeDate.id == userId.value) {
-      keyNo = key;
-      return keyNo;
+  for (let i = 0; i < localStorage.length; i++) {
+    const storeDate = JSON.parse(localStorage.getItem(i));
+    if (storeDate.id == userId.value) {
+      key = i;
+      console.log("키값", key);
+      return key;
     }
   }
 }
@@ -66,14 +78,15 @@ function validationCheck() {
 //로그인 버튼 눌렀을 때
 function login() {
   const res = validationCheck();
-  const loginState = JSON.parse(localStorage.getItem(keyNo));
+  const id = idCheck();
+  const pw = pwCheck();
+  const loginState = JSON.parse(localStorage.getItem(key));
+  console.log(key);
   if (res) {
-    const id = idCheck();
-    const pw = pwCheck();
     if (id & pw) {
       //메인사이트로 이동하게 링크 바꾸기.
       loginState.login = "1";
-      localStorage.setItem(keyNo, JSON.stringify(loginState));
+      localStorage.setItem(key, JSON.stringify(loginState));
       sessionStorage.setItem("loginUser", JSON.stringify(loginState));
       window.location.href = "/mypage/메인페이지/메인.html";
     }

@@ -13,13 +13,9 @@ const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 let newProfile = "0";
 function cgProfile(e) {
   const files = e.currentTarget.files;
-  const img = document.getElementById("profile");
-  if (loginUser.profile == 0) {
-    img.src = `/mypage/imgs/프로필기본.png`;
-  } else {
-    img.src = `/mypage/imgs/${loginUser.profile}`;
-  }
   img.src = `/mypage/imgs/${files[0].name}`;
+  newProfile = files[0].name;
+  return newProfile;
 }
 
 const upload = document.getElementById("profileUp");
@@ -37,11 +33,13 @@ const loginName = document.getElementById("userName");
 const ph = document.getElementById("userPh");
 const phC = document.getElementById("userCer");
 const birth = document.getElementById("userBirth");
+const img = document.getElementById("profile");
 
 //유효성 검사를 위한 변수
 const warnPwc = document.getElementById("warnPwC");
 
 //창이 열렸을 때 로그인한 회원 정보가 뜨게
+
 document.addEventListener("DOMContentLoaded", function () {
   //로그인 안했으면 로그인창으로 이동
   if (loginUser == null) {
@@ -57,6 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
     male.checked = true;
   } else if (loginUser.gender === "여") {
     female.checked = true;
+  }
+  if (loginUser.profile == 0) {
+    img.src = `/mypage/imgs/프로필기본.png`;
+  } else {
+    img.src = `/mypage/imgs/${loginUser.profile}`;
   }
 });
 
@@ -82,16 +85,21 @@ function pwEye2() {
 }
 
 //비밀번호 입력시
+let pwConfrim = false;
+const originPw = JSON.parse(sessionStorage.getItem("loginUser")).pw; //비밀번호가 바뀌면 변경해주기 위해 선언
 function checkPw() {
   if (!pw.value && !pwC.value) {
-    console.log("공백이에요~");
-    return false;
+    pwConfrim = true;
+    return true;
   }
   if (pw.value != pwC.value) {
     warnPwc.classList.remove("warn");
+    pwConfrim = false;
     return false;
   } else {
     warnPwc.classList.add("warn");
+    pwConfrim = true;
+    originPw = pw.value;
     return true;
   }
 }
@@ -130,11 +138,26 @@ function phLength() {
 //로컬에 있는 번호로 바꿀 수 없게 막기
 function comparePh() {
   const newPh = ph.value; // 변경하려고 하는 전화번호
-  let checkPh = []; // 로컬에 존재하는 전화번호를 담을 배열
+  let checkPh = []; // 비교할 로컬 전화번호 목록
   for (let i = 0; i < localStorage.length; i++) {
-    checkPh.push(loginUser.phone); // 키가 0인거부터 순서대로 전화번호를 담음
+    const storedPh = localStorage.getItem(i);
+    if (storedPh === null) {
+      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      continue; // null일 경우 다음 반복으로 넘어감
+    }
+    try {
+      const userData = JSON.parse(storedPh);
+      const userPhone = userData.phone;
+      if (userPhone) {
+        // phone 필드가 유효한 경우에만 배열에 추가
+        checkPh.push(userPhone);
+      }
+    } catch (error) {
+      console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
+      // 예외 처리
+    }
   }
-  if (checkPh.includes(newPh)) {
+  if (checkPh.includes(newPh) && loginUser.phone != ph.value) {
     alert("이미 사용중인 전화번호 입니다.");
     return false;
   }
@@ -155,23 +178,23 @@ function newPh() {
   if (ph.value == loginUser.phone) {
     alert("현재 사용하고 계신 전화번호입니다.");
     return false;
+  } else {
+    return true;
   }
-  return true;
 }
 
 //2. 인증번호 눌렀을 때
 let phConfrim = false;
 let random = "";
+const originPh = JSON.parse(sessionStorage.getItem("loginUser")).phone;
 function phCheck() {
   const phLeng = phLength();
+  const updatePh = newPh();
   const userPh = comparePh();
-  const newPh = newPh();
   //1) 번호형식 확인
   if (phLeng) {
     //2) 로그인했던 폰 번호랑 일치하지 않는지 확인
-    if (newPh) {
-    } else {
-      //일치하지 않으면 로컬에서 중복체크 후 인증번호 전송(콜솔로그에 phNo 잘 뜨는지 확인해보기)
+    if (updatePh) {
       if (userPh) {
         let ranNo = randomNo();
         console.log(ranNo);
@@ -192,6 +215,7 @@ function phCheck() {
         //   .catch((err) => console.error(err));
         phConfrim = true;
         random = ranNo;
+        originPh = ph.value;
         return ranNo;
       }
     }
@@ -201,10 +225,16 @@ function phCheck() {
 //인증번호 확인
 let cerConfrim = false;
 function cerCheck() {
-  if (random != phC.value) {
+  const res = newPh();
+  if (random == "") {
+    if (res) {
+      alert("인증번호 버튼을 눌러주세요.");
+    }
+  }
+  if (random != "" && random != phC.value) {
     alert("인증번호가 일치하지 않습니다.");
     cerConfrim = false;
-  } else {
+  } else if (random != "" && random == phC.value) {
     alert("인증번호가 일치합니다.");
     cerConfrim = true;
   }
@@ -236,39 +266,38 @@ function keyCheck() {
 //2. 입력된 번호랑 일치하는지 확인 다른 경우 인증번호 체크
 function edit() {
   const newPw = checkPw();
-  const newPh = newPh();
-
-  if (newPw) {
-    if (loginUser.phone != ph.value) {
-      if (!phConfrim) {
-        alert("인증번호 버튼을 눌러주세요");
-        return;
-      }
-      if (!cerConfrim) {
-        alert("인증번호 확인 버튼을 눌러주세요.");
-        return;
-      }
-      user = {
-        id: loginUser.id,
-        pw: pw.value,
-        name: loginName.value,
-        gender: genderCehck(),
-        birth: birth.value,
-        phone: ph.value,
-        email: email.value,
-        delete: "0",
-        login: "1",
-        profile: newProfile,
-      };
-      console.log(user);
-      localStorage.setItem(keyNo, JSON.stringify(user));
-      sessionStorage.setItem("loginUser", JSON.stringify(user));
-      alert("수정완료");
+  //전화번호가 바뀐 경우 인증버튼을 눌러야 진행
+  if (loginUser.phone != ph.value || pwC.value != "") {
+    if (!phConfrim) {
+      alert("인증번호 버튼을 눌러주세요");
+      return;
     }
+    if (!cerConfrim) {
+      alert("인증번호 확인 버튼을 눌러주세요.");
+      return;
+    }
+  }
+  if (newPw) {
+    user = {
+      id: loginUser.id,
+      pw: originPw,
+      name: loginName.value,
+      gender: genderCehck(),
+      birth: birth.value,
+      phone: originPh,
+      email: email.value,
+      delete: "0",
+      login: "1",
+      profile: newProfile,
+    };
+    console.log(user);
+    localStorage.setItem(keyNo, JSON.stringify(user));
+    sessionStorage.setItem("loginUser", JSON.stringify(user));
+    alert("수정완료");
   }
 }
 
 //취소버튼 누르면 다시 마이페이지로 이동
 function cancel() {
-  window.location.href = "/mypage/회원정보수정및조회/회원정보메인";
+  window.location.href = "/mypage/회원정보수정및조회/회원정보메인.html";
 }
