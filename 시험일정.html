@@ -78,6 +78,14 @@
         margin-top: 40px;
         margin-left: 20px;
       }
+
+      .border-bottom {
+        margin-bottom: 20px;
+        border-bottom-color: rgb(227, 227, 232);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -100,36 +108,56 @@
 
     <fieldset class="fieldset margin">
       <div class="margin2">
-        <label for="typeCertificate"> 종목 : </label>
+        <label for="typeCertificate"> 종목&nbsp;&nbsp;</label>
         <select name="type" id="typeCertificate">
           <option value="-">- 시험 종목을 선택하세요 -</option>
-          <option value="정보처리기사">정보처리기사</option>
-          <option value="임베디드기사">임베디드기사</option>
-          <option value="전자계산기조직응용기사">전자계산기조직응용기사</option>
-          <option value="정보보안기사">정보보안기사</option>
-          <option value="무선설비기사">무선설비기사</option>
-          <option value="정보통신기사">정보통신기사</option>
-          <option value="전파전자통신기사">전파전자통신기사</option>
-          <option value="빅데이터분석기사">빅데이터분석기사</option>
-          <option value="SQLP">SQLP</option>
-          <option value="데이터분석전문가">데이터분석전문가</option>
+          <option value="1.정보처리기사">정보처리기사</option>
+          <option value="2.임베디드기사">임베디드기사</option>
+          <option value="3.전자계산기조직응용기사">
+            전자계산기조직응용기사
+          </option>
+          <option value="4.웹디자인기능사">웹디자인기능사</option>
+          <option value="5.제품응용모델링기능사">제품응용모델링기능사</option>
+          <option value="6.전자계산기기능사">전자계산기기능사</option>
+          <option value="7.정보기기운용기능사">정보기기운용기능사</option>
+          <option value="8.정보보안기사">정보보안기사</option>
+          <option value="9.무선설비기사">무선설비기사</option>
+          <option value="10.정보통신기사">정보통신기사</option>
+          <option value="11.전파전자통신기사">전파전자통신기사</option>
+          <option value="12.빅데이터분석기사">빅데이터분석기사</option>
+          <option value="13.SQL전문가(SQLP)">SQL전문가(SQLP)</option>
+          <option value="14.SQL개발자(SQLD)">SQL개발자(SQLD)</option>
+          <option value="15.데이터분석전문가(ADP)">
+            데이터분석전문가(ADP)
+          </option>
+          <option value="16.데이터분석준전문가(ADsP)">
+            데이터분석준전문가(ADsP)
+          </option>
+          <option value="17.데이터아키텍처전문가(DAP)">
+            데이터아키텍처전문가(DAP)
+          </option>
+          <option value="18.데이터아키텍처준전문가(DAsP)">
+            데이터아키텍처준전문가(DAsP)
+          </option>
+          <option value="19.네트워크관리사1급">네트워크관리사1급</option>
+          <option value="20.네트워크관리사2급">네트워크관리사2급</option>
         </select>
       </div>
       <div class="margin2">
-        <label for="startDate"> 시작일 : </label>
+        <label for="startDate">기간&nbsp;&nbsp;</label>
         <input
           type="date"
           id="startDate"
           name="startDate"
-          min="2024-07-19"
+          min="2024-07-30"
           max="2024-12-31"
-        />&nbsp; &nbsp;
-        <label for="endDate"> 종료일 : </label>
+        />
+        <label for="endDate"></label>
         <input
           type="date"
           id="endDate"
           name="endDate"
-          min="2024-07-19"
+          min="2024-07-30"
           max="2024-12-31"
         />
 
@@ -145,10 +173,10 @@
       <thead>
         <tr class="bg-gainsboro">
           <th>시험일</th>
-          <th>과목</th>
+          <th>시험종목</th>
           <th>원서접수</th>
           <th>수험표공고</th>
-          <th>성적공고</th>
+          <th>결과발표</th>
         </tr>
       </thead>
       <tbody></tbody>
