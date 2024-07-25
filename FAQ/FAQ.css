@@ -823,6 +823,35 @@ a.holder:hover {
   align-items: center;
 }
 
+#btnSearchBoard {
+  padding: 4px 8px;
+  height: 30px;
+  outline: 0;
+  line-height: 0;
+  overflow: visible;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  border: 1px solid #c8c8d0;
+}
+
+.faq_title {
+  background-position: 0px 15px;
+  cursor: pointer;
+  padding: 12px 30px;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.faq_view {
+  padding: 20px;
+  background-color: #f0f0f3;
+}
+
+.faq_view {
+  line-height: 1.6;
+}
+
 .btn2 {
   border: 1px solid rgb(228, 228, 228);
   background: white;

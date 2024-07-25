@@ -7,9 +7,20 @@ let idConfirm = 0;
 function idCheck() {
   const inputId = userId.value;
   let checkedId = [];
+
   for (let i = 0; i < localStorage.length; i++) {
-    checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
+    const key = localStorage.key(i);
+    const item = JSON.parse(localStorage.getItem(key));
+
+    if (!item || !item.id) {
+      continue;
+    }
+    checkedId.push(item.id);
   }
+
+  // for (let i = 0; i < localStorage.length; i++) {
+  //   checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
+  // }
   if (!checkedId.includes(inputId)) {
     alert("아이디가 존재하지 않습니다.");
     idConfirm = false;
