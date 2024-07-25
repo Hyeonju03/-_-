@@ -74,6 +74,33 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.style.color = "white";
     });
   });
+
+  //로그인 상태 여부
+  const loginLink = document.getElementById("login");
+  const signupLink = document.getElementById("mypage");
+
+  let userData = getUserData();
+
+  if (userData && userData.login == "1") {
+    // 로그인 상태일 때
+    loginLink.innerText = "로그아웃";
+    loginLink.addEventListener("click", () => {
+      // 로그아웃 처리
+      userData.login = "0";
+      saveUserData(userData);
+      location.reload(); // 페이지 새로고침
+    });
+
+    signupLink.innerText = "마이페이지";
+    signupLink.href = "/mypage.html";
+  } else {
+    // 로그아웃 상태일 때
+    loginLink.innerText = "로그인";
+    loginLink.href = "/login.html";
+
+    signupLink.innerText = "회원가입";
+    signupLink.href = "/signup.html";
+  }
 });
 
 const writeBtn = document.getElementById("writeBtn");
@@ -85,42 +112,33 @@ for (let i = 0; i < localStorage.length; i++) {
   }
   if (userData.login == "1") {
     const userId = userData.id;
-    console.log(userId);
     if (userId != "admin") {
       writeBtn.style.display = "none";
     }
   }
 }
 
-let logintext = document.getElementById("login");
-let mypagetext = document.getElementById("mypage");
+function getUserData() {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
 
-for (let i = 0; i < localStorage.length; i++) {
-  if (JSON.parse(localStorage.getItem(i)).login == "1") {
-    logintext.innerText = "로그아웃";
-    mypagetext.innerText = "마이페이지";
-
-    //로그아웃 클릭시
-    logintext.addEventListener("click", () => {
-      // 글씨 바꾸기
-      logintext.innerText = "로그인";
-      mypagetext.innerText = "회원가입";
-      const item = JSON.parse(localStorage.getItem(i));
-      item.login = "0";
-      localStorage.setItem(i, JSON.stringify(item));
-      // console.log(JSON.parse(localStorage.getItem(i)).login);
-      // 이거 1나옴 왜지?
-
-      //한번 더 누르면
-      logintext.addEventListener("click", () => {
-        //로그아웃탭으로 이동
-        logintext.href = "/login/2.로그인/로그인.html";
-      });
-    });
-
-    //마이페이지 이동
-    mypagetext.addEventListener("click", () => {
-      mypagetext.href = "#";
-    });
+    const userData = JSON.parse(localStorage.getItem(key));
+    if (userData) {
+      return userData;
+    }
   }
+  return null; // 사용자 데이터가 없거나 null인 경우
+}
+
+function saveUserData(userData) {
+  localStorage.setItem(`user${getUserCount()}`, JSON.stringify(userData));
+}
+
+function getUserCount() {
+  let count = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    count++;
+  }
+  return count;
 }
