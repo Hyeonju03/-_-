@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  let no = parseInt(localStorage.getItem("no")) || 0; // 현재 no 값 가져오기
+  let FAQno = parseInt(localStorage.getItem("FAQno")) || 0; // 현재 no 값 가져오기
 
   const writeBtn = document.getElementById("writeBtn");
   writeBtn.addEventListener("click", () => {
@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
       category: category,
     };
 
-    localStorage.setItem(`FAQ${no}`, JSON.stringify(faq));
+    localStorage.setItem(`FAQ${FAQno}`, JSON.stringify(faq));
     alert("작성 완료 되었습니다.");
 
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
-    no++;
-    localStorage.setItem("no", no);
+    FAQno++;
+    localStorage.setItem("FAQno", FAQno);
   });
 
   //로그인 상태 여부
