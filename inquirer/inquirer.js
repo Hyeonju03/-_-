@@ -5,34 +5,77 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  let INQUIREno = parseInt(localStorage.getItem("INQUIREno")) || 0; // 현재 no 값 가져오기
+  // inquire로 시작하면서 inquireno가 아닌애들 뽑아내기
+  const inquireItems = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith("INQUIRE") && key != "INQUIREno") {
+      const inquireData = JSON.parse(localStorage.getItem(key));
+      inquireItems.push({
+        id: key,
+        title: inquireData.title,
+        content: inquireData.content,
+        category: inquireData.category,
+      });
+    }
+  }
 
-  const writeBtn = document.getElementById("writeBtn");
+  //
+  const dlList = document.getElementById("inquireList");
+  inquireItems.forEach((item, index) => {
+    const container = document.createElement("div");
+    container.classList.add("inquire_item_container");
 
-  writeBtn.addEventListener("click", () => {
-    const title = document.getElementById("title").value;
-    const content = document.getElementById("title-content").value;
-    const select = document.getElementById("category");
-    const category = select.options[select.selectedIndex].text;
+    const dt = document.createElement("dt");
+    const dd = document.createElement("dd");
+    dt.classList.add("inquire_title");
+    dd.classList.add("inquire_view");
+    dt.textContent = item.title;
+    dd.textContent = item.content;
+    dt.id = `dt${index}`;
+    dd.style.display = "none";
 
-    const inquire = {
-      title: title,
-      content: content,
-      category: category,
-      adminAnswer: 0,
-    };
+    dt.addEventListener("click", () => {
+      if (dd.style.display == "none") {
+        dd.style.display = "block";
+      } else {
+        dd.style.display = "none";
+      }
+    });
 
-    //sessionStorage 로 비교해서 login 안되어있으면(데이터가 없다는 의미일듯?)
-    //로그인먼저 해주세요alert 후 로그인페이지로 이동
+    container.appendChild(dt);
+    container.appendChild(dd);
+    dlList.appendChild(container);
+    console.log(container);
+  });
 
-    localStorage.setItem(`INQURE${INQUIREno}`, JSON.stringify(inquire));
+  // 버튼 클릭 시 동작
+  const btns = document.querySelectorAll(".btn2");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const category = btn.textContent.trim(); // 클릭한 버튼의 카테고리
+      const containers = document.querySelectorAll(".inquire_item_container");
 
-    // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
-    INQUIREno++;
-    localStorage.setItem("INQUIREno", INQUIREno);
+      // 모든 inquire 항목을 숨기기
+      containers.forEach((container) => {
+        container.style.display = "none";
+      });
 
-    alert("작성 완료 되었습니다.");
-    window.location.href = "/DCS_main/메인.html";
+      // 클릭한 버튼의 카테고리와 일치하는 inquire 항목만 보이기
+      inquireItems.forEach((item, index) => {
+        if (item.category == category) {
+          containers[index].style.display = "block";
+        }
+      });
+
+      // 클릭한 버튼의 스타일 변경
+      btns.forEach((b) => {
+        b.style.backgroundColor = "white";
+        b.style.color = "black";
+      });
+      btn.style.backgroundColor = "rgb(255, 183, 0)";
+      btn.style.color = "white";
+    });
   });
 
   //로그인 상태 여부
@@ -41,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let userData = getUserData();
 
-  if (userData && userData.login == "1") {
+  if (userData.login == "1") {
     // 로그인 상태일 때
     loginLink.innerText = "로그아웃";
     loginLink.addEventListener("click", () => {
@@ -61,6 +104,18 @@ document.addEventListener("DOMContentLoaded", function () {
     signupLink.innerText = "회원가입";
     signupLink.href = "/login/1.회원가입/회원가입.html";
   }
+
+  const writeBtn = document.getElementById("writeBtn");
+  console.log(getUserData());
+
+  const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+  if (loginUser.login == 1) {
+    if (loginUser.id == "admin") {
+      writeBtn.style.display = "display";
+    } else {
+      writeBtn.style.display = "none";
+    }
+  }
 });
 
 function getUserData() {
@@ -76,14 +131,14 @@ function getUserData() {
 }
 
 function saveUserData(userData) {
-  localStorage.setItem(`user${getUserCount()}`, JSON.stringify(userData));
+  sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
 }
 
-function getUserCount() {
-  let count = 0;
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    count++;
-  }
-  return count;
-}
+// function getUserCount() {
+//   let count = 0;
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const key = localStorage.key(i);
+//     count++;
+//   }
+//   return count;
+// }

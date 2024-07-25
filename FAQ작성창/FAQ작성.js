@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   let FAQno = parseInt(localStorage.getItem("FAQno")) || 0; // 현재 no 값 가져오기
-
   const writeBtn = document.getElementById("writeBtn");
+
   writeBtn.addEventListener("click", () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("title-content").value;
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
-
-  if (userData && userData.login == "1") {
+  console.log(userData);
+  if (userData.login == "1") {
     // 로그인 상태일 때
     loginLink.innerText = "로그아웃";
     loginLink.addEventListener("click", () => {
@@ -69,14 +69,14 @@ function getUserData() {
 }
 
 function saveUserData(userData) {
-  localStorage.setItem(`user${getUserCount()}`, JSON.stringify(userData));
+  sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
 }
 
-function getUserCount() {
-  let count = 0;
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    count++;
-  }
-  return count;
-}
+// function getUserCount() {
+//   let count = 0;
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const key = localStorage.key(i);
+//     count++;
+//   }
+//   return count;
+// }

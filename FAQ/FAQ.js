@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // 로그아웃 처리
       userData.login = "0";
       saveUserData(userData);
+      getUserKey(userData);
+      // localStorage.setItem(`loginUser`, JSON.stringify(userData));
       location.reload(); // 페이지 새로고침
     });
 
@@ -106,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const writeBtn = document.getElementById("writeBtn");
-  console.log(getUserData());
 
   const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
   if (loginUser.login == 1) {
@@ -134,11 +135,14 @@ function saveUserData(userData) {
   sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
 }
 
-// function getUserCount() {
-//   let count = 0;
+//이거 수정중
+// function getUserKey(userData) {
 //   for (let i = 0; i < localStorage.length; i++) {
 //     const key = localStorage.key(i);
-//     count++;
+//     console.log(key);
+//     if (key.startsWith("FAQ") && key != "FAQno") {
+//       const faqData = JSON.parse(localStorage.getItem(key));
+//       console.log(faqData);
+//     }
 //   }
-//   return count;
 // }
