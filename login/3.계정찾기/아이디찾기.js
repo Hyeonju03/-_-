@@ -225,10 +225,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let logintext = document.getElementById("login");
 let mypagetext = document.getElementById("mypage");
-console.log(logintext);
+
 for (let i = 0; i < localStorage.length; i++) {
-  if (JSON.parse(localStorage.getItem(i)).login) {
-    // 로그인시 뜨는거
+  if (JSON.parse(localStorage.getItem(i)).login == "1") {
     logintext.innerText = "로그아웃";
     mypagetext.innerText = "마이페이지";
 
@@ -240,7 +239,7 @@ for (let i = 0; i < localStorage.length; i++) {
       const item = JSON.parse(localStorage.getItem(i));
       item.login = "0";
       localStorage.setItem(i, JSON.stringify(item));
-      console.log(JSON.parse(localStorage.getItem(i)).login);
+      // console.log(JSON.parse(localStorage.getItem(i)).login);
       // 이거 1나옴 왜지?
 
       //한번 더 누르면

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인</title>
-    <link rel="stylesheet" href="/login/2.로그인/로그인.css" />
+    <title>FAQ 질문과 답 작성</title>
+    <link rel="stylesheet" href="/FAQ작성창/FAQ작성.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -37,11 +37,6 @@
         object-fit: cover;
       }
 
-      img {
-        overflow-clip-margin: content-box;
-        overflow: clip;
-      }
-
       .footLogo {
         width: 20%;
         height: 20%;
@@ -71,7 +66,7 @@
           <div class="top_link">
             <div>
               <h1>
-                <a id="dcs_home" href="#" title="홈 바로가기">
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
                   <img src="/imgs/로고.png" alt="dcs" />
                 </a>
               </h1>
@@ -127,12 +122,12 @@
                 </ul>
               </li>
               <li>
-                <a href="#">고객센터</a>
+                <a href="/FAQ/FAQ.html">고객센터</a>
                 <ul class="subMenu">
-                  <li><a href="#">FAQ</a></li>
+                  <li><a href="/FAQ/FAQ.html">FAQ</a></li>
                   <li><a href="#">1대1문의</a></li>
                   <li><a href="#">공지사항</a></li>
-                  <li><a href="#">수험자유의사항</a></li>
+                  <li><a href="/유의사항/유의사항.html">수험자유의사항</a></li>
                 </ul>
               </li>
               <li>
@@ -153,9 +148,9 @@
         <div id="nav">
           <div class="navBox">
             <ul>
-              <li class="home">회원정보</li>
-              <li>로그인</li>
-              <!-- <li>이름들 적기</li> -->
+              <li class="home">홈</li>
+              <li>고객센터</li>
+              <li>FAQ 질문과 답</li>
             </ul>
           </div>
         </div>
@@ -163,29 +158,14 @@
         <!-- container -->
         <div id="container">
           <div id="snb">
-            <h3>회원정보</h3>
+            <h3>고객센터</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a href="/login/1.회원가입/회원가입.html" class="holder csp">
-                  회원가입
-                </a>
-                <a href="/login/3.계정찾기/아이디찾기.html" class="holder csp">
-                  아이디찾기
-                </a>
-                <a
-                  href="/login/3.계정찾기/비밀번호찾기.html"
-                  class="holder csp"
-                >
-                  비밀번호찾기
-                </a>
-                <a href="/login/이용약관/이용약관.html" class="holder csp">
-                  이용약관
-                </a>
-                <a
-                  href="/login/개인정보처리방침/개인정보처리방침.html"
-                  class="holder csp"
-                >
-                  개인정보처리방침
+                <a href="/FAQ/FAQ.html" class="holder csp"> FAQ </a>
+                <a href="" class="holder csp"> 1대1 문의 </a>
+                <a href="" class="holder csp"> 공지사항 </a>
+                <a href="/유의사항/유의사항.html" class="holder csp">
+                  수험자 유의사항
                 </a>
               </li>
             </ul>
@@ -193,94 +173,81 @@
           <div id="container-contents">
             <div id="content">
               <div class="depth_title">
-                <h2>로그인</h2>
+                <h2>FAQ 질문과 답</h2>
               </div>
               <!-- section -->
-              <div class="section q_into">
-                <div id="article">
-                  <div id="lonIn_container">
-                    <div id="logIn_id">
-                      <label for="logIn_id_text"> 아이디 </label>
-                      <input
-                        type="text"
-                        id="logIn_id_text"
-                        placeholder="아이디를 입력하세요"
-                        class="login_inputBox"
-                      />
-                      <div id="wUserId" class="hidden warn">
-                        아이디를 입력해주세요.
+              <div class="bbsArea">
+                <form
+                  id="fileupload"
+                  name="fileupload"
+                  action="/cmm/board/boardBoardInsertForm.do"
+                  method="post"
+                >
+                  <div class="article textSty1">
+                    <div class="table_box2">
+                      <table class="tb2">
+                        <colgroup>
+                          <col style="width: 15%" />
+                          <col style="width: 85%" />
+                        </colgroup>
+                        <tbody>
+                          <tr style="height: 30px">
+                            <th>
+                              <span>제목</span>
+                            </th>
+                            <td class="tl">
+                              <input
+                                type="text"
+                                class="col-12-s col-8"
+                                id="title"
+                                name="title"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              <span>종목</span>
+                            </th>
+                            <td class="tl">
+                              <select class="col-8 col-12-s" id="category">
+                                <option name="category" value="submit">
+                                  원서접수
+                                </option>
+                                <option name="category" value="testI">
+                                  시험시행
+                                </option>
+                                <option name="category" value="testQ">
+                                  시험문제
+                                </option>
+                                <option name="category" value="testQ">
+                                  자격증 및 인증서
+                                </option>
+                                <option name="category" value="testQ">
+                                  성적 및 회원정보
+                                </option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div>
+                        <textarea
+                          id="title-content"
+                          style="
+                            width: 100%;
+                            height: 350px;
+                            margin-top: 20px;
+                            padding: 10px;
+                          "
+                          placeholder="내용 입력"
+                        ></textarea>
                       </div>
                     </div>
-                    <div id="noId_modar" class="modar">
-                      <div id="noId" class="modarPopup">
-                        존재하지 않는 아이디입니다.
-                      </div>
-                    </div>
-
-                    <div id="logIn_pw">
-                      <label for="logIn_pw_txt" class="block marginL_30">
-                        비밀번호
-                      </label>
-                      <input
-                        type="password"
-                        name="logIn_pw"
-                        id="logIn_pw_txt"
-                        class="login_inputBox inBlock marginL_30"
-                        placeholder="비밀번호를 입력하세요."
-                      />
-                      <div class="inBlock" onclick="pwEye()">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-eye-fill marginL_10"
-                          viewBox="0 0 16 16"
-                          id="eye"
-                        >
-                          <path
-                            d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"
-                          />
-                          <path
-                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"
-                          />
-                        </svg>
-                      </div>
-                      <div id="wUserPw" class="hidden warn marginL_30">
-                        비밀번호를 입력해주세요.
-                      </div>
-                    </div>
-
-                    <div id="longin_btn">
-                      <input
-                        type="submit"
-                        value="로그인"
-                        class="logInBtn"
-                        onclick="login()"
-                      />
-                    </div>
-                    <div id="sub_lonIn_cont" class="flex">
-                      <a
-                        href="/login/1.회원가입/회원가입.html"
-                        class="sub_login borderRight"
-                      >
-                        회원가입
-                      </a>
-                      <a
-                        href="/login/3.계정찾기/아이디찾기.html"
-                        class="sub_login borderRight"
-                      >
-                        아이디 찾기
-                      </a>
-                      <a
-                        href="/login/3.계정찾기/비밀번호찾기.html"
-                        class="sub_login"
-                      >
-                        비밀번호 찾기
-                      </a>
-                    </div>
+                    <a href="/FAQ/FAQ.html" id="writeBtn" class="inBlock btn2"
+                      >작성하기</a
+                    >
                   </div>
-                </div>
+                </form>
               </div>
               <!-- //section -->
             </div>
@@ -311,7 +278,7 @@
                   <span class="csp">시험일정</span>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     <img
                       src="/imgs/megaphone-fill.svg"
                       alt="공지사항"
@@ -360,8 +327,8 @@
               </li>
             </ul>
             <div class="policyBtn">
-              <a href="/login/이용약관/이용약관.html"> 이용약관 </a>
-              <a href="/login/개인정보처리방침/개인정보처리방침.html">
+              <a href="/이용약관/이용약관.html"> 이용약관 </a>
+              <a href="/개인정보처리방침/개인정보처리방침.html">
                 개인정보처리방침
               </a>
             </div>
@@ -386,6 +353,7 @@
       <!-- //wrap -->
       <!-- //bottom -->
     </div>
-    <script src="/login/2.로그인/로그인.js"></script>
+
+    <script src="/FAQ작성창/FAQ작성.js"></script>
   </body>
 </html>
