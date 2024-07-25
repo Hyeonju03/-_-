@@ -789,15 +789,6 @@ a.holder:hover {
   background-color: rgba(243, 243, 243, 0.55);
 }
 
-#inputKeyword {
-  width: 100%;
-  height: 60px;
-  padding: 15px;
-  border: 2px solid rgb(228, 228, 228);
-  border-radius: 5px;
-}
-
-#searchCondition,
 #searchKeyword {
   width: 20%;
   height: 30px;

@@ -92,31 +92,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     signupLink.innerText = "마이페이지";
-    signupLink.href = "/mypage.html";
+    signupLink.href = "#";
   } else {
     // 로그아웃 상태일 때
     loginLink.innerText = "로그인";
-    loginLink.href = "/login.html";
+    loginLink.href = "/login/2.로그인/로그인.html";
 
     signupLink.innerText = "회원가입";
-    signupLink.href = "/signup.html";
+    signupLink.href = "/login/1.회원가입/회원가입.html";
   }
-});
 
-const writeBtn = document.getElementById("writeBtn");
-for (let i = 0; i < localStorage.length; i++) {
-  const userData = JSON.parse(localStorage.getItem(i));
+  // ///////////////////////////////admin 이면 button 보이게 하는거 추가 수정 필요 sesssion 보고 되면 하고 안되면 ㅅㅂ 모르겠다 진짜 aaa한테도 버튼보임 조졌.
 
-  if (userData === null) {
-    continue;
-  }
-  if (userData.login == "1") {
-    const userId = userData.id;
-    if (userId != "admin") {
+  const writeBtn = document.getElementById("writeBtn");
+  console.log(getuserData());
+  for (let i = 0; i < localStorage.length; i++) {
+    const userData = JSON.parse(localStorage.getItem(i));
+    console.log(userData);
+    if (userData.login) {
       writeBtn.style.display = "none";
+      continue;
+    }
+    if (userData.login == "1") {
+      const userId = userData.id;
+      if (userId != "admin") {
+        writeBtn.style.display = "none";
+      }
     }
   }
-}
+});
 
 function getUserData() {
   for (let i = 0; i < localStorage.length; i++) {

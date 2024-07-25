@@ -45,14 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     signupLink.innerText = "마이페이지";
-    signupLink.href = "/mypage.html";
+    signupLink.href = "#";
   } else {
     // 로그아웃 상태일 때
     loginLink.innerText = "로그인";
-    loginLink.href = "/login.html";
+    loginLink.href = "/login/2.로그인/로그인.html";
 
     signupLink.innerText = "회원가입";
-    signupLink.href = "/signup.html";
+    signupLink.href = "/login/1.회원가입/회원가입.html";
   }
 });
 

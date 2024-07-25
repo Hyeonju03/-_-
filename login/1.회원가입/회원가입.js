@@ -402,6 +402,7 @@ function findMaxKey() {
 }
 
 const maxKey = findMaxKey();
+let USERno = parseInt(localStorage.getItem("USERno")) || 0;
 
 function goSign() {
   const res = valCheck();
@@ -440,9 +441,9 @@ function goSign() {
       profile: "0",
     };
     console.log(user);
-    localStorage.setItem(`${findMaxKey()}`, JSON.stringify(user));
-    userNo++;
-
+    localStorage.setItem(`${USERno}`, JSON.stringify(user));
+    USERno++;
+    localStorage.setItem("USERno", USERno);
     alert("회원가입완료");
   }
 }
@@ -497,14 +498,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     signupLink.innerText = "마이페이지";
-    signupLink.href = "/mypage.html";
+    signupLink.href = "#";
   } else {
     // 로그아웃 상태일 때
     loginLink.innerText = "로그인";
-    loginLink.href = "/login.html";
+    loginLink.href = "/login/2.로그인/로그인.html";
 
     signupLink.innerText = "회원가입";
-    signupLink.href = "/signup.html";
+    signupLink.href = "/login/1.회원가입/회원가입.html";
   }
 });
 
