@@ -75,7 +75,7 @@ function login() {
       loginState.login = "1";
       localStorage.setItem(keyNo, JSON.stringify(loginState));
       sessionStorage.setItem("loginUser", JSON.stringify(loginState));
-      window.location.href = "/DCS_main/메인.html";
+      window.location.href = "/mypage/메인페이지/메인.html";
     }
   }
 }

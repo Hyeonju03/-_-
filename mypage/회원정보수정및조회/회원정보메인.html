@@ -192,7 +192,12 @@
                     </div>
                     <div class="profileTxt">
                       <div class="mgB20 fontL">프로필</div>
-                      <label for="profileUp" class="fileUp">사진 등록</label>
+                      <label
+                        for="profileUp"
+                        class="fileUp"
+                        onclick="cgProfile()"
+                        >사진 등록</label
+                      >
                       <input
                         type="file"
                         id="profileUp"
@@ -252,6 +257,7 @@
                       <div class="myBoxTxt">생년월일</div>
                       <div id="userBir" class="myBox"></div>
                     </div>
+
                     <div id="email" class="mTop20">
                       <div class="myBoxTxt">이메일</div>
                       <div id="userEmail" class="myBox"></div>
@@ -260,7 +266,11 @@
                 </div>
               </div>
               <div class="myConfirm">
-                <div class="editBtn" style="display: inline-block">
+                <div
+                  class="editBtn"
+                  style="display: inline-block; cursor: pointer"
+                  onclick="edit()"
+                >
                   수정하기
                 </div>
               </div>

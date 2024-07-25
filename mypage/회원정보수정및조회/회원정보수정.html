@@ -215,7 +215,6 @@
                     <input
                       type="text"
                       id="userId"
-                      placeholder="유저아이디"
                       class="plh"
                       style="text-align: center"
                       disabled
@@ -235,6 +234,13 @@
                     <input id="pwCk" type="password" class="plh" />
                     <img src="/mypage/imgs/eye(pw).svg" class="eye" />
                   </div>
+                  <div
+                    id="warnPwC"
+                    class="warn"
+                    style="color: rgb(255, 183, 0)"
+                  >
+                    비밀번호가 일치하지 않습니다.
+                  </div>
                   <div id="emailCont" class="mTop20">
                     <label for="userEmail" class="fontL">이메일</label><br />
                     <input id="userEmail" type="text" class="plh" />
@@ -243,7 +249,7 @@
                 <div class="editCont">
                   <!-- 성별, 이름, 전화번호, 인증번호, 생년월일 -->
                   <div id="genCont">
-                    <div>성별</div>
+                    <span style="margin-right: 10px">성별</span>
                     <label for="gendM"
                       ><span class="genTxt">남</span>
                       <input
@@ -264,35 +270,44 @@
                         value="여"
                       />
                     </label>
-                    <div id="nameCont" class="mTop20">
-                      <label for="userName" class="fontL">이름</label><br />
-                      <input type="text" id="userName" class="plh" />
+                  </div>
+                  <div id="nameCont" class="mTop20">
+                    <label for="userName" class="fontL">이름</label><br />
+                    <input type="text" id="userName" class="plh" />
+                  </div>
+                  <div id="phCont" class="mTop20">
+                    <label for="userPh" class="fontL">전화번호</label><br />
+                    <input type="text" id="userPh" class="plh" />
+                    <div class="myBtn" style="display: inline-block">
+                      인증번호
                     </div>
-                    <div id="phCont" class="mTop20">
-                      <label for="userPh" class="fontL">전화번호</label><br />
-                      <input type="text" id="userPh" class="plh" />
-                      <div class="myBtn" style="display: inline-block">
-                        인증번호
-                      </div>
-                    </div>
-                    <div id="cerCont" class="mTop20">
-                      <label for="userCer" class="fontL">인증번호</label><br />
-                      <input type="text" id="userCer" class="plh" />
-                      <div class="myBtn" style="display: inline-block">
-                        확인
-                      </div>
-                    </div>
-                    <div id="birthCont" class="mTop20">
-                      <label for="userBirth" class="fontL">생년월일</label
-                      ><br />
-                      <input type="text" id="userBirth" class="plh" />
-                    </div>
+                  </div>
+                  <div id="cerCont" class="mTop20">
+                    <label for="userCer" class="fontL">인증번호</label><br />
+                    <input type="text" id="userCer" class="plh" />
+                    <div class="myBtn" style="display: inline-block">확인</div>
+                  </div>
+                  <div id="birthCont" class="mTop20">
+                    <label for="userBirth" class="fontL">생년월일</label><br />
+                    <input type="text" id="userBirth" class="plh" />
                   </div>
                 </div>
               </div>
               <div class="myConfirm">
-                <div class="myBtn" style="display: inline-block">취소</div>
-                <div class="myBtn" style="display: inline-block">수정</div>
+                <div
+                  class="myBtn"
+                  style="display: inline-block"
+                  onclick="cancel()"
+                >
+                  취소
+                </div>
+                <div
+                  class="myBtn"
+                  style="display: inline-block"
+                  onclick="edit()"
+                >
+                  수정
+                </div>
               </div>
             </div>
             <!-- //section -->

@@ -10,7 +10,7 @@ let user = {
   login: "0",
   profile: "0",
 };
-let userNo = -1;
+
 const signId = document.getElementById("signUp_id"); //입력받는 아이디
 const signPw = document.getElementById("signUp_pw"); //입력받는 비밀번호
 const pwCheck = document.getElementById("signUp_pw_check"); // 입력받는 비밀번호 확인
@@ -28,17 +28,23 @@ const signGender = document.querySelectorAll("[name='gender']"); //성별
 let idConfrim = false;
 function idCheck() {
   const newId = signId.value; //입력받은 아이디
+
   for (let i = 0; i < localStorage.length; i++) {
     //로컬스토리지 돌면서 비교
     const userId = JSON.parse(localStorage.getItem(i)).id; // 키가 0인거부터 순서대로 id를 담음
+    if (userId == false) {
+      alert("첫번쨰회원");
+      return true;
+    }
     if (userId == newId) {
       alert("이미 존재하는 아이디입니다.");
       idConfrim = false;
       return;
     }
   }
-  idConfrim = true;
+  console.log("함수 진행되긴하는지");
   alert("사용 가능한 아이디입니다.");
+  idConfrim = true;
 }
 
 //비밀번호 확인 함수
@@ -173,7 +179,6 @@ function sendSms() {
     //2.전화중복확인
     const dupli = phDup();
     if (signPh.value && dupli) {
-      console.log(dupli);
       let ranNo = randomNo();
       console.log(ranNo);
       //   const coolsms = require("coolsms-node-sdk").default;
@@ -202,13 +207,11 @@ function sendSms() {
 //인증번호 일치여부
 let cerConfrim = false;
 function phCheck() {
-  console.log(random);
   if (random != certiPh.value) {
     alert("인증번호가 일치하지 않습니다.");
     cerConfrim = false;
   } else {
     alert("인증번호가 일치합니다.");
-    console.log(certiPh.value);
     cerConfrim = true;
   }
 }
@@ -300,26 +303,30 @@ function valCheck() {
 }
 
 //회원가입 완료 전, 키값 설정
-function findMaxKey() {
-  // 모든 키값을 순회한다.
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    // 숫자 키만 확인한다.
-    if (!isNaN(key)) {
-      // 키값을 숫자로 변환한다.
-      const keyNum = parseInt(key);
+// function findMaxKey() {
+//   // 모든 키값을 순회한다.
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const key = localStorage.key(i);
+//     // 숫자 키만 확인한다.
+//     if (!isNaN(key)) {
+//       // 키값을 숫자로 변환한다.
+//       const keyNum = parseInt(key);
 
-      // 최대 키값을 저장하는 변수를 초기화하거나 갱신한다.
-      if (userNo === undefined || keyNum > userNo) {
-        userNo = keyNum;
-      }
-    }
-  }
-  // 최대 키값을 반환한다.
-  return userNo;
-}
+//       // 최대 키값을 저장하는 변수를 초기화하거나 갱신한다.
+//       if (userNo === undefined || keyNum > userNo) {
+//         userNo = keyNum;
+//       }
+//     }
+//   }
+//   // 최대 키값을 반환한다.
+//   return userNo;
+// }
 
-const maxKey = findMaxKey();
+// const maxKey = findMaxKey();
+
+let no = 0;
+localStorage.setItem("no", no);
+const keyNo = JSON.parse(sessionStorage.getItem("no"));
 
 function goSign() {
   const res = valCheck();
@@ -357,9 +364,10 @@ function goSign() {
       login: "0",
       profile: "0",
     };
-    console.log(user);
-    localStorage.setItem(`${findMaxKey() + 1}`, JSON.stringify(user));
+    console.log(keyNo);
+    localStorage.setItem(keyNo, JSON.stringify(user));
     alert("회원가입완료");
+    no++;
   }
 }
 
@@ -400,6 +408,9 @@ let logintext = document.getElementById("login");
 let mypagetext = document.getElementById("mypage");
 console.log(logintext);
 for (let i = 0; i < localStorage.length; i++) {
+  if (JSON.parse(localStorage.getItem(i)).login == false) {
+    alert("유저없음");
+  }
   if (JSON.parse(localStorage.getItem(i)).login) {
     // 로그인시 뜨는거
     logintext.innerText = "로그아웃";

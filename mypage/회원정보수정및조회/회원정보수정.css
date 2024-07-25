@@ -751,6 +751,7 @@ a.holder:hover {
 .fileUp:hover {
   background-color: rgb(255, 183, 0);
   font-weight: bold;
+  cursor: pointer;
 }
 .fontL {
   font-size: 15px;
@@ -774,17 +775,18 @@ a.holder:hover {
   color: #969595;
   filter: invert(71%) sepia(0%) saturate(1756%) hue-rotate(90deg)
     brightness(82%) contrast(101%);
+  cursor: pointer;
 }
 
 #genCont {
-  margin-top: 106px;
+  margin-top: 126px;
   font-size: 15px;
+  margin-bottom: 30px;
 }
 
 .gend {
-  margin-top: 20px;
-  margin-bottom: 15px;
   margin-right: 30px;
+  margin-bottom: 9px;
 }
 
 .genTxt {
@@ -816,7 +818,8 @@ a.holder:hover {
 }
 
 .myBtn:hover,
-.editBtn:hover {
+.editBtn:hover,
+#pwComp:hover {
   background-color: rgb(255, 183, 0);
   font-weight: bold;
 }
@@ -871,6 +874,7 @@ a.holder:hover {
   line-height: 40px;
   text-align: center;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .warn {

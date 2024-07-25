@@ -6,39 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//로그인을 한 상태
-//로그인이 1인 회원의 정보를 보여주기
-// function check() {
-//   const allKeys = Object.keys(sessionStorage);
-//   console.log("All keys in session storage:", allKeys);
-
-//   const userkey = JSON.parse(sessionStorage.getItem());
-//   console.log(userkey);
-//   if (userkey) {
-//     const key = JSON.parse(userkey).value;
-//     // console.log(key);
-//   } else {
-//     console.log("No data found in session storage with the provided key.");
-//   }
-// }
-
-// function idCheck() {
-//   const inputId = userId.value;
-//   let checkedId = [];
-//   for (let i = 0; i < localStorage.length; i++) {
-//     checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
-//   }
-//   if (!checkedId.includes(inputId)) {
-//     alert("아이디가 존재하지 않습니다.");
-//     idConfirm = false;
-//     return false;
-//   }
-//   idConfirm = true;
-//   return true;
-// }
-
 //페이지 로드시 작동
 document.addEventListener("DOMContentLoaded", function () {
+  const user = JSON.parse(sessionStorage.getItem("loginUser"));
+  if (user == null) {
+    alert("로그인 후 이용가능합니다.");
+    window.location.href = "/login/2.로그인/로그인.html";
+  }
+
   const id = document.getElementById("userId");
   const ph = document.getElementById("userPh");
   const name = document.getElementById("userName");
@@ -47,36 +22,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const male = document.getElementById("gendM");
   const female = document.getElementById("gendW");
 
-  id.innerText = JSON.parse(sessionStorage.getItem("loginUser")).id;
-  ph.innerText = JSON.parse(sessionStorage.getItem("loginUser")).phone;
-  name.innerText = JSON.parse(sessionStorage.getItem("loginUser")).name;
-  birth.innerText = JSON.parse(sessionStorage.getItem("loginUser")).birth;
-  email.innerText = JSON.parse(sessionStorage.getItem("loginUser")).email;
-  if (JSON.parse(sessionStorage.getItem("loginUser")).gender === "남") {
+  id.innerText = user.id;
+  ph.innerText = user.phone;
+  name.innerText = user.name;
+  birth.innerText = user.birth;
+  email.innerText = user.email;
+  if (user.gender === "남") {
     male.checked = true;
-  } else if (JSON.parse(sessionStorage.getItem("loginUser")).gender === "여") {
+  } else if (user.gender === "여") {
     female.checked = true;
+  }
+
+  //프로필 사진
+  const img = document.getElementById("profile");
+  if (user.profile == 0) {
+    img.src = `/mypage/imgs/프로필기본.png`;
+  } else {
+    img.src = `/mypage/imgs/${user.profile}`;
   }
 });
 
-// let keyNo = 0;
-// function keyCheck() {
-//   for (let key = 0; key < localStorage.length; key++) {
-//     const storeDate = JSON.parse(localStorage.getItem(key));
-//     if (storeDate && storeDate.id == userId.value) {
-//       keyNo = key;
-//       return keyNo;
-//     }
-//   }
-// }
+//사진 등록 누를시 알림창
+function cgProfile() {
+  alert("프로필은 수정하기 버튼을 누른 후 이용 가능합니다.");
+}
 
-function pwCheck() {
-  const res = keyCheck();
-  const inputPw = userPw.value;
-  const checkPw = JSON.parse(localStorage.getItem(res)).pw;
-  if (inputPw != checkPw) {
-    alert("비밀번호가 일치하지 않습니다.");
-    return false;
-  }
-  return true;
+//수정하기 누르면 비밀번호 확인 창으로 이동
+function edit() {
+  window.location.href = "/mypage/회원정보수정및조회/비밀번호확인.html";
 }

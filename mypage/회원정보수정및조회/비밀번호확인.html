@@ -194,8 +194,14 @@
                   class="editBox"
                   placeholder="비밀번호를 입력해주세요."
                 />
-                <img src="/mypage/imgs/eye(pw).svg" class="eye" />
-                <div class="warn">비밀번호를 입력해주세요.</div>
+                <img
+                  src="/mypage/imgs/eye(pw).svg"
+                  class="eye"
+                  onclick="pwEye()"
+                />
+                <div id="warnPw" class="warn" style="color: rgb(255, 183, 0)">
+                  비밀번호를 입력해주세요.
+                </div>
               </div>
               <div>
                 <label for="editPwCk">비밀번호 재입력</label><br />
@@ -205,9 +211,22 @@
                   class="editBox"
                   placeholder="비밀번호를 다시 입력해주세요."
                 />
-                <img src="/mypage/imgs/eye(pw).svg" class="eye" />
+                <img
+                  src="/mypage/imgs/eye(pw).svg"
+                  class="eye"
+                  onclick="pwEye2()"
+                />
+                <div
+                  id="warnPwChek"
+                  class="warn"
+                  style="color: rgb(255, 183, 0)"
+                >
+                  비밀번호를 다시 입력해주세요.
+                </div>
               </div>
-              <div class="pwSubmit">확인</div>
+              <div id="pwComp" class="pwSubmit" onclick="chekEditPw()">
+                확인
+              </div>
             </div>
             <!-- //section -->
           </div>
@@ -309,6 +328,6 @@
       <!-- //wrap -->
       <!-- //bottom -->
     </div>
-    <script src="/mypage/회원정보수정및조회/회원정보수정.js"></script>
+    <script src="/mypage/회원정보수정및조회/비밀번호확인.js"></script>
   </body>
 </html>
