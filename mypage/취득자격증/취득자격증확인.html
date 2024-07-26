@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원정보</title>
-    <link rel="stylesheet" href="/mypage/회원정보수정및조회/회원정보수정.css" />
+    <title>취득자격증확인</title>
+    <link rel="stylesheet" href="/mypage/취득자격증/취득자격증확인.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -71,10 +71,10 @@
               </h1>
               <ul>
                 <li>
-                  <a id="login" href="#">로그인</a>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
                 </li>
                 <li>
-                  <a href="#">회원가입</a>
+                  <a href="/login/1.회원가입/회원가입.html">회원가입</a>
                 </li>
               </ul>
             </div>
@@ -130,12 +130,12 @@
               <li>
                 <a href="#">마이페이지</a>
                 <ul class="subMenu">
-                  <li><a href="#">회원정보수정</a></li>
                   <li>
-                    <a href="/mypage/취득자격증/취득자격증확인.html"
-                      >취득자격증관리</a
+                    <a href="/mypage/회원정보수정및조회/회원정보메인.html"
+                      >회원정보수정</a
                     >
                   </li>
+                  <li><a href="#">취득자격증관리</a></li>
                   <li><a href="#">관심시험</a></li>
                   <li><a href="#">회원탈퇴</a></li>
                 </ul>
@@ -152,7 +152,7 @@
           <ul>
             <li class="home">홈</li>
             <li>마이페이지</li>
-            <li>회원정보수정 및 조회</li>
+            <li>회원정보 수정 및 조회</li>
           </ul>
         </div>
       </div>
@@ -163,15 +163,15 @@
           <h3>마이페이지</h3>
           <ul class="menuList">
             <li class="has-sub has-submenu">
-              <a href="" class="holder csp"> 회원정보 수정 및 조회 </a>
-            </li>
-            <li class="has-sub has-submenu">
               <a
-                href="/mypage/취득자격증/취득자격증확인.html"
+                href="/mypage/회원정보수정및조회/회원정보메인.html"
                 class="holder csp"
               >
-                취득자격증 관리
+                회원정보 수정 및 조회
               </a>
+            </li>
+            <li class="has-sub has-submenu">
+              <a href="" class="holder csp"> 취득자격증 확인 </a>
             </li>
             <li class="has-sub has-submenu">
               <a href="" class="holder csp"> 관심시험 </a>
@@ -184,107 +184,27 @@
         <div id="container-contents">
           <div id="content">
             <div class="depth_title">
-              <h2>회원정보 수정 및 조회</h2>
+              <h2>
+                취득자격증 확인
+                <a
+                  id="writeBtn"
+                  href="/mypage/취득자격증/취득자격증추가하기.html"
+                  class="btn bg_darkgray text_color_white btn_m float_right"
+                >
+                  <span>추가하기</span>
+                </a>
+              </h2>
             </div>
             <!-- section -->
             <div class="section">
-              <div id="myMem" class="myMain">
-                <div class="editCont">
-                  <!-- 프로필 사진칸, 글자, 버튼 -->
-                  <div id="cgProfile" style="display: flex">
-                    <div class="profile" style="display: inline-block">
-                      <img
-                        id="profile"
-                        src="/mypage/imgs/프로필기본.png"
-                        class="profilePh"
-                      />
-                    </div>
-                    <div class="profileTxt">
-                      <div class="mgB20 fontL">프로필</div>
-                      <label
-                        for="profileUp"
-                        class="fileUp"
-                        onclick="cgProfile()"
-                        >사진 등록</label
-                      >
-                      <input
-                        type="file"
-                        id="profileUp"
-                        style="display: none"
-                        accept="image/*"
-                        required
-                        multiple
-                        disabled
-                      />
-                      <br />
-                      <p style="color: rgb(255, 183, 0)">
-                        사진은 300x400 px 이상을
-                      </p>
-                      <p style="color: rgb(255, 183, 0)" s>권장합니다.</p>
-                    </div>
-                  </div>
-
-                  <!-- 아이디, 비밀번호, 이메일 -->
-                  <div id="uId" class="mTop20">
-                    <div class="myBoxTxt" style="padding-top: 5px">아이디</div>
-                    <div id="userId" class="myBox"></div>
-                  </div>
-                  <div id="Ph" class="mTop20">
-                    <div class="myBoxTxt">전화번호</div>
-                    <div id="userPh" class="myBox"></div>
-                  </div>
-                </div>
-                <div class="editCont">
-                  <!-- 성별, 이름, 전화번호, 인증번호, 생년월일 -->
-                  <div>
-                    <div class="myBoxTxt">성별</div>
-                    <label for="gendM"
-                      ><span class="genTxt myBoxTxt">남</span>
-                      <input
-                        type="radio"
-                        id="gendM"
-                        class="gend"
-                        name="gender"
-                        value="남"
-                        disabled
-                      />
-                    </label>
-                    <label for="gendW"
-                      ><span class="genTxt myBoxTxt">여</span>
-                      <input
-                        type="radio"
-                        id="gendW"
-                        class="gend"
-                        name="gender"
-                        value="여"
-                        disabled
-                      />
-                    </label>
-                    <div id="name" class="mTop20">
-                      <div class="myBoxTxt">이름</div>
-                      <div id="userName" class="myBox"></div>
-                    </div>
-                    <div id="birth" class="mTop20">
-                      <div class="myBoxTxt">생년월일</div>
-                      <div id="userBir" class="myBox"></div>
-                    </div>
-
-                    <div id="email" class="mTop20">
-                      <div class="myBoxTxt">이메일</div>
-                      <div id="userEmail" class="myBox"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="myConfirm">
-                <div
-                  class="editBtn"
-                  style="display: inline-block; cursor: pointer"
-                  onclick="edit()"
-                >
-                  수정하기
-                </div>
-              </div>
+              <table id="aquireCer">
+                <thead id="aqCerTh">
+                  <th class="aqCerThs">자격증 이름</th>
+                  <th class="aqCerThs">취득일</th>
+                  <th class="aqCerThs">발행기관</th>
+                </thead>
+                <tbody id="tbodyList"></tbody>
+              </table>
             </div>
             <!-- //section -->
           </div>
@@ -386,6 +306,6 @@
       <!-- //wrap -->
       <!-- //bottom -->
     </div>
-    <script src="/mypage/회원정보수정및조회/회원정보메인.js"></script>
+    <script src="/mypage/취득자격증/취득자격증확인.js"></script>
   </body>
 </html>

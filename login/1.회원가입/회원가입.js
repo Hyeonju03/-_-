@@ -540,12 +540,10 @@ function getUserCount() {
 /////////////////////////////*/
 
 //로그인 로그아웃 글자 변경
-
 const loginLink = document.getElementById("login");
 document.addEventListener("DOMContentLoaded", function () {
   const Login = JSON.parse(sessionStorage.getItem("loginUser"));
   //만약 로그인된 유저(세션로컬리지)에 데이터가 없는경우
-  console.log("로그인상태", login);
   if (!Login) {
     //비로그인상태
     loginLink.innerText = "로그인";

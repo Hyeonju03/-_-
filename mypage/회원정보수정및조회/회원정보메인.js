@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
   //프로필 사진
   const img = document.getElementById("profile");
   if (user.profile == 0) {
-    img.src = `/mypage/imgs/프로필기본.png`;
+    img.src = `/imgs/프로필기본.png`;
   } else {
-    img.src = `/mypage/imgs/${user.profile}`;
+    img.src = `/imgs/${user.profile}`;
   }
 });
 
