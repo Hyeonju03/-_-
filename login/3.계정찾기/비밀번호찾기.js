@@ -108,14 +108,14 @@ function sendSms() {
   console.log(random);
   //   const coolsms = require("coolsms-node-sdk").default;
   // const messageService = new coolsms(
-  //   "NCS9L2EWZZQKBULJ",
-  //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
+  //   "개인키",
+  //   "시크릿키"
   // );
   // messageService
   //   .sendOne({
   //     to: `${phNo}`,
   //     from: "01063640525",
-  //     text: "SM 수 있습니다.",
+  //     text: `인증번호는 ${random}입니다.`,
   //   })
   //   .then((res) => {
   //     console.log(res);

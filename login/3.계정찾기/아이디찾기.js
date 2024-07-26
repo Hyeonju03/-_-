@@ -60,7 +60,7 @@ function keyCheck() {
   for (let key = 0; key < localStorage.length; key++) {
     const storeDate = localStorage.getItem(key);
     if (storeDate === null) {
-      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      console.log(`로컬 스토리지에서 ${key} 인덱스의 데이터가 null입니다.`);
       continue;
     }
     try {
@@ -74,8 +74,8 @@ function keyCheck() {
       console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
       // 예외 처리
     }
-    return keyObj;
   }
+  return keyObj;
 }
 
 //전화번호 하이픈 넣기
@@ -167,7 +167,7 @@ function sendSms() {
       //   .sendOne({
       //     to: `${phNo}`,
       //     from: "01063640525",
-      //     text: "SM 수 있습니다.",
+      //     text: `인증번호는 ${ran}입니다.`,
       //   })
       //   .then((res) => {
       //     console.log(res);
@@ -188,7 +188,6 @@ function cerCheck() {
     ceConfirm = false;
   } else {
     alert("인증번호가 일치합니다.");
-    console.log(cerNo.value);
     ceConfirm = true;
   }
 }
@@ -251,6 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/*/////////
 let logintext = document.getElementById("login");
 let mypagetext = document.getElementById("mypage");
 console.log(logintext);
@@ -284,3 +284,4 @@ for (let i = 0; i < localStorage.length; i++) {
     });
   }
 }
+  ///////////*/

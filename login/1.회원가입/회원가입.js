@@ -258,8 +258,8 @@ function sendSms() {
   //     console.log(ranNo);
   //     //   const coolsms = require("coolsms-node-sdk").default;
   //     // const messageService = new coolsms(
-  //     //   "NCS9L2EWZZQKBULJ",
-  //     //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
+  //     //   "개인키",
+  //     //   "시크릿키"
   //     // );
 
   //     // messageService
@@ -456,30 +456,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// let logintext = document.getElementById("login");
-// let mypagetext = document.getElementById("mypage");
-// for (let i = 0; i < localStorage.length; i++) {
-//   const loginState = JSON.parse(localStorage.getItem(i));
-//   if (JSON.parse(localStorage.getItem(i)).login) {
-//     logintext.innerText = "로그아웃";
-//     mypagetext.innerText = "마이페이지";
+/*
+let logintext = document.getElementById("login");
+let mypagetext = document.getElementById("mypage");
+for (let i = 0; i < localStorage.length; i++) {
+  const loginState = JSON.parse(localStorage.getItem(i));
+  if (JSON.parse(localStorage.getItem(i)).login) {
+    logintext.innerText = "로그아웃";
+    mypagetext.innerText = "마이페이지";
 
-//     logintext.addEventListener("click", () => {
-//       loginState.login = "0";
-//       localStorage.setItem(i, JSON.stringify(loginState));
+    logintext.addEventListener("click", () => {
+      loginState.login = "0";
+      localStorage.setItem(i, JSON.stringify(loginState));
 
-//       logintext.innerText = "로그인";
-//       mypagetext.innerText = "회원가입";
+      logintext.innerText = "로그인";
+      mypagetext.innerText = "회원가입";
 
-//       // logintext.addEventListener("click", () => {
-//       //   logintext.href = "/login/2.로그인/로그인.html";
-//       // });
-//     });
-//     mypagetext.addEventListener("click", () => {
-//       mypagetext.href = "#";
-//     });
-//   }
-// }
+      // logintext.addEventListener("click", () => {
+      //   logintext.href = "/login/2.로그인/로그인.html";
+      // });
+    });
+    mypagetext.addEventListener("click", () => {
+      mypagetext.href = "#";
+    });
+  }
+}
+  */
+
+/*///////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", function () {
   //로그인 상태 여부
   const loginLink = document.getElementById("login");
@@ -532,4 +536,34 @@ function getUserCount() {
     count++;
   }
   return count;
+}
+/////////////////////////////*/
+
+//로그인 로그아웃 글자 변경
+
+const loginLink = document.getElementById("login");
+document.addEventListener("DOMContentLoaded", function () {
+  const Login = JSON.parse(sessionStorage.getItem("loginUser"));
+  //만약 로그인된 유저(세션로컬리지)에 데이터가 없는경우
+  console.log("로그인상태", login);
+  if (!Login) {
+    //비로그인상태
+    loginLink.innerText = "로그인";
+    linkMove();
+  } else {
+    //로그인상태
+    linkMove();
+    loginLink.innerText = "로그아웃";
+  }
+});
+
+//글자를 확인하고 그에 맞는 링크로 이동하기
+function linkMove() {
+  const linkText = loginLink.textContent; //a 태그에 있는 내용
+  if (linkText == "로그인") {
+    loginLink.href = "/login/2.로그인/로그인.html";
+  } else {
+    //메인페이지링크 넣기
+    loginLink.href = "/mypage/메인페이지/메인.html";
+  }
 }

@@ -86,7 +86,7 @@ function pwEye2() {
 
 //비밀번호 입력시
 let pwConfrim = false;
-const originPw = JSON.parse(sessionStorage.getItem("loginUser")).pw; //비밀번호가 바뀌면 변경해주기 위해 선언
+let originPw = JSON.parse(sessionStorage.getItem("loginUser")).pw; //비밀번호가 바뀌면 변경해주기 위해 선언
 function checkPw() {
   if (!pw.value && !pwC.value) {
     pwConfrim = true;
@@ -186,7 +186,7 @@ function newPh() {
 //2. 인증번호 눌렀을 때
 let phConfrim = false;
 let random = "";
-const originPh = JSON.parse(sessionStorage.getItem("loginUser")).phone;
+let originPh = JSON.parse(sessionStorage.getItem("loginUser")).phone;
 function phCheck() {
   const phLeng = phLength();
   const updatePh = newPh();
@@ -200,8 +200,8 @@ function phCheck() {
         console.log(ranNo);
         // const coolsms = require("coolsms-node-sdk").default;
         // const messageService = new coolsms(
-        //   "NCS9L2EWZZQKBULJ",
-        //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
+        //   "개인키",
+        //   "시크릿키"
         // );
         // messageService
         //   .sendOne({
@@ -239,6 +239,7 @@ function cerCheck() {
     cerConfrim = true;
   }
 }
+
 // 성별 체크된 값 받는 함수
 const gender = document.querySelectorAll("[name='gender']");
 function genderCehck() {
@@ -267,7 +268,7 @@ function keyCheck() {
 function edit() {
   const newPw = checkPw();
   //전화번호가 바뀐 경우 인증버튼을 눌러야 진행
-  if (loginUser.phone != ph.value || pwC.value != "") {
+  if (loginUser.phone != ph.value || phC.value != "") {
     if (!phConfrim) {
       alert("인증번호 버튼을 눌러주세요");
       return;
@@ -300,4 +301,32 @@ function edit() {
 //취소버튼 누르면 다시 마이페이지로 이동
 function cancel() {
   window.location.href = "/mypage/회원정보수정및조회/회원정보메인.html";
+}
+
+//로그인 로그아웃 글자 변경
+const loginLink = document.getElementById("login");
+document.addEventListener("DOMContentLoaded", function () {
+  const Login = JSON.parse(sessionStorage.getItem("loginUser"));
+  //만약 로그인된 유저(세션로컬리지)에 데이터가 없는경우
+  console.log("로그인상태", login);
+  if (!Login) {
+    //비로그인상태
+    loginLink.innerText = "로그인";
+    linkMove();
+  } else {
+    //로그인상태
+    linkMove();
+    loginLink.innerText = "로그아웃";
+  }
+});
+
+//글자를 확인하고 그에 맞는 링크로 이동하기
+function linkMove() {
+  const linkText = loginLink.textContent; //a 태그에 있는 내용
+  if (linkText == "로그인") {
+    loginLink.href = "/login/2.로그인/로그인.html";
+  } else {
+    //메인페이지링크 넣기
+    loginLink.href = "/mypage/메인페이지/메인.html";
+  }
 }

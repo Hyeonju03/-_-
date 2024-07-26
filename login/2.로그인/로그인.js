@@ -110,3 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+
+//위에 로그인 로그아웃 확인
+function test() {
+  console.log(JSON.parse(sessionStorage.getItem("loginUser")));
+}
