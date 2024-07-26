@@ -1609,3 +1609,60 @@ a.holder:hover {
 }
 
 /* 내용 부분 */
+#notice {
+  font-size: larger;
+  font-weight: bold !important;
+  color: rgb(255, 183, 0);
+  text-align: center;
+}
+
+#quit {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  margin: 30px;
+  margin-top: 30px;
+}
+.quitCont {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.eye {
+  width: 20px;
+  margin-left: 10px;
+  color: #969595;
+  filter: invert(71%) sepia(0%) saturate(1756%) hue-rotate(90deg)
+    brightness(82%) contrast(101%);
+  cursor: pointer;
+}
+.editBox {
+  width: 300px;
+  height: 30px;
+  margin: 10px 0px 10px 0px;
+  border-color: #333;
+  border-radius: 5px;
+}
+
+.warn {
+  display: none;
+  color: rgb(255, 183, 0);
+}
+.pwSubmit {
+  height: 40px;
+  width: 300px;
+  border-radius: 5px;
+  margin-right: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: gainsboro;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#pwContainer {
+  margin-left: 200px;
+}
