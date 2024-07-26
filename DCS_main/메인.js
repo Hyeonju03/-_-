@@ -67,37 +67,139 @@ document.addEventListener("DOMContentLoaded", function () {
       nextMove();
     }, 3000);
   });
+
+  // 입력받은 공지 끌어오는데 반대로 5개? 4개를 가져와야하니까 for문 반대로 쓰기
+
+  const noticeItems = [];
+  let count = 0;
+  for (let i = localStorage.length - 1; i >= 0; i--) {
+    const key = localStorage.key(i);
+    const noticeData = JSON.parse(localStorage.getItem(`NOTICE${i}`));
+    if (!noticeData) {
+      continue;
+    }
+    noticeItems.push({
+      title: noticeData.title,
+      content: noticeData.content,
+      category: noticeData.category,
+    });
+    count++;
+    if (count == 5) {
+      console.log(noticeItems);
+      break;
+    }
+  }
+
+  const liList = document.getElementById("noticebox");
+
+  noticeItems.forEach((item, index) => {
+    const container = document.createElement("li");
+    container.classList.add("notice_item_container");
+
+    const p = document.createElement("p");
+    const a = document.createElement("a");
+
+    p.classList.add("text_lg");
+    a.classList.add("notice_title");
+    a.style.fontSize = "large";
+    a.textContent = item.title;
+
+    p.addEventListener("click", () => {
+      window.location.href = "/notice/notice.html";
+    });
+    p.appendChild(a);
+    container.appendChild(p);
+    liList.appendChild(container);
+  });
+
+  ////////////////////////////////// 로그인 관련 ////////////////////////////////////
+
+  //로그인 상태 여부
+  const loginLink = document.getElementById("login");
+  const signupLink = document.getElementById("mypage");
+
+  let userData = getUserData();
+
+  if (userData && userData.login) {
+    if (userData.login == "1") {
+      // 로그인 상태일 때
+      loginLink.innerText = "로그아웃";
+      loginLink.href = "#";
+      loginLink.addEventListener("click", () => {
+        // 로그아웃 처리
+        userData.login = "0";
+        saveUserData(userData);
+        logoutUser(userData);
+
+        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
+        location.reload(); // 페이지 새로고침
+      });
+
+      signupLink.innerText = "마이페이지";
+      signupLink.href = "#";
+    } else {
+      // 로그아웃 상태일 때
+      loginLink.innerText = "로그인";
+      loginLink.href = "/login/2.로그인/로그인.html";
+
+      signupLink.innerText = "회원가입";
+      signupLink.href = "/login/1.회원가입/회원가입.html";
+    }
+  } else {
+    loginLink.innerText = "로그인";
+    loginLink.href = "/login/2.로그인/로그인.html";
+
+    signupLink.innerText = "회원가입";
+    signupLink.href = "/login/1.회원가입/회원가입.html";
+  }
 });
 
-let logintext = document.getElementById("login");
-let mypagetext = document.getElementById("mypage");
+function getUserData() {
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    if (key == "loginUser") {
+      const userData = JSON.parse(sessionStorage.getItem(key));
+      if (userData) {
+        return userData;
+      }
+    } else {
+      continue;
+    }
+  }
+  return null; // 사용자 데이터가 없거나 null인 경우
+}
 
-for (let i = 0; i < localStorage.length; i++) {
-  if (JSON.parse(localStorage.getItem(i)).login == "1") {
-    logintext.innerText = "로그아웃";
-    mypagetext.innerText = "마이페이지";
+function saveUserData(userData) {
+  sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
+}
 
-    //로그아웃 클릭시
-    logintext.addEventListener("click", () => {
-      // 글씨 바꾸기
-      logintext.innerText = "로그인";
-      mypagetext.innerText = "회원가입";
-      const item = JSON.parse(localStorage.getItem(i));
-      item.login = "0";
-      localStorage.setItem(i, JSON.stringify(item));
-      // console.log(JSON.parse(localStorage.getItem(i)).login);
-      // 이거 1나옴 왜지?
+// 로그아웃 클릭시 session에서 0으로 바뀐것을 local로 전달
+function logoutUser(userData) {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
 
-      //한번 더 누르면
-      logintext.addEventListener("click", () => {
-        //로그아웃탭으로 이동
-        logintext.href = "/login/2.로그인/로그인.html";
-      });
-    });
+    // localstorage 에 담긴 값.
+    const localStorageData = localStorage.getItem(key);
+    if (localStorageData) {
+      try {
+        // JSON문자열을 객체로 변환
+        const localStorageObject = JSON.parse(localStorageData);
+        // localStorage 객체와 session객체 비교.
+        if (localStorageObject.id == userData.id) {
+          // usreData의 login 값을 local에 업데이트
+          localStorageObject.login = userData.login;
 
-    //마이페이지 이동
-    mypagetext.addEventListener("click", () => {
-      mypagetext.href = "#";
-    });
+          // localStorageObject를 JSON문자열로 변환
+          const updateLocalStorage = JSON.stringify(localStorageObject);
+
+          localStorage.setItem(key, updateLocalStorage);
+          break;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("if문 통과 못함");
+    }
   }
 }

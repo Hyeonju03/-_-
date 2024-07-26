@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // FAQ로 시작하면서 FAQno가 아닌애들 뽑아내기
   const faqItems = [];
-  for (let i = 0; i < localStorage.length; i++) {
+  for (let i = localStorage.length - 1; i >= 0; i--) {
     const key = localStorage.key(i);
     if (key.startsWith("FAQ") && key != "FAQno") {
       const faqData = JSON.parse(localStorage.getItem(key));

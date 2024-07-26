@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // inquire로 시작하면서 inquireno가 아닌애들 뽑아내기
   const inquireItems = [];
-  for (let i = 0; i < localStorage.length; i++) {
+  for (let i = localStorage.length - 1; i >= 0; i--) {
     const key = localStorage.key(i);
     if (key.startsWith("INQUIRE") && key != "INQUIREno") {
       const inquireData = JSON.parse(localStorage.getItem(key));
