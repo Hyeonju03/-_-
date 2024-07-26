@@ -22,8 +22,8 @@
       th {
         background-color: #f2f2f2;
       }
-      .bg-gainsboro {
-        background-color: gainsboro;
+      .bg-d2d2d2 {
+        background-color: #d2d2d2;
       }
 
       .line-height {
@@ -86,11 +86,27 @@
         border-bottom-style: solid;
         display: block;
       }
+
+      #examTable a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .icon::before {
+        content: url(/imgs/icons8-앞으로.png);
+      }
+
+      .icon2::before {
+        content: url(/imgs/icons8-원-64.png);
+      }
     </style>
   </head>
   <body>
-    <div class="line-height margin border-bottom"><h2>시험일정</h2></div>
+    <div class="line-height margin border-bottom">
+      <h2 class="icon2">시험일정</h2>
+    </div>
 
+<<<<<<< HEAD
     <script src="/데이터.js">
       // localStorage에서 시험 데이터 가져오기
       const examData = JSON.parse(localStorage.getItem("examData"));
@@ -140,5 +156,104 @@
         }
       }
     </script>
+=======
+    <fieldset class="fieldset margin bg-bg-d2d2d2">
+      <div class="margin2">
+        <span class="icon"
+          >개발자들에게 도움되는 자격증들입니다. 모두 취득하시는걸
+          권장합니다.</span
+        >
+      </div>
+      <div class="margin2">
+        <span class="icon"
+          >시험 미접수로 응시 하지 못하는경우는 책임지지 않습니다. 문의사항은
+          FAQ에 문의 바랍니다.</span
+        >
+      </div>
+    </fieldset>
+
+    <fieldset class="fieldset margin">
+      <div class="margin2">
+        <label for="typeCertificate" class="icon">종목&nbsp;&nbsp;</label>
+        <select name="type" id="typeCertificate">
+          <option value="-">- 시험 종목을 선택하세요 -</option>
+          <option value="정보처리기사">정보처리기사</option>
+          <option value="임베디드기사">임베디드기사</option>
+          <option value="전자계산기조직응용기사">전자계산기조직응용기사</option>
+          <option value="웹디자인기능사">웹디자인기능사</option>
+          <option value="제품응용모델링기능사">제품응용모델링기능사</option>
+          <option value="전자계산기기능사">전자계산기기능사</option>
+          <option value="정보기기운용기능사">정보기기운용기능사</option>
+          <option value="정보보안기사">정보보안기사</option>
+          <option value="무선설비기사">무선설비기사</option>
+          <option value="정보통신기사">정보통신기사</option>
+          <option value="전파전자통신기사">전파전자통신기사</option>
+          <option value="빅데이터분석기사">빅데이터분석기사</option>
+          <option value="SQL전문가(SQLP)">SQL전문가(SQLP)</option>
+          <option value="SQL개발자(SQLD)">SQL개발자(SQLD)</option>
+          <option value="데이터분석전문가(ADP)">데이터분석전문가(ADP)</option>
+          <option value="데이터분석준전문가(ADsP)">
+            데이터분석준전문가(ADsP)
+          </option>
+          <option value="데이터아키텍처전문가(DAP)">
+            데이터아키텍처전문가(DAP)
+          </option>
+          <option value="데이터아키텍처준전문가(DAsP)">
+            데이터아키텍처준전문가(DAsP)
+          </option>
+          <option value="네트워크관리사1급">네트워크관리사1급</option>
+          <option value="네트워크관리사2급">네트워크관리사2급</option>
+        </select>
+      </div>
+      <div class="margin2">
+        <label for="startDate" class="icon">기간&nbsp;&nbsp;</label>
+        <input
+          type="date"
+          id="startDate"
+          name="startDate"
+          min=""
+          max="2024-12-31"
+        />
+        <label for="endDate"></label>
+        <input
+          type="date"
+          id="endDate"
+          name="endDate"
+          min=""
+          max="2024-12-31"
+        />
+
+        <div class="bn-container float-right">
+          <button class="bn" onclick="searchExams()">검색</button>
+        </div>
+
+        <div id="result"></div>
+      </div>
+    </fieldset>
+
+    <table id="examTable">
+      <thead>
+        <tr class="bg-bg-d2d2d2">
+          <th>시험일</th>
+          <th>시험종목</th>
+          <th>원서접수</th>
+          <th>수험표공고</th>
+          <th>결과발표</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <fieldset class="fieldset margin bg-bg-d2d2d2">
+      <div>
+        <span class="icon">
+          각 시험마다 자격요건 및 접수 가능지역(고사장)이 제한될 수 있으니 이점
+          유의하여 주관하는 기관에서 원서접수 해주시기 바랍니다.</span
+        >
+      </div>
+    </fieldset>
+
+    <script src="/데이터.js"></script>
+>>>>>>> ede36f107607e91a0a609b4bd2c6ec02e1330edd
   </body>
 </html>
