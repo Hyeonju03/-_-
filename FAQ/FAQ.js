@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  // FAQ로 시작하면서 FAQno가 아닌애들 뽑아내기
   const faqItems = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key.startsWith("FAQ")) {
+    if (key.startsWith("FAQ") && key != "FAQno") {
       const faqData = JSON.parse(localStorage.getItem(key));
       faqItems.push({
         id: key,
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  //
   const dlList = document.getElementById("faqList");
   faqItems.forEach((item, index) => {
     const container = document.createElement("div");
@@ -26,8 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dt = document.createElement("dt");
     const dd = document.createElement("dd");
+
     dt.classList.add("faq_title");
     dd.classList.add("faq_view");
+
     dt.textContent = item.title;
     dd.textContent = item.content;
     dt.id = `dt${index}`;
@@ -44,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     container.appendChild(dt);
     container.appendChild(dd);
     dlList.appendChild(container);
+    console.log(container);
   });
 
   // 버튼 클릭 시 동작
@@ -80,21 +85,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
+  // console.log(userData);
 
-  if (userData && userData.login == "1") {
-    // 로그인 상태일 때
-    loginLink.innerText = "로그아웃";
-    loginLink.addEventListener("click", () => {
-      // 로그아웃 처리
-      userData.login = "0";
-      saveUserData(userData);
-      location.reload(); // 페이지 새로고침
-    });
+  if (userData && userData.login) {
+    if (userData.login == "1") {
+      // 로그인 상태일 때
+      loginLink.innerText = "로그아웃";
+      loginLink.href = "#";
+      loginLink.addEventListener("click", () => {
+        // 로그아웃 처리
+        userData.login = "0";
+        saveUserData(userData);
+        logoutUser(userData);
 
-    signupLink.innerText = "마이페이지";
-    signupLink.href = "#";
+        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
+        location.reload(); // 페이지 새로고침
+      });
+
+      signupLink.innerText = "마이페이지";
+      signupLink.href = "#";
+    } else {
+      // 로그아웃 상태일 때
+      loginLink.innerText = "로그인";
+      loginLink.href = "/login/2.로그인/로그인.html";
+
+      signupLink.innerText = "회원가입";
+      signupLink.href = "/login/1.회원가입/회원가입.html";
+    }
   } else {
-    // 로그아웃 상태일 때
     loginLink.innerText = "로그인";
     loginLink.href = "/login/2.로그인/로그인.html";
 
@@ -102,47 +120,66 @@ document.addEventListener("DOMContentLoaded", function () {
     signupLink.href = "/login/1.회원가입/회원가입.html";
   }
 
-  // ///////////////////////////////admin 이면 button 보이게 하는거 추가 수정 필요 sesssion 보고 되면 하고 안되면 ㅅㅂ 모르겠다 진짜 aaa한테도 버튼보임 조졌.
-
   const writeBtn = document.getElementById("writeBtn");
-  console.log(getuserData());
-  for (let i = 0; i < localStorage.length; i++) {
-    const userData = JSON.parse(localStorage.getItem(i));
-    console.log(userData);
-    if (userData.login) {
+  const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
+  if (loginUser && loginUser.login == 1) {
+    if (loginUser.id == "admin") {
+      writeBtn.style.display = "display";
+    } else {
       writeBtn.style.display = "none";
-      continue;
     }
-    if (userData.login == "1") {
-      const userId = userData.id;
-      if (userId != "admin") {
-        writeBtn.style.display = "none";
-      }
-    }
+  } else {
+    writeBtn.style.display = "none";
   }
 });
 
 function getUserData() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-
-    const userData = JSON.parse(localStorage.getItem(key));
-    if (userData) {
-      return userData;
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    if (key == "loginUser") {
+      const userData = JSON.parse(sessionStorage.getItem(key));
+      if (userData) {
+        return userData;
+      }
+    } else {
+      continue;
     }
   }
   return null; // 사용자 데이터가 없거나 null인 경우
 }
 
 function saveUserData(userData) {
-  localStorage.setItem(`user${getUserCount()}`, JSON.stringify(userData));
+  sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
 }
 
-function getUserCount() {
-  let count = 0;
+// 로그아웃 클릭시 session에서 0으로 바뀐것을 local로 전달
+function logoutUser(userData) {
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    count++;
+
+    // localstorage 에 담긴 값.
+    const localStorageData = localStorage.getItem(key);
+    if (localStorageData) {
+      try {
+        // JSON문자열을 객체로 변환
+        const localStorageObject = JSON.parse(localStorageData);
+        // localStorage 객체와 session객체 비교.
+        if (localStorageObject.id == userData.id) {
+          // usreData의 login 값을 local에 업데이트
+          localStorageObject.login = userData.login;
+
+          // localStorageObject를 JSON문자열로 변환
+          const updateLocalStorage = JSON.stringify(localStorageObject);
+
+          localStorage.setItem(key, updateLocalStorage);
+          break;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("if문 통과 못함");
+    }
   }
-  return count;
 }

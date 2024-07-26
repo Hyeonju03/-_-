@@ -4,9 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-
   let INQUIREno = parseInt(localStorage.getItem("INQUIREno")) || 0; // 현재 no 값 가져오기
-
   const writeBtn = document.getElementById("writeBtn");
 
   writeBtn.addEventListener("click", () => {
@@ -19,20 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
       title: title,
       content: content,
       category: category,
-      adminAnswer: 0,
+      admincomment: "",
+      userId: JSON.parse(sessionStorage.getItem("loginUser")).id,
     };
 
-    //sessionStorage 로 비교해서 login 안되어있으면(데이터가 없다는 의미일듯?)
-    //로그인먼저 해주세요alert 후 로그인페이지로 이동
-
-    localStorage.setItem(`INQURE${INQUIREno}`, JSON.stringify(inquire));
+    localStorage.setItem(`INQUIRE${INQUIREno}`, JSON.stringify(inquire));
+    alert("작성 완료 되었습니다.");
 
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
     INQUIREno++;
     localStorage.setItem("INQUIREno", INQUIREno);
 
-    alert("작성 완료 되었습니다.");
-    window.location.href = "/DCS_main/메인.html";
+    window.location.href = "/inquire/inquire.html";
   });
 
   //로그인 상태 여부
@@ -41,20 +37,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let userData = getUserData();
 
-  if (userData && userData.login == "1") {
-    // 로그인 상태일 때
-    loginLink.innerText = "로그아웃";
-    loginLink.addEventListener("click", () => {
-      // 로그아웃 처리
-      userData.login = "0";
-      saveUserData(userData);
-      location.reload(); // 페이지 새로고침
-    });
+  if (userData && userData.login) {
+    if (userData.login == "1") {
+      // 로그인 상태일 때
+      loginLink.innerText = "로그아웃";
+      loginLink.href = "#";
+      loginLink.addEventListener("click", () => {
+        // 로그아웃 처리
+        userData.login = "0";
+        saveUserData(userData);
+        logoutUser(userData);
 
-    signupLink.innerText = "마이페이지";
-    signupLink.href = "#";
+        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
+        location.reload(); // 페이지 새로고침
+      });
+
+      signupLink.innerText = "마이페이지";
+      signupLink.href = "#";
+    } else {
+      // 로그아웃 상태일 때
+      loginLink.innerText = "로그인";
+      loginLink.href = "/login/2.로그인/로그인.html";
+
+      signupLink.innerText = "회원가입";
+      signupLink.href = "/login/1.회원가입/회원가입.html";
+    }
   } else {
-    // 로그아웃 상태일 때
     loginLink.innerText = "로그인";
     loginLink.href = "/login/2.로그인/로그인.html";
 
@@ -64,26 +72,51 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function getUserData() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-
-    const userData = JSON.parse(localStorage.getItem(key));
-    if (userData) {
-      return userData;
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    if (key == "loginUser") {
+      const userData = JSON.parse(sessionStorage.getItem(key));
+      if (userData) {
+        return userData;
+      }
+    } else {
+      continue;
     }
   }
   return null; // 사용자 데이터가 없거나 null인 경우
 }
 
 function saveUserData(userData) {
-  localStorage.setItem(`user${getUserCount()}`, JSON.stringify(userData));
+  sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
 }
 
-function getUserCount() {
-  let count = 0;
+// 로그아웃 클릭시 session에서 0으로 바뀐것을 local로 전달
+function logoutUser(userData) {
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    count++;
+
+    // localstorage 에 담긴 값.
+    const localStorageData = localStorage.getItem(key);
+    if (localStorageData) {
+      try {
+        // JSON문자열을 객체로 변환
+        const localStorageObject = JSON.parse(localStorageData);
+        // localStorage 객체와 session객체 비교.
+        if (localStorageObject.id == userData.id) {
+          // usreData의 login 값을 local에 업데이트
+          localStorageObject.login = userData.login;
+
+          // localStorageObject를 JSON문자열로 변환
+          const updateLocalStorage = JSON.stringify(localStorageObject);
+
+          localStorage.setItem(key, updateLocalStorage);
+          break;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("if문 통과 못함");
+    }
   }
-  return count;
 }
