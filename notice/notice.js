@@ -5,79 +5,112 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // FAQ로 시작하면서 FAQno가 아닌애들 뽑아내기
-  const faqItems = [];
+  // notice로 시작하면서 noticeno가 아닌애들 뽑아내기
+  const noticeItems = [];
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key.startsWith("FAQ") && key != "FAQno") {
-      const faqData = JSON.parse(localStorage.getItem(key));
-      faqItems.push({
+    if (key.startsWith("NOTICE") && key != "NOTICEno") {
+      const noticeData = JSON.parse(localStorage.getItem(key));
+      noticeItems.push({
         id: key,
-        title: faqData.title,
-        content: faqData.content,
-        category: faqData.category,
+        title: noticeData.title,
+        content: noticeData.content,
+        category: noticeData.category,
       });
     }
   }
 
   //
-  const dlList = document.getElementById("faqList");
-  faqItems.forEach((item, index) => {
+  const dlList = document.getElementById("noticeList");
+  noticeItems.forEach((item, index) => {
+    let userData = getUserData();
     const container = document.createElement("div");
-    container.classList.add("faq_item_container");
+    container.classList.add("notice_item_container");
 
     const dt = document.createElement("dt");
     const dd = document.createElement("dd");
+    const deleteBtn = document.createElement("button");
 
-    dt.classList.add("faq_title");
-    dd.classList.add("faq_view");
+    dt.classList.add("notice_title");
+    dd.classList.add("notice_view");
+    deleteBtn.classList.add("commentBtn");
 
     dt.textContent = item.title;
     dd.textContent = item.content;
+    deleteBtn.textContent = "삭제하기";
+
     dt.id = `dt${index}`;
     dd.style.display = "none";
+    deleteBtn.style.display = "none";
 
+    // dt 클릭시
     dt.addEventListener("click", () => {
+      // dd가 none
       if (dd.style.display == "none") {
         dd.style.display = "block";
+        if (userData && userData.login == 1) {
+          if (userData.id == "admin") {
+            deleteBtn.style.display = "block";
+          } else {
+            deleteBtn.style.display = "none";
+          }
+        }
       } else {
         dd.style.display = "none";
+        deleteBtn.style.display = "none";
+      }
+    });
+
+    deleteBtn.addEventListener("click", () => {
+      for (let i = 0; i < localStorage.length; i++) {
+        const local = JSON.parse(localStorage.getItem(`NOTICE${i}`));
+
+        if (local) {
+          if (local.title == dt.innerText) {
+            window.localStorage.removeItem(`NOTICE${i}`);
+            container.remove();
+            alert("삭제되었습니다.");
+          }
+        }
+      }
+    });
+
+    // 조건 등록시 걸러지기
+    const searchBtn = document.getElementById("searchBtn");
+
+    searchBtn.addEventListener("click", () => {
+      const select = document.querySelector("option[name=filter]:checked");
+      const searchText = document.getElementById("searchText");
+      if (select.value == "submit") {
+        let text = searchText.value;
+        if (dt.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else {
+          dt.style.display = "none";
+        }
+      } else if (select.value == "content") {
+        let text = searchText.value;
+        if (dd.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else {
+          dt.style.display = "none";
+        }
+      } else if (select.value == "subCon") {
+        let text = searchText.value;
+        if (dd.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else if (dt.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else {
+          dt.style.display = "none";
+        }
       }
     });
 
     container.appendChild(dt);
     container.appendChild(dd);
+    container.appendChild(deleteBtn);
     dlList.appendChild(container);
-    console.log(container);
-  });
-
-  // 버튼 클릭 시 동작
-  const btns = document.querySelectorAll(".btn2");
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const category = btn.textContent.trim(); // 클릭한 버튼의 카테고리
-      const containers = document.querySelectorAll(".faq_item_container");
-
-      // 모든 FAQ 항목을 숨기기
-      containers.forEach((container) => {
-        container.style.display = "none";
-      });
-
-      // 클릭한 버튼의 카테고리와 일치하는 FAQ 항목만 보이기
-      faqItems.forEach((item, index) => {
-        if (item.category == category) {
-          containers[index].style.display = "block";
-        }
-      });
-
-      // 클릭한 버튼의 스타일 변경
-      btns.forEach((b) => {
-        b.style.backgroundColor = "white";
-        b.style.color = "black";
-      });
-      btn.style.backgroundColor = "rgb(255, 183, 0)";
-      btn.style.color = "white";
-    });
   });
 
   //로그인 상태 여부
@@ -98,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
         saveUserData(userData);
         logoutUser(userData);
 
-        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
 

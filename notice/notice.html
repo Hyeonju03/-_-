@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ 질문과 답</title>
-    <link rel="stylesheet" href="/FAQ/FAQ.css" />
+    <title>공지사항</title>
+    <link rel="stylesheet" href="/notice/notice.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -150,7 +150,7 @@
             <ul>
               <li class="home">홈</li>
               <li>고객센터</li>
-              <li>FAQ 질문과 답</li>
+              <li>공지사항</li>
             </ul>
           </div>
         </div>
@@ -174,10 +174,10 @@
             <div id="content">
               <div class="depth_title">
                 <h2>
-                  FAQ 질문과 답
+                  공지사항
                   <a
                     id="writeBtn"
-                    href="/FAQ작성창/FAQ작성.html"
+                    href="/writeNotice/writeNotice.html"
                     class="btn bg_darkgray text_color_white btn_m float_right"
                   >
                     <span>작성하기</span>
@@ -188,21 +188,42 @@
               <div class="article" style="margin-bottom: 0px; margin-top: 10px">
                 <div id="search_box">
                   <form id="selectBox">
-                    <div id="submission" class="inBlock btn2">원서접수</div>
-                    <div id="implement" class="inBlock btn2">시험시행</div>
-                    <div id="questions" class="inBlock btn2">시험문제</div>
-                    <div id="certificate" class="inBlock btn2">
-                      자격증 및 인증서
-                    </div>
-                    <div id="information" class="inBlock btn2">
-                      성적 및 회원정보
-                    </div>
+                    <td class="tl">
+                      <select
+                        class="col-8 col-12-s"
+                        id="filter"
+                        style="margin-left: 20px; width: 80px; height: 30px"
+                      >
+                        <option name="filter" value="submit">제목</option>
+                        <option name="filter" value="content">내용</option>
+                        <option name="filter" value="subCon">
+                          제목 + 내용
+                        </option>
+                      </select>
+                      <input
+                        id="searchText"
+                        type="text"
+                        style="width: 200px; height: 30px"
+                      />
+                      <button
+                        id="searchBtn"
+                        class="bg_darkgray text_color_white"
+                        style="
+                          width: 70px;
+                          height: 30px;
+                          border-radius: 5px;
+                          cursor: pointer;
+                        "
+                      >
+                        검색하기
+                      </button>
+                    </td>
                   </form>
                 </div>
               </div>
               <div id="bbsArea">
-                <div class="faq_list">
-                  <dl id="faqList"></dl>
+                <div class="notice_list">
+                  <dl id="noticeList"></dl>
                 </div>
               </div>
               <!-- //section -->
@@ -310,6 +331,6 @@
       <!-- //bottom -->
     </div>
 
-    <script src="/FAQ/FAQ.js"></script>
+    <script src="/notice/notice.js"></script>
   </body>
 </html>
