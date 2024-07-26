@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원정보</title>
+    <link rel="stylesheet" href="/mypage/회원정보수정및조회/회원정보수정.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 300 to 800 */
+
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 100 to 900 */
+
+      .noto-sans-kr-uniquifier {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+      }
+      /* 34 */
+      #dcs_home img {
+        width: 23%;
+        height: 23%;
+        object-fit: cover;
+      }
+
+      .footLogo {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        position: relative;
+        top: -20px;
+      }
+
+      .add {
+        position: relative;
+        top: 20px;
+        left: -80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- header_Top -->
+      <div id="header" class="noto-sans-kr-uniquifier">
+        <div class="headerTop">
+          <!-- top_link -->
+          <div class="top_link">
+            <div>
+              <h1>
+                <a
+                  id="dcs_home"
+                  href="/메인페이지/메인.html"
+                  title="홈 바로가기"
+                >
+                  <img src="/project-main/imgs/로고.png" alt="dcs" />
+                </a>
+              </h1>
+              <ul>
+                <li>
+                  <a id="login" href="#">로그인</a>
+                </li>
+                <li>
+                  <a href="#">회원가입</a>
+                </li>
+              </ul>
+            </div>
+            <!-- //top_link -->
+          </div>
+          <!-- //headerTop -->
+        </div>
+        <!-- headerBottom -->
+        <div class="headerBottom">
+          <div>
+            <ul class="mainMenu">
+              <li>
+                <a href="#">자격소개</a>
+                <ul class="subMenu">
+                  <li><a href="">소프트웨어개발기술자</a></li>
+                  <li><a href="">웹개발기술자</a></li>
+                  <li><a href="">모바일앱개발기술자</a></li>
+                  <li><a href="">게임개발기술자</a></li>
+                  <li><a href="">이멥디드시스템개발기술자</a></li>
+                  <li><a href="">데이터분석기술자</a></li>
+                  <li><a href="">인공지능기술자</a></li>
+                  <li><a href="">정보처리기사</a></li>
+                  <li><a href="">머신러닝기술자</a></li>
+                  <li><a href="">네트워크관리기술자</a></li>
+                  <li><a href="">보안관리기술자</a></li>
+                  <li><a href="">시스템설계및구축기술자</a></li>
+                  <li><a href="">정보보안전문가</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">시험일정</a>
+                <ul class="subMenu">
+                  <li><a href="#">시험일정안내</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">게시판</a>
+                <ul class="subMenu">
+                  <li><a href="#">시험후기글</a></li>
+                  <li><a href="#">활용사례</a></li>
+                  <li><a href="#">기출문제</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">고객센터</a>
+                <ul class="subMenu">
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">1대1문의</a></li>
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="/유의사항/유의사항.html">수험자유의사항</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">마이페이지</a>
+                <ul class="subMenu">
+                  <li><a href="#">회원정보수정</a></li>
+                  <li>
+                    <a href="/mypage/취득자격증/취득자격증확인.html"
+                      >취득자격증관리</a
+                    >
+                  </li>
+                  <li><a href="#">관심시험</a></li>
+                  <li><a href="#">회원탈퇴</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- //headerBottom -->
+      </div>
+      <!-- //header -->
+      <!-- nav -->
+      <div id="nav" class="noto-sans-kr-uniquifier">
+        <div class="navBox">
+          <ul>
+            <li class="home">홈</li>
+            <li>마이페이지</li>
+            <li>회원정보수정 및 조회</li>
+          </ul>
+        </div>
+      </div>
+      <!-- //nav -->
+      <!-- container -->
+      <div id="container">
+        <div id="snb">
+          <h3>마이페이지</h3>
+          <ul class="menuList">
+            <li class="has-sub has-submenu">
+              <a href="" class="holder csp"> 회원정보 수정 및 조회 </a>
+            </li>
+            <li class="has-sub has-submenu">
+              <a
+                href="/mypage/취득자격증/취득자격증확인.html"
+                class="holder csp"
+              >
+                취득자격증 관리
+              </a>
+            </li>
+            <li class="has-sub has-submenu">
+              <a href="" class="holder csp"> 관심시험 </a>
+            </li>
+            <li class="has-sub has-submenu">
+              <a href="" class="holder csp"> 회원탈퇴 </a>
+            </li>
+          </ul>
+        </div>
+        <div id="container-contents">
+          <div id="content">
+            <div class="depth_title">
+              <h2>회원정보 수정 및 조회</h2>
+            </div>
+            <!-- section -->
+            <div class="section">
+              <div id="myMem" class="myMain">
+                <div class="editCont">
+                  <!-- 프로필 사진칸, 글자, 버튼 -->
+                  <div id="cgProfile" style="display: flex">
+                    <div class="profile" style="display: inline-block">
+                      <img
+                        id="profile"
+                        src="/mypage/imgs/프로필기본.png"
+                        class="profilePh"
+                      />
+                    </div>
+                    <div class="profileTxt">
+                      <div class="mgB20 fontL">프로필</div>
+                      <label
+                        for="profileUp"
+                        class="fileUp"
+                        onclick="cgProfile()"
+                        >사진 등록</label
+                      >
+                      <input
+                        type="file"
+                        id="profileUp"
+                        style="display: none"
+                        accept="image/*"
+                        required
+                        multiple
+                        disabled
+                      />
+                      <br />
+                      <p style="color: rgb(255, 183, 0)">
+                        사진은 300x400 px 이상을
+                      </p>
+                      <p style="color: rgb(255, 183, 0)" s>권장합니다.</p>
+                    </div>
+                  </div>
+
+                  <!-- 아이디, 비밀번호, 이메일 -->
+                  <div id="uId" class="mTop20">
+                    <div class="myBoxTxt" style="padding-top: 5px">아이디</div>
+                    <div id="userId" class="myBox"></div>
+                  </div>
+                  <div id="Ph" class="mTop20">
+                    <div class="myBoxTxt">전화번호</div>
+                    <div id="userPh" class="myBox"></div>
+                  </div>
+                </div>
+                <div class="editCont">
+                  <!-- 성별, 이름, 전화번호, 인증번호, 생년월일 -->
+                  <div>
+                    <div class="myBoxTxt">성별</div>
+                    <label for="gendM"
+                      ><span class="genTxt myBoxTxt">남</span>
+                      <input
+                        type="radio"
+                        id="gendM"
+                        class="gend"
+                        name="gender"
+                        value="남"
+                        disabled
+                      />
+                    </label>
+                    <label for="gendW"
+                      ><span class="genTxt myBoxTxt">여</span>
+                      <input
+                        type="radio"
+                        id="gendW"
+                        class="gend"
+                        name="gender"
+                        value="여"
+                        disabled
+                      />
+                    </label>
+                    <div id="name" class="mTop20">
+                      <div class="myBoxTxt">이름</div>
+                      <div id="userName" class="myBox"></div>
+                    </div>
+                    <div id="birth" class="mTop20">
+                      <div class="myBoxTxt">생년월일</div>
+                      <div id="userBir" class="myBox"></div>
+                    </div>
+
+                    <div id="email" class="mTop20">
+                      <div class="myBoxTxt">이메일</div>
+                      <div id="userEmail" class="myBox"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="myConfirm">
+                <div
+                  class="editBtn"
+                  style="display: inline-block; cursor: pointer"
+                  onclick="edit()"
+                >
+                  수정하기
+                </div>
+              </div>
+            </div>
+            <!-- //section -->
+          </div>
+          <!-- //content -->
+          <!-- bottom -->
+          <!-- quickMenu -->
+          <div class="quickMenu" class="noto-sans-kr-uniquifier">
+            <h3>빠른메뉴</h3>
+            <ul>
+              <li>
+                <a href="#">
+                  <img
+                    src="/project-main/imgs/card-list.svg"
+                    alt="자격소개"
+                    class="img-size"
+                  />
+                </a>
+                <span class="csp">자격소개</span>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="/project-main/imgs/calendar2-week.svg"
+                    alt="시험일정"
+                    class="img-size"
+                  />
+                </a>
+                <span class="csp">시험일정</span>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="/project-main/imgs/megaphone-fill.svg"
+                    alt="공지사항"
+                    class="img-size"
+                  />
+                </a>
+                <span class="csp">공지사항</span>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="/" alt="FAQ" class="img-size" />
+                </a>
+                <span class="csp">FAQ</span>
+              </li>
+              <li>
+                <a href="#">
+                  <img
+                    src="/project-main/imgs/person-fill.svg"
+                    alt="마이페이지"
+                    class="img-size"
+                  />
+                </a>
+                <span class="csp">마이페이지</span>
+              </li>
+            </ul>
+            <p class="gotoTop csp">TOP</p>
+          </div>
+          <!-- //quickMenu -->
+        </div>
+        <!-- //container-contents -->
+      </div>
+      <!-- //container -->
+      <!-- footer -->
+      <div id="footer" class="noto-sans-kr-uniquifier">
+        <div class="policy">
+          <ul>
+            <li>
+              <a href="#">자격소개</a>
+            </li>
+            <li>
+              <a href="/유의사항/유의사항.html">수험자 유의사항</a>
+            </li>
+          </ul>
+          <div class="policyBtn">
+            <a href="/이용약관/이용약관.html"> 이용약관 </a>
+            <a href="/개인정보처리방침/개인정보처리방침.html">
+              개인정보처리방침
+            </a>
+          </div>
+        </div>
+        <!-- //policy -->
+        <div class="info">
+          <p class="footLogo">
+            <img src="/project-main/imgs/로고.png" alt="dcs" />
+          </p>
+          <div class="add">
+            <p>
+              (34856) 대전광역시 중구 계룡로 825 (용두동, 희영빌딩 2층) Email:
+              nextit_center@naver.com | Fax: 042-719-8851
+            </p>
+            <p>Copyright © Next IT Edu-Center 2016</p>
+          </div>
+        </div>
+        <!-- //info -->
+      </div>
+      <!-- //footer -->
+
+      <!-- //wrap -->
+      <!-- //bottom -->
+    </div>
+    <script src="/mypage/회원정보수정및조회/회원정보메인.js"></script>
+  </body>
+</html>
