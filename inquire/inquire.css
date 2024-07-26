@@ -807,7 +807,7 @@ a.holder:hover {
   display: flex;
   width: 100%;
   height: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -831,19 +831,17 @@ a.holder:hover {
   border: 1px solid #c8c8d0;
 }
 
-.faq_title {
+.inquire_title {
   background-position: 0px 15px;
   cursor: pointer;
   padding: 12px 30px;
   border-bottom: 1px solid rgb(228, 228, 228);
+  border-top: 1px solid rgb(228, 228, 228);
 }
 
-.faq_view {
+.inquire_view {
   padding: 20px;
   background-color: #f0f0f3;
-}
-
-.faq_view {
   line-height: 1.6;
 }
 
@@ -869,4 +867,26 @@ a.holder:hover {
 .click-yellow {
   background-color: rgb(255, 183, 0);
   color: white;
+}
+
+.inquire_comment {
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.commentBtn {
+  border: 1px solid rgb(255, 183, 0);
+  background: white;
+  color: #201818;
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  margin-top: 5px;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  display: block;
 }

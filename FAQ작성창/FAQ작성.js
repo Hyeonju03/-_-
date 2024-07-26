@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
     FAQno++;
     localStorage.setItem("FAQno", FAQno);
+
+    window.location.href = "/FAQ/FAQ.html";
   });
 
   //로그인 상태 여부
@@ -35,26 +37,32 @@ document.addEventListener("DOMContentLoaded", function () {
   let userData = getUserData();
   // console.log(userData);
 
-  if (userData.login == "1") {
-    // 로그인 상태일 때
-    loginLink.innerText = "로그아웃";
-    loginLink.href = "#";
-    loginLink.addEventListener("click", () => {
-      // 로그아웃 처리
-      userData.login = "0";
-      saveUserData(userData);
-      logoutUser(userData);
+  if (userData && userData.login) {
+    if (userData.login == "1") {
+      // 로그인 상태일 때
+      loginLink.innerText = "로그아웃";
+      loginLink.href = "#";
+      loginLink.addEventListener("click", () => {
+        // 로그아웃 처리
+        userData.login = "0";
+        saveUserData(userData);
+        logoutUser(userData);
 
-      // localStorage.setItem(`loginUser`, JSON.stringify(userData));
-      location.reload(); // 페이지 새로고침
-      alert("로그인이 필요한 작업입니다.");
-      window.location.href = "/DCS_main/DCS.html";
-    });
+        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
+        location.reload(); // 페이지 새로고침
+      });
 
-    signupLink.innerText = "마이페이지";
-    signupLink.href = "#";
+      signupLink.innerText = "마이페이지";
+      signupLink.href = "#";
+    } else {
+      // 로그아웃 상태일 때
+      loginLink.innerText = "로그인";
+      loginLink.href = "/login/2.로그인/로그인.html";
+
+      signupLink.innerText = "회원가입";
+      signupLink.href = "/login/1.회원가입/회원가입.html";
+    }
   } else {
-    // 로그아웃 상태일 때
     loginLink.innerText = "로그인";
     loginLink.href = "/login/2.로그인/로그인.html";
 
