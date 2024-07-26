@@ -33,15 +33,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
-  console.log(userData);
+  // console.log(userData);
+
   if (userData.login == "1") {
     // 로그인 상태일 때
     loginLink.innerText = "로그아웃";
+    loginLink.href = "#";
     loginLink.addEventListener("click", () => {
       // 로그아웃 처리
       userData.login = "0";
       saveUserData(userData);
+      logoutUser(userData);
+
+      // localStorage.setItem(`loginUser`, JSON.stringify(userData));
       location.reload(); // 페이지 새로고침
+      alert("로그인이 필요한 작업입니다.");
+      window.location.href = "/DCS_main/DCS.html";
     });
 
     signupLink.innerText = "마이페이지";
@@ -57,12 +64,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function getUserData() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-
-    const userData = JSON.parse(localStorage.getItem(key));
-    if (userData) {
-      return userData;
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    if (key == "loginUser") {
+      const userData = JSON.parse(sessionStorage.getItem(key));
+      if (userData) {
+        return userData;
+      }
+    } else {
+      continue;
     }
   }
   return null; // 사용자 데이터가 없거나 null인 경우
@@ -72,11 +82,33 @@ function saveUserData(userData) {
   sessionStorage.setItem(`loginUser`, JSON.stringify(userData));
 }
 
-// function getUserCount() {
-//   let count = 0;
-//   for (let i = 0; i < localStorage.length; i++) {
-//     const key = localStorage.key(i);
-//     count++;
-//   }
-//   return count;
-// }
+// 로그아웃 클릭시 session에서 0으로 바뀐것을 local로 전달
+function logoutUser(userData) {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+
+    // localstorage 에 담긴 값.
+    const localStorageData = localStorage.getItem(key);
+    if (localStorageData) {
+      try {
+        // JSON문자열을 객체로 변환
+        const localStorageObject = JSON.parse(localStorageData);
+        // localStorage 객체와 session객체 비교.
+        if (localStorageObject.id == userData.id) {
+          // usreData의 login 값을 local에 업데이트
+          localStorageObject.login = userData.login;
+
+          // localStorageObject를 JSON문자열로 변환
+          const updateLocalStorage = JSON.stringify(localStorageObject);
+
+          localStorage.setItem(key, updateLocalStorage);
+          break;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("if문 통과 못함");
+    }
+  }
+}
