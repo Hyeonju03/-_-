@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-  let INQUIREno = parseInt(localStorage.getItem("FAQno")) || 0; // 현재 no 값 가져오기
+  let INQUIREno = parseInt(localStorage.getItem("INQUIREno")) || 0; // 현재 no 값 가져오기
   const writeBtn = document.getElementById("writeBtn");
 
   writeBtn.addEventListener("click", () => {

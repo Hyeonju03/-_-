@@ -28,8 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dt = document.createElement("dt");
     const dd = document.createElement("dd");
+
     dt.classList.add("faq_title");
     dd.classList.add("faq_view");
+
     dt.textContent = item.title;
     dd.textContent = item.content;
     dt.id = `dt${index}`;
