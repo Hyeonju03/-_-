@@ -729,22 +729,6 @@ a:hover {
   width: 66.666%;
 }
 
-input[type="text"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="email"],
-input[type="password"] {
-  min-width: 80px;
-  height: 30px;
-  line-height: 25px;
-  padding: 0 10px;
-  font-size: 13px;
-  font-weight: 400;
-  border: 1px solid #c2c3cf;
-  color: #333;
-}
-
 p {
   line-height: 1.8;
 }

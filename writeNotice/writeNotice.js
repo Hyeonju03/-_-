@@ -5,29 +5,26 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  let FAQno = parseInt(localStorage.getItem("FAQno")) || 0; // 현재 no 값 가져오기
+  let NOTICEno = parseInt(localStorage.getItem("NOTICEno")) || 0; // 현재 no 값 가져오기
   const writeBtn = document.getElementById("writeBtn");
 
   writeBtn.addEventListener("click", () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("title-content").value;
-    const select = document.getElementById("category");
-    const category = select.options[select.selectedIndex].text;
 
-    const faq = {
+    const notice = {
       title: title,
       content: content,
-      category: category,
     };
 
-    localStorage.setItem(`FAQ${FAQno}`, JSON.stringify(faq));
+    localStorage.setItem(`NOTICE${NOTICEno}`, JSON.stringify(notice));
     alert("작성 완료 되었습니다.");
 
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
-    FAQno++;
-    localStorage.setItem("FAQno", FAQno);
+    NOTICEno++;
+    localStorage.setItem("NOTICEno", NOTICEno);
 
-    window.location.href = "/FAQ/FAQ.html";
+    window.location.href = "/notice/notice.html";
   });
 
   //로그인 상태 여부
