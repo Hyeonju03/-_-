@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>임베디드기사</title>
+    <link rel="stylesheet" href="/introduce/introduce.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 300 to 800 */
+
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 100 to 900 */
+
+      .noto-sans-kr-uniquifier {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+      }
+
+      #dcs_home img {
+        width: 23%;
+        height: 23%;
+        object-fit: cover;
+      }
+
+      .footLogo {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        position: relative;
+        top: -20px;
+      }
+
+      .img-size {
+        height: 25px;
+        width: 25px;
+      }
+
+      .add {
+        position: relative;
+        top: 20px;
+        left: -80px;
+      }
+
+      .line-height {
+        line-height: 180%;
+      }
+
+      .float-left {
+        float: left;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      .margin {
+        margin-top: 40px;
+        margin-left: 20px;
+      }
+
+      .margin2 {
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+
+      td,
+      th {
+        width: 310px;
+        height: 50px;
+        text-align: center;
+        border: 1px solid #000;
+      }
+
+      .bg-gainsboro {
+        background-color: gainsboro;
+      }
+
+      .img {
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body class="noto-sans-kr-uniquifier">
+    <div id="wrap">
+      <!-- header_Top -->
+      <div id="header">
+        <div class="headerTop">
+          <!-- top_link -->
+          <div class="top_link">
+            <div>
+              <h1>
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
+                  <img src="/imgs/로고.png" alt="dcs" />
+                </a>
+              </h1>
+              <ul>
+                <li>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
+                </li>
+                <li>
+                  <a id="mypage" href="/login/1.회원가입/회원가입.html"
+                    >회원가입</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- //top_link -->
+          </div>
+          <!-- //headerTop -->
+        </div>
+        <!-- headerBottom -->
+        <div class="headerBottom">
+          <div>
+            <ul class="mainMenu">
+              <li>
+                <a href="/introduce/1.정보처리기사.html">자격소개</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/introduce/1.정보처리기사.html">정보처리기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/2.임베디드기사.html">임베디드기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/3.전자계산기조직응용기사.html"
+                      >전자계산기조직응용기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/4.웹디자인기능사.html"
+                      >웹디자인기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/5.제품응용모델링기능사.html"
+                      >제품응용모델링기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/6.전자계산기기능사.html"
+                      >전자계산기기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/7.정보기기운용기능사.html"
+                      >정보기기운용기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/8.정보보안기사.html">정보보안기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/9.무선설비기사.html">무선설비기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/10.정보통신기사.html">정보통신기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/11.전파전자통신기사.html"
+                      >전파전자통신기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/12.빅데이터분석기사.html"
+                      >빅데이터분석기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/13.SQL전문가(SQLP).html"
+                      >SQL전문가(SQLP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/14.SQL개발자(SQLD).html"
+                      >SQL개발자(SQLD)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/15.데이터분석전문가(ADP).html"
+                      >데이터분석전문가(ADP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/16.데이터분석준전문가(ADsP).html"
+                      >데이터분석준전문가(ADsP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/17.데이터아키텍처전문가(DAP).html"
+                      >데이터아키텍처전문가(DAP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/18.데이터아키텍처준전문가(DAsP).html"
+                      >데이터아키텍처준전문가(DAsP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/19.네트워크관리사1급.html"
+                      >네트워크관리사1급</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/20.네트워크관리사2급.html"
+                      >네트워크관리사2급</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/examSchedule/examSchedule.html">시험일정</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/examSchedule/examSchedule.html">시험일정안내</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/board/testReview/testReview.html">게시판</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/board/testReview/testReview.html">시험후기글</a>
+                  </li>
+                  <li><a href="#">기출문제</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/serviceCenter/FAQ/FAQ.html">고객센터</a>
+                <ul class="subMenu">
+                  <li><a href="/serviceCenter/FAQ/FAQ.html">FAQ</a></li>
+                  <li>
+                    <a href="/serviceCenter/inquire/inquire.html">1대1문의</a>
+                  </li>
+                  <li>
+                    <a href="/serviceCenter/notice/notice.html">공지사항</a>
+                  </li>
+                  <li>
+                    <a href="/serviceCenter/info/info.html">수험자유의사항</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                  >마이페이지</a
+                >
+                <ul class="subMenu">
+                  <li>
+                    <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                      >회원정보수정</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/mypage/취득자격증/취득자격증확인.html"
+                      >취득자격증관리</a
+                    >
+                  </li>
+                  <li><a href="/mypage/회원탈퇴/회원탈퇴.html">회원탈퇴</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- //headerBottom -->
+        <!-- //header -->
+        <!-- nav -->
+        <div id="nav">
+          <div class="navBox">
+            <ul>
+              <li class="home">홈</li>
+              <li>자격소개</li>
+              <li>임베디드기사</li>
+            </ul>
+          </div>
+        </div>
+        <!-- //nav -->
+        <!-- container -->
+        <div id="container">
+          <div id="snb">
+            <h3>자격소개</h3>
+            <ul class="menuList">
+              <li class="has-sub has-submenu">
+                <a href="/introduce/1.정보처리기사.html" class="holder csp"
+                  >정보처리기사</a
+                >
+                <a href="/introduce/2.임베디드기사.html" class="holder csp"
+                  >임베디드기사</a
+                >
+                <a
+                  href="/introduce/3.전자계산기조직응용기사.html"
+                  class="holder csp"
+                >
+                  전자계산기조직응용기사
+                </a>
+                <a href="/introduce/4.웹디자인기능사.html" class="holder csp"
+                  >웹디자인기능사</a
+                >
+                <a
+                  href="/introduce/5.제품응용모델링기능사.html"
+                  class="holder csp"
+                  >제품응용모델링기능사</a
+                >
+                <a href="/introduce/6.전자계산기기능사.html" class="holder csp"
+                  >전자계산기기능사</a
+                >
+                <a
+                  href="/introduce/7.정보기기운용기능사.html"
+                  class="holder csp"
+                >
+                  정보기기운용기능사
+                </a>
+                <a href="/introduce/8.정보보안기사.html" class="holder csp">
+                  정보보안기사
+                </a>
+                <a href="/introduce/9.무선설비기사.html" class="holder csp"
+                  >무선설비기사</a
+                >
+                <a href="/introduce/10.정보통신기사.html" class="holder csp">
+                  정보통신기사
+                </a>
+                <a
+                  href="/introduce/11.전파전자통신기사.html"
+                  class="holder csp"
+                >
+                  전파전자통신기사
+                </a>
+                <a
+                  href="/introduce/12.빅데이터분석기사.html"
+                  class="holder csp"
+                >
+                  빅데이터분석기사
+                </a>
+                <a href="/introduce/13.SQL전문가(SQLP).html" class="holder csp">
+                  SQL전문가(SQLP)
+                </a>
+                <a href="/introduce/14.SQL개발자(SQLD).html" class="holder csp">
+                  SQL개발자(SQLD)
+                </a>
+                <a
+                  href="/introduce/15.데이터분석전문가(ADP).html"
+                  class="holder csp"
+                >
+                  데이터분석전문가(ADP)
+                </a>
+                <a
+                  href="/introduce/16.데이터분석준전문가(ADsP).html"
+                  class="holder csp"
+                >
+                  데이터분석준전문가(ADsP)
+                </a>
+                <a
+                  href="/introduce/17.데이터아키텍처전문가(DAP).html"
+                  class="holder csp"
+                >
+                  데이터아키텍처전문가(DAP)
+                </a>
+                <a
+                  href="/introduce/18.데이터아키텍처준전문가(DAsP).html"
+                  class="holder csp"
+                >
+                  데이터아키텍처준전문가(DAsP)
+                </a>
+                <a
+                  href="/introduce/19.네트워크관리사1급.html"
+                  class="holder csp"
+                >
+                  네트워크관리사1급
+                </a>
+                <a
+                  href="/introduces/20.네트워크관리사2급.html"
+                  class="holder csp"
+                >
+                  네트워크관리사2급
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="container-contents">
+            <div id="content">
+              <div class="depth_title">
+                <h2>
+                  임베디드기사
+                  <a
+                    href="https://www.q-net.or.kr/man001.do?gSite=Q"
+                    class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
+                    target="_blank"
+                  >
+                    <span>접수신청</span>
+                  </a>
+                </h2>
+              </div>
+              <!-- section -->
+              <div class="section q_into">
+                <!-- <div class="article tab_qbox">카테고리? 부분 없으면 삭제</div> -->
+                <div id="qlfintContent noto-sans-kr-uniquifier">
+                  <img
+                    src="/imgs/산업인력공단.png"
+                    class="float-left img"
+                    width="250px"
+                    alt="산업인력공단 임베디드기사"
+                  />
+
+                  <div class="line-height margin">
+                    <span
+                      >대한민국의 컴퓨터 관련 자격증. 전자 분야 기사급
+                      국가기술자격이다. 산업통상자원부에서 시행하며
+                      한국산업인력공단이 시험을 주관한다. 정기 기사 4회 1번만
+                      시행되고 있다. 기능사 자격으로는 전자계산기기능사(2026년에
+                      임베디드기능사로 명칭변경 예정)가 있으나, 산업기사
+                      자격증과 기술사 자격증은 없다. 임베디드 시스템의
+                      하드웨어와 운영체제 구조를 분석하고 그에 맞는 하드웨어,
+                      소프트웨어 구현에 관련된 자격증이다.</span
+                    >
+                  </div>
+
+                  <div class="line-height margin">
+                    <h2>필기</h2>
+                  </div>
+                  <div class="line-height margin2">
+                    <table>
+                      <tr>
+                        <th class="bg-gainsboro">시험 과목</th>
+                        <th>
+                          <div>임베디드 하드웨어</div>
+                          <div>임베디드 펌웨어</div>
+                          <div>임베디스 소프트웨어</div>
+                          <div>임베디드 플랫폼</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">검정 방법</th>
+                        <th>
+                          <div>객관식</div>
+                          <div>(과목당 20문제, 2시간)</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">수수료</th>
+                        <th>19,400원</th>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <span>4개의 시험 과목은 다음과 같이 세분화된다.</span>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <table>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 하드웨어</th>
+                        <th>
+                          <div>1. 논리회로</div>
+                          <div>2. 컴퓨터 구조와 마이크로프로세서</div>
+                          <div>3. 주변장치</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 펌웨어</th>
+                        <th>
+                          <div>1. 펌웨어</div>
+                          <div>2. OS 포팅</div>
+                          <div>3. 디바이스 드라이버 개발</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 플랫폼</th>
+                        <th>
+                          <div>1. OS</div>
+                          <div>2. 리눅스 커널프로그래밍</div>
+                          <div>3. 리눅스 커널프로그래밍</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 소프트웨어</th>
+                        <th>
+                          <div>1. 데이터 구조</div>
+                          <div>2. 프로그래밍</div>
+                          <div>3. 개발방법론</div>
+                        </th>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <span>연도별 응시자, 합격자 통계는 다음과 같다.</span>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <table>
+                      <tr class="bg-gainsboro">
+                        <th>연도</th>
+                        <th>응시자</th>
+                        <th>합격자</th>
+                        <th>합격률</th>
+                      </tr>
+                      <tr>
+                        <td>2023년</td>
+                        <td>79명</td>
+                        <td>50명</td>
+                        <td>63.3%</td>
+                      </tr>
+                      <tr>
+                        <td>2022년</td>
+                        <td>79명</td>
+                        <td>44명</td>
+                        <td>55.7%</td>
+                      </tr>
+                      <tr>
+                        <td>2021년</td>
+                        <td>80명</td>
+                        <td>37명</td>
+                        <td>46.3%</td>
+                      </tr>
+                      <tr>
+                        <td>2020년</td>
+                        <td>32명</td>
+                        <td>21명</td>
+                        <td>65.6%</td>
+                      </tr>
+                      <tr>
+                        <td>2019년</td>
+                        <td>101명</td>
+                        <td>55명</td>
+                        <td>54.5%</td>
+                      </tr>
+                      <tr>
+                        <td>2018년</td>
+                        <td>113명</td>
+                        <td>68명</td>
+                        <td>60.2%</td>
+                      </tr>
+                      <tr>
+                        <td>2017년</td>
+                        <td>128명</td>
+                        <td>41명</td>
+                        <td>32.0%</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <h2>실기</h2>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <table>
+                      <tr>
+                        <th class="bg-gainsboro">시험 과목</th>
+                        <th>
+                          <div>임베디드 하드웨어</div>
+                          <div>임베디드 펌웨어</div>
+                          <div>임베디스 소프트웨어</div>
+                          <div>임베디드 플랫폼</div>
+                          <div>장애 대응</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">검정 방법</th>
+                        <th>
+                          <div>필답형</div>
+                          <div>(2시간 30분)</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">수수료</th>
+                        <th>22,600원</th>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <span>5개의 시험 과목은 다음과 같이 세분화된다.</span>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <table>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 하드웨어</th>
+                        <th>
+                          <div>1. 하드웨어 및 회로 분석하기</div>
+                          <div>2. 임베디드 시스템 성능 및 구조 분석하기</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 펌웨어</th>
+                        <th>
+                          <div>1. 펌웨어 설계, 구현 및 테스팅 하기</div>
+                          <div>2. 임베디드의 이해 및 포팅하기</div>
+                          <div>3. 디바이스 드라이버 작성하기</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 플랫폼</th>
+                        <th>
+                          <div>1. 임베디드 OS의 이해하기</div>
+                          <div>2. 임베디드 커널 프로그래밍하기</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">임베디드 소프트웨어</th>
+                        <th>
+                          <div>1. 임베디드 프로그램 분석 및 설계하기</div>
+                          <div>2. 임베디드 프로그램 작성하기</div>
+                          <div>3. 개발도구 및 테스팅기법 활용하기</div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th class="bg-gainsboro">장애대응</th>
+                        <th>
+                          <div>1. 장애 접수 처리하기</div>
+                          <div>2. 장애 대응 방안 수립하기</div>
+                          <div>3. 장애 복구하기</div>
+                          <div>4. 장애 이력 관리하기</div>
+                          <div>3. 고객 만족도 조사하기</div>
+                        </th>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <span>연도별 응시자, 합격자 통계는 다음과 같다.</span>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <table>
+                      <tr class="bg-gainsboro">
+                        <th>연도</th>
+                        <th>응시자</th>
+                        <th>합격자</th>
+                        <th>합격률</th>
+                      </tr>
+                      <tr>
+                        <td>2023년</td>
+                        <td>51명</td>
+                        <td>29명</td>
+                        <td>56.9%</td>
+                      </tr>
+                      <tr>
+                        <td>2022년</td>
+                        <td>49명</td>
+                        <td>1명</td>
+                        <td>2%</td>
+                      </tr>
+                      <tr>
+                        <td>2021년</td>
+                        <td>42명</td>
+                        <td>10명</td>
+                        <td>23.8%</td>
+                      </tr>
+                      <tr>
+                        <td>2020년</td>
+                        <td>43명</td>
+                        <td>22명</td>
+                        <td>51.2%</td>
+                      </tr>
+                      <tr>
+                        <td>2019년</td>
+                        <td>69명</td>
+                        <td>1명</td>
+                        <td>1.4%</td>
+                      </tr>
+                      <tr>
+                        <td>2018년</td>
+                        <td>60명</td>
+                        <td>17명</td>
+                        <td>28.3%</td>
+                      </tr>
+                      <tr>
+                        <td>2017년</td>
+                        <td>50명</td>
+                        <td>25명</td>
+                        <td>50.0%</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <h2>기타 정보</h2>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <span
+                      >임베디드 프로그래머가 되기 위한 필수 과목은 디지털 논리
+                      회로, 아날로그 회로, 이산수학, C, 컴퓨터 구조, 운영체제,
+                      MCU 실습(Atmega128등의 MCU 직접 제어). 그 외 임베디드
+                      분야에 맞는 기초지식은 입사해서도 배울 수 있다. 엘리베이터
+                      제어를 임베디드 프로그래머가 한다고 해서 엘리베이터 구조를
+                      가르쳐주는 학교는 없다. 임베디드 현직자 말로는 학사 72.3%,
+                      석사 이상의 고학력자가 10% 이상을 차지한다. 링크 비전공에
+                      학원 출신도 많은 SI 업계에 비하면 상대적으로 학력이 높은
+                      편이다.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- //section -->
+            </div>
+            <!-- //content -->
+            <!-- bottom -->
+            <!-- quickMenu -->
+            <div class="quickMenu">
+              <h3>빠른메뉴</h3>
+              <ul>
+                <li>
+                  <a href="/introduce/1.정보처리기사.html">
+                    <img
+                      src="/imgs/card-list.svg"
+                      alt="자격소개"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">자격소개</span>
+                </li>
+                <li>
+                  <a href="/examSchedule/examSchedule.html">
+                    <img
+                      src="/imgs/calendar2-week.svg"
+                      alt="시험일정"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">시험일정</span>
+                </li>
+                <li>
+                  <a href="/serviceCenter/notice/notice.html">
+                    <img
+                      src="/imgs/megaphone-fill.svg"
+                      alt="공지사항"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">공지사항</span>
+                </li>
+                <li>
+                  <a href="/serviceCenter/FAQ/FAQ.html">
+                    <img
+                      src="/imgs/question-circle.svg"
+                      alt="FAQ"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">FAQ</span>
+                </li>
+                <li>
+                  <a href="/mypage/회원정보수정및조회/회원정보수정.html">
+                    <img
+                      src="/imgs/person-fill.svg"
+                      alt="마이페이지"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">마이페이지</span>
+                </li>
+              </ul>
+              <p class="gotoTop csp">TOP</p>
+            </div>
+            <!-- //quickMenu -->
+          </div>
+          <!-- //container-contents -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div id="footer">
+          <div class="policy">
+            <ul>
+              <li>
+                <a href="/introduce/1.정보처리기사.html">자격소개</a>
+              </li>
+              <li>
+                <a href="/serviceCenter/info/info.html">수험자 유의사항</a>
+              </li>
+            </ul>
+            <div class="policyBtn">
+              <a href="/이용약관/이용약관.html"> 이용약관 </a>
+              <a href="/login/개인정보처리방침/개인정보처리방침.html">
+                개인정보처리방침
+              </a>
+            </div>
+          </div>
+          <!-- //policy -->
+          <div class="info">
+            <p class="footLogo">
+              <img src="/imgs/로고.png" alt="dcs" />
+            </p>
+            <div class="add">
+              <p>
+                (34856) 대전광역시 중구 계룡로 825 (용두동, 희영빌딩 2층) Email:
+                nextit_center@naver.com | Fax: 042-719-8851
+              </p>
+              <p>Copyright © Next IT Edu-Center 2016</p>
+            </div>
+          </div>
+          <!-- //info -->
+        </div>
+        <!-- //footer -->
+      </div>
+      <!-- //wrap -->
+      <!-- //bottom -->
+    </div>
+    <script src="/introduce/introduce.js"></script>
+  </body>
+</html>

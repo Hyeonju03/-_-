@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/login/1.회원가입/회원가입.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 300 to 800 */
+
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 100 to 900 */
+
+      .noto-sans-kr-uniquifier {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+      }
+
+      #dcs_home img {
+        width: 23%;
+        height: 23%;
+        object-fit: cover;
+      }
+
+      img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+
+      .footLogo {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        position: relative;
+        top: -20px;
+      }
+
+      .img-size {
+        height: 25px;
+        width: 25px;
+      }
+
+      .add {
+        position: relative;
+        top: 20px;
+        left: -80px;
+      }
+    </style>
+  </head>
+  <body class="noto-sans-kr-uniquifier">
+    <div id="wrap">
+      <!-- header_Top -->
+      <div id="header">
+        <div class="headerTop">
+          <!-- top_link -->
+          <div class="top_link">
+            <div>
+              <h1>
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
+                  <img src="/imgs/로고.png" alt="dcs" />
+                </a>
+              </h1>
+              <ul>
+                <li>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
+                </li>
+                <li>
+                  <a id="mypage" href="/login/1.회원가입/회원가입.html"
+                    >회원가입</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- //top_link -->
+          </div>
+          <!-- //headerTop -->
+        </div>
+        <!-- headerBottom -->
+        <div class="headerBottom">
+          <div>
+            <ul class="mainMenu">
+              <li>
+                <a href="/introduce/1.정보처리기사.html">자격소개</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/introduce/1.정보처리기사.html">정보처리기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/2.임베디드기사.html">임베디드기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/3.전자계산기조직응용기사.html"
+                      >전자계산기조직응용기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/4.웹디자인기능사.html"
+                      >웹디자인기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/5.제품응용모델링기능사.html"
+                      >제품응용모델링기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/6.전자계산기기능사.html"
+                      >전자계산기기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/7.정보기기운용기능사.html"
+                      >정보기기운용기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/8.정보보안기사.html">정보보안기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/9.무선설비기사.html">무선설비기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/10.정보통신기사.html">정보통신기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/11.전파전자통신기사.html"
+                      >전파전자통신기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/12.빅데이터분석기사.html"
+                      >빅데이터분석기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/13.SQL전문가(SQLP).html"
+                      >SQL전문가(SQLP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/14.SQL개발자(SQLD).html"
+                      >SQL개발자(SQLD)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/15.데이터분석전문가(ADP).html"
+                      >데이터분석전문가(ADP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/16.데이터분석준전문가(ADsP).html"
+                      >데이터분석준전문가(ADsP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/17.데이터아키텍처전문가(DAP).html"
+                      >데이터아키텍처전문가(DAP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/18.데이터아키텍처준전문가(DAsP).html"
+                      >데이터아키텍처준전문가(DAsP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/19.네트워크관리사1급.html"
+                      >네트워크관리사1급</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/20.네트워크관리사2급.html"
+                      >네트워크관리사2급</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/examSchedule/examSchedule.html">시험일정</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/examSchedule/examSchedule.html">시험일정안내</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/board/testReview/testReview.html">게시판</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/board/testReview/testReview.html">시험후기글</a>
+                  </li>
+                  <li><a href="#">기출문제</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/serviceCenter/FAQ/FAQ.html">고객센터</a>
+                <ul class="subMenu">
+                  <li><a href="/serviceCenter/FAQ/FAQ.html">FAQ</a></li>
+                  <li>
+                    <a href="/serviceCenter/inquire/inquire.html">1대1문의</a>
+                  </li>
+                  <li>
+                    <a href="/serviceCenter/notice/notice.html">공지사항</a>
+                  </li>
+                  <li>
+                    <a href="/serviceCenter/info/info.html">수험자유의사항</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                  >마이페이지</a
+                >
+                <ul class="subMenu">
+                  <li>
+                    <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                      >회원정보수정</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/mypage/취득자격증/취득자격증확인.html"
+                      >취득자격증관리</a
+                    >
+                  </li>
+                  <li><a href="/mypage/회원탈퇴/회원탈퇴.html">회원탈퇴</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- //headerBottom -->
+        <!-- //header -->
+        <!-- nav -->
+        <div id="nav">
+          <div class="navBox">
+            <ul>
+              <li class="home">홈</li>
+              <li>회원정보</li>
+              <li>회원가입</li>
+              <!-- <li>이름들 적기</li> -->
+            </ul>
+          </div>
+        </div>
+        <!-- //nav -->
+        <!-- container -->
+        <div id="container">
+          <div id="snb">
+            <h3>회원정보</h3>
+            <ul class="menuList">
+              <li class="has-sub has-submenu">
+                <a href="/login/1.회원가입/회원가입.html" class="holder csp">
+                  회원가입
+                </a>
+                <a href="/login/3.계정찾기/아이디찾기.html" class="holder csp">
+                  아이디찾기
+                </a>
+                <a
+                  href="/login/3.계정찾기/비밀번호찾기.html"
+                  class="holder csp"
+                >
+                  비밀번호찾기
+                </a>
+                <a href="/login/이용약관/이용약관.html" class="holder csp">
+                  이용약관
+                </a>
+                <a
+                  href="/login/개인정보처리방침/개인정보처리방침.html"
+                  class="holder csp"
+                >
+                  개인정보처리방침
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="container-contents">
+            <div id="content" style="height: 1000px">
+              <div class="depth_title">
+                <h2>회원가입</h2>
+              </div>
+              <!-- section -->
+              <div class="section q_into">
+                <div id="article">
+                  <div style="font-size: x-large; text-align: center">
+                    반갑습니다!
+                  </div>
+                  <br />
+                  <div style="font-size: large; text-align: center">
+                    회원가입을 위해 정보를 입력해주세요.
+                  </div>
+                  <br />
+                </div>
+
+                <!-- 아이디 부분 -->
+                <br />
+
+                <div name="signUp_id">
+                  <label for="signUp_id" class="marginL150">아이디</label><br />
+                  <input
+                    type="text"
+                    name="signUp_id"
+                    id="signUp_id"
+                    class="inputBox marginR_10 inBlock width320"
+                    style="width: 365px; margin-left: 150px"
+                    s
+                    placeholder="아이디를 입력하세요."
+                  />
+                  <div
+                    name="signUp_id_check"
+                    class="btn1 inBlock"
+                    onclick="idCheck()"
+                  >
+                    확인
+                  </div>
+                </div>
+                <div id="warnId" class="hidden warn marginL150">
+                  아이디를 입력해주세요.
+                </div>
+                <br />
+                <!-- 확인 눌렀을 때 함수명 생각, 스토리지 아이디랑 비교하는 것도 추가해야됨 -->
+
+                <!-- 비밀번호 관련 -->
+                <br />
+                <div name="signUp_pw_main">
+                  <div name="signUp_pw">
+                    <label for="signUp_pw" class="marginL150"> 비밀번호 </label
+                    ><br />
+                    <i class="typcn typcn-eye" id="eye"></i>
+                    <input
+                      type="password"
+                      name="signUp_pw"
+                      id="signUp_pw"
+                      class="inputBox inBlock"
+                      style="margin-left: 150px"
+                      placeholder="비밀번호를 입력하세요."
+                    />
+                    <div class="inBlock" onclick="pwEye()">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-eye-fill marginL_10"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                        <path
+                          d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div id="warnPw" class="hidden warn marginL150">
+                    비밀번호를 입력해주세요.
+                  </div>
+
+                  <!-- 비밀번호 확인 -->
+
+                  <div
+                    name="signUp_pw_check"
+                    class="marginT_8 inBlock marginL150"
+                  >
+                    <br />
+                    <label for="signUp_pw_check"> 비밀번호 확인 </label> <br />
+                    <input
+                      type="password"
+                      name="signUp_pw_check"
+                      id="signUp_pw_check"
+                      class="inputBox inBlock width320"
+                      placeholder="확인을 위해 비밀번호를 다시 입력해주세요."
+                    />
+                    <div
+                      name="pw_btn"
+                      id="pw_btn"
+                      class="inBlock btn2"
+                      onclick="rePw()"
+                    >
+                      비밀번호확인
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 이름 -->
+                <br />
+                <div name="signUp_name" class="inBlock">
+                  <label for="signUp_name" class="marginL150"> 이름 </label
+                  ><br />
+                  <input
+                    type="text"
+                    name="signUp_name"
+                    id="signUp_name"
+                    class="inputBox inBlock width320"
+                    style="margin-left: 150px"
+                    placeholder="입력이 안되면 한글 키를 눌러주세요(한글만 가능)."
+                  />
+                </div>
+
+                <!-- 성별 -->
+                <div name="signUp_gender" id="signUp_gender" class="inBlock">
+                  성별<br />
+                  <label for="signUp_gender1">
+                    남
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="signUp_gender1"
+                      value="남"
+                    />
+                  </label>
+                  <label for="signUp_gender2" class="marginL_10">
+                    여
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="signUp_gender2"
+                      value="여"
+                    />
+                  </label>
+                </div>
+                <div id="warnName" class="hidden warn marginL150">
+                  이름을 입력해주세요.
+                </div>
+                <div id="warnGend" class="hidden warn marginL150">
+                  성별을 선택해주세요.
+                </div>
+                <br />
+                <!-- 생년월일 -->
+                <div>
+                  <br />
+                  <label for="userBirth" class="inBlock marginL150">
+                    생년월일 </label
+                  ><br />
+                  <input
+                    type="text"
+                    name="userBirth"
+                    id="userBirth"
+                    class="inputBox inBlock"
+                    style="margin-left: 150px"
+                    placeholder="6자리 숫자를 입력해주세요. 예: 900815"
+                  />
+                </div>
+                <div id="warnBirth" class="hidden warn marginL150">
+                  생년월일을 입력해주세요.
+                </div>
+                <!-- 전화번호 -->
+
+                <br />
+                <div name="signUp_phone" class="inBlock marginL150">
+                  <br />
+                  <label for="signUp_phoneNo"> 전화번호</label><br />
+                  <input
+                    type="text"
+                    name="signUp_phoneNo"
+                    id="signUp_phoneNo"
+                    class="inputBox inBlock width320"
+                    placeholder="전화번호를 입력하세요(숫자만 입력해주세요)."
+                  />
+                  <div
+                    name="signUp_phone_check"
+                    class="inBlock btn2"
+                    onclick="sendSms()"
+                  >
+                    인증번호받기
+                  </div>
+                </div>
+
+                <div id="warnPh" class="hidden warn marginL150">
+                  전화번호를 입력해주세요.
+                </div>
+
+                <!-- 인증번호 확인 -->
+                <br />
+                <div name="signUp_authen" class="inBlock marginL150">
+                  <br />
+                  <label for="signUp_authen"> 인증번호</label><br />
+                  <input
+                    type="text"
+                    name="signUp_authen"
+                    id="certiNo"
+                    class="inputBox inBlock width320"
+                    placeholder="인증번호를 입력하세요."
+                  />
+                  <div
+                    name="signUp_phone_check"
+                    class="inBlock btn2"
+                    onclick="phCheck()"
+                  >
+                    인증번호확인
+                  </div>
+                </div>
+                <div id="warnCer" class="hidden warn marginL150">
+                  인증번호를 입력해주세요.
+                </div>
+
+                <!-- 이메일 부분 -->
+                <br />
+                <div name="signUp_email" class="marginL150">
+                  <br />
+                  <label for="signUp_email"> 이메일 </label><br />
+                  <input
+                    type="text"
+                    name="signUp_email"
+                    id="signUp_email"
+                    class="inputBox inBlock"
+                    placeholder="이메일을 입력하세요."
+                  />
+                </div>
+
+                <div id="warnEmail" class="hidden warn marginL150">
+                  이메일를 입력해주세요.
+                </div>
+                <br />
+
+                <!-- 제출버튼 -->
+                <br />
+                <input
+                  type="submit"
+                  value="회원가입"
+                  class="signUpBtn marginL150"
+                  onclick="goSign()"
+                />
+              </div>
+              <!-- //section -->
+            </div>
+            <!-- //content -->
+            <!-- bottom -->
+            <!-- quickMenu -->
+            <div class="quickMenu">
+              <h3>빠른메뉴</h3>
+              <ul>
+                <li>
+                  <a href="/introduce/1.정보처리기사.html">
+                    <img
+                      src="/imgs/card-list.svg"
+                      alt="자격소개"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">자격소개</span>
+                </li>
+                <li>
+                  <a href="/examSchedule/examSchedule.html">
+                    <img
+                      src="/imgs/calendar2-week.svg"
+                      alt="시험일정"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">시험일정</span>
+                </li>
+                <li>
+                  <a href="/serviceCenter/notice/notice.html">
+                    <img
+                      src="/imgs/megaphone-fill.svg"
+                      alt="공지사항"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">공지사항</span>
+                </li>
+                <li>
+                  <a href="/serviceCenter/FAQ/FAQ.html">
+                    <img
+                      src="/imgs/question-circle.svg"
+                      alt="FAQ"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">FAQ</span>
+                </li>
+                <li>
+                  <a href="/mypage/회원정보수정및조회/회원정보수정.html">
+                    <img
+                      src="/imgs/person-fill.svg"
+                      alt="마이페이지"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">마이페이지</span>
+                </li>
+              </ul>
+              <p class="gotoTop csp">TOP</p>
+            </div>
+            <!-- //quickMenu -->
+          </div>
+          <!-- //container-contents -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div id="footer">
+          <div class="policy">
+            <ul>
+              <li>
+                <a href="/introduce/1.정보처리기사.html">자격소개</a>
+              </li>
+              <li>
+                <a href="/serviceCenter/info/info.html">수험자 유의사항</a>
+              </li>
+            </ul>
+            <div class="policyBtn">
+              <a href="/login/이용약관/이용약관.html"> 이용약관 </a>
+              <a href="/login/개인정보처리방침/개인정보처리방침.html">
+                개인정보처리방침
+              </a>
+            </div>
+          </div>
+          <!-- //policy -->
+          <div class="info">
+            <p class="footLogo">
+              <img src="/imgs/로고.png" alt="dcs" />
+            </p>
+            <div class="add">
+              <p>
+                (34856) 대전광역시 중구 계룡로 825 (용두동, 희영빌딩 2층) Email:
+                nextit_center@naver.com | Fax: 042-719-8851
+              </p>
+              <p>Copyright © Next IT Edu-Center 2016</p>
+            </div>
+          </div>
+          <!-- //info -->
+        </div>
+        <!-- //footer -->
+      </div>
+      <!-- //wrap -->
+      <!-- //bottom -->
+    </div>
+    <script src="/login/1.회원가입/회원가입.js"></script>
+  </body>
+</html>

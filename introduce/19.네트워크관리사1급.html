@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>네트워크관리사1급</title>
+    <link rel="stylesheet" href="/introduce/introduce.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 300 to 800 */
+
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 100 to 900 */
+
+      .noto-sans-kr-uniquifier {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+      }
+
+      #dcs_home img {
+        width: 23%;
+        height: 23%;
+        object-fit: cover;
+      }
+
+      .footLogo {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        position: relative;
+        top: -20px;
+      }
+
+      .img-size {
+        height: 25px;
+        width: 25px;
+      }
+
+      .add {
+        position: relative;
+        top: 20px;
+        left: -80px;
+      }
+
+      .line-height {
+        line-height: 180%;
+      }
+
+      .float-left {
+        float: left;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      .margin {
+        margin-top: 40px;
+        margin-left: 20px;
+      }
+
+      .margin2 {
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+
+      td,
+      th {
+        width: 310px;
+        height: 50px;
+        text-align: center;
+        border: 1px solid #000;
+      }
+
+      .bg-gainsboro {
+        background-color: gainsboro;
+      }
+
+      .img {
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body class="noto-sans-kr-uniquifier">
+    <div id="wrap">
+      <!-- header_Top -->
+      <div id="header">
+        <div class="headerTop">
+          <!-- top_link -->
+          <div class="top_link">
+            <div>
+              <h1>
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
+                  <img src="/imgs/로고.png" alt="dcs" />
+                </a>
+              </h1>
+              <ul>
+                <li>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
+                </li>
+                <li>
+                  <a id="mypage" href="/login/1.회원가입/회원가입.html"
+                    >회원가입</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- //top_link -->
+          </div>
+          <!-- //headerTop -->
+        </div>
+        <!-- headerBottom -->
+        <div class="headerBottom">
+          <div>
+            <ul class="mainMenu">
+              <li>
+                <a href="/introduce/1.정보처리기사.html">자격소개</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/introduce/1.정보처리기사.html">정보처리기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/2.임베디드기사.html">임베디드기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/3.전자계산기조직응용기사.html"
+                      >전자계산기조직응용기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/4.웹디자인기능사.html"
+                      >웹디자인기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/5.제품응용모델링기능사.html"
+                      >제품응용모델링기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/6.전자계산기기능사.html"
+                      >전자계산기기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/7.정보기기운용기능사.html"
+                      >정보기기운용기능사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/8.정보보안기사.html">정보보안기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/9.무선설비기사.html">무선설비기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/10.정보통신기사.html">정보통신기사</a>
+                  </li>
+                  <li>
+                    <a href="/introduce/11.전파전자통신기사.html"
+                      >전파전자통신기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/12.빅데이터분석기사.html"
+                      >빅데이터분석기사</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/13.SQL전문가(SQLP).html"
+                      >SQL전문가(SQLP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/14.SQL개발자(SQLD).html"
+                      >SQL개발자(SQLD)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/15.데이터분석전문가(ADP).html"
+                      >데이터분석전문가(ADP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/16.데이터분석준전문가(ADsP).html"
+                      >데이터분석준전문가(ADsP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/17.데이터아키텍처전문가(DAP).html"
+                      >데이터아키텍처전문가(DAP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/18.데이터아키텍처준전문가(DAsP).html"
+                      >데이터아키텍처준전문가(DAsP)</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/19.네트워크관리사1급.html"
+                      >네트워크관리사1급</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/introduce/20.네트워크관리사2급.html"
+                      >네트워크관리사2급</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/examSchedule/examSchedule.html">시험일정</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/examSchedule/examSchedule.html">시험일정안내</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/board/testReview/testReview.html">게시판</a>
+                <ul class="subMenu">
+                  <li>
+                    <a href="/board/testReview/testReview.html">시험후기글</a>
+                  </li>
+                  <li><a href="#">기출문제</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/serviceCenter/FAQ/FAQ.html">고객센터</a>
+                <ul class="subMenu">
+                  <li><a href="/serviceCenter/FAQ/FAQ.html">FAQ</a></li>
+                  <li>
+                    <a href="/serviceCenter/inquire/inquire.html">1대1문의</a>
+                  </li>
+                  <li>
+                    <a href="/serviceCenter/notice/notice.html">공지사항</a>
+                  </li>
+                  <li>
+                    <a href="/serviceCenter/info/info.html">수험자유의사항</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                  >마이페이지</a
+                >
+                <ul class="subMenu">
+                  <li>
+                    <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                      >회원정보수정</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/mypage/취득자격증/취득자격증확인.html"
+                      >취득자격증관리</a
+                    >
+                  </li>
+                  <li><a href="/mypage/회원탈퇴/회원탈퇴.html">회원탈퇴</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- //headerBottom -->
+        <!-- //header -->
+        <!-- nav -->
+        <div id="nav">
+          <div class="navBox">
+            <ul>
+              <li class="home">홈</li>
+              <li>자격소개</li>
+              <li>네트워크관리사1급</li>
+            </ul>
+          </div>
+        </div>
+        <!-- //nav -->
+        <!-- container -->
+        <div id="container">
+          <div id="snb">
+            <h3>자격소개</h3>
+            <ul class="menuList">
+              <li class="has-sub has-submenu">
+                <a href="/introduce/1.정보처리기사.html" class="holder csp"
+                  >정보처리기사</a
+                >
+                <a href="/introduce/2.임베디드기사.html" class="holder csp"
+                  >임베디드기사</a
+                >
+                <a
+                  href="/introduce/3.전자계산기조직응용기사.html"
+                  class="holder csp"
+                >
+                  전자계산기조직응용기사
+                </a>
+                <a href="/introduce/4.웹디자인기능사.html" class="holder csp"
+                  >웹디자인기능사</a
+                >
+                <a
+                  href="/introduce/5.제품응용모델링기능사.html"
+                  class="holder csp"
+                  >제품응용모델링기능사</a
+                >
+                <a href="/introduce/6.전자계산기기능사.html" class="holder csp"
+                  >전자계산기기능사</a
+                >
+                <a
+                  href="/introduce/7.정보기기운용기능사.html"
+                  class="holder csp"
+                >
+                  정보기기운용기능사
+                </a>
+                <a href="/introduce/8.정보보안기사.html" class="holder csp">
+                  정보보안기사
+                </a>
+                <a href="/introduce/9.무선설비기사.html" class="holder csp"
+                  >무선설비기사</a
+                >
+                <a href="/introduce/10.정보통신기사.html" class="holder csp">
+                  정보통신기사
+                </a>
+                <a
+                  href="/introduce/11.전파전자통신기사.html"
+                  class="holder csp"
+                >
+                  전파전자통신기사
+                </a>
+                <a
+                  href="/introduce/12.빅데이터분석기사.html"
+                  class="holder csp"
+                >
+                  빅데이터분석기사
+                </a>
+                <a href="/introduce/13.SQL전문가(SQLP).html" class="holder csp">
+                  SQL전문가(SQLP)
+                </a>
+                <a href="/introduce/14.SQL개발자(SQLD).html" class="holder csp">
+                  SQL개발자(SQLD)
+                </a>
+                <a
+                  href="/introduce/15.데이터분석전문가(ADP).html"
+                  class="holder csp"
+                >
+                  데이터분석전문가(ADP)
+                </a>
+                <a
+                  href="/introduce/16.데이터분석준전문가(ADsP).html"
+                  class="holder csp"
+                >
+                  데이터분석준전문가(ADsP)
+                </a>
+                <a
+                  href="/introduce/17.데이터아키텍처전문가(DAP).html"
+                  class="holder csp"
+                >
+                  데이터아키텍처전문가(DAP)
+                </a>
+                <a
+                  href="/introduce/18.데이터아키텍처준전문가(DAsP).html"
+                  class="holder csp"
+                >
+                  데이터아키텍처준전문가(DAsP)
+                </a>
+                <a
+                  href="/introduce/19.네트워크관리사1급.html"
+                  class="holder csp"
+                >
+                  네트워크관리사1급
+                </a>
+                <a
+                  href="/introduces/20.네트워크관리사2급.html"
+                  class="holder csp"
+                >
+                  네트워크관리사2급
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="container-contents">
+            <div id="content">
+              <div class="depth_title">
+                <h2>
+                  네트워크관리사1급
+                  <a
+                    href="https://www.icqa.or.kr/cn/"
+                    class="btn bg_darkgray text_color_white btn_m col-12-s float_right"
+                    target="_blank"
+                  >
+                    <span>접수신청</span>
+                  </a>
+                </h2>
+              </div>
+              <!-- section -->
+              <div class="section q_into">
+                <!-- <div class="article tab_qbox">카테고리? 부분 없으면 삭제</div> -->
+                <div id="qlfintContent noto-sans-kr-uniquifier">
+                  <img
+                    src="/imgs/ICQA.png"
+                    class="float-left img"
+                    width="250px"
+                    alt="ICQA 네트워크관리사1급"
+                  />
+
+                  <div class="line-height margin">
+                    <span
+                      >1급은 민간자격으로서 네트워크 관리에 관한 전문지식을
+                      토대로 네트워크 보안기술, Design, Traffic 분산기술 등
+                      네트워크 전문기술자로서 필요한 IT 기술 및 네트워크 실무.
+                      관리 능력을 검정하는 자격이다. 1년동안의 검정 횟수는 필기
+                      2회, 실기 2회, 서울에서만 응시가 가능하다. 응시자격은
+                      네트워크관리사 2급 소지자, 전기·전자·통신·정보처리
+                      직무분야 국가기술 자격취득자 중 특정조건 해당자, IT관련
+                      사업장에서 5년 이상 종사한 자 중에서 한 가지 이상에
+                      해당되면 응시자격이 주어진다. 문제은행에서 완전 랜덤으로
+                      만들기 때문에 가장 작은번호를 써서 맞히는 꼼수가 안
+                      통한다. 점수 비율이 일정하게 나올 시험이라면 구
+                      기출문제에서 보기의 순서도 안 바꿔서 내는 짓은 하지
+                      않는다. 시험이 너무 마이너해서 응시자가 적어 예산이 안
+                      들어오기 때문이다. 네트워크가 날마다 바뀌는 분야도 아니고
+                      말이다. 과목은 네트워크 일반, TCP/IP, NOS, 네트워크 운용
+                      기기, 정보보호개론이다.</span
+                    >
+                  </div>
+
+                  <div class="line-height margin">
+                    <h2>필기</h2>
+                  </div>
+                  <div class="line-height margin2">
+                    <table>
+                      <tr class="bg-gainsboro">
+                        <th>시험 과목</th>
+                        <th>검정 방법</th>
+                        <th>응시료</th>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>네트워크일반</div>
+                          <div>TCP/IP</div>
+                          <div>NOS</div>
+                          <div>네트워크 운용기기</div>
+                          <div>정보보호개론</div>
+                        </td>
+                        <td>
+                          <div>객관식 4지 택일형 60문항(60분)</div>
+                          <div>100점 만점에 60점 이상 득점자</div>
+                        </td>
+                        <td>43,000원</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <h2>실기</h2>
+                  </div>
+                  <div class="line-height margin2">
+                    <table>
+                      <tr class="bg-gainsboro">
+                        <th>시험 과목</th>
+                        <th>검정 방법</th>
+                        <th>응시료</th>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>네트워크 설계/구축</div>
+                          <div>TCP/IP</div>
+                          <div>NOS</div>
+                          <div>네트워크 운용기기</div>
+                        </td>
+                        <td>작업/서술/선택형(100분)</td>
+                        <td>100,000원</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="line-height margin">
+                    <h2>기타 정보</h2>
+                  </div>
+
+                  <div class="line-height margin2">
+                    <span
+                      >2011년 9월부터 홈페이지가 개편되면서 합격자 발표날에는
+                      합격여부랑 점수만 알려주고 무슨 문제가 틀렸는지는 알려주지
+                      않게 시스템이 변경되었다. 만일 무슨 문제가 틀렸는지 알고
+                      싶으면 이의제기 하면 무슨 문제가 틀렸는지 알려준다고 한다.
+                      이의제기 기간은 합격자 발표일 기준 다음날 오전 9시부터
+                      필기는 3일간, 실기는 5일간 접수받으며, 마감 시간은
+                      마지막날 기준으로 23시 59분까지이다. 이의제기에 대한
+                      답변은 이의제기 기간이 종료된 후에 순차적으로 답변이
+                      달린다. 만일 1급이 국가공인민간자격증으로 전환될 경우에는,
+                      기존에 이미 1급을 취득했던 사람들은
+                      국가공인민간자격증으로의 효력을 가지기 위해서 재시험을
+                      봐야된다. 재시험을 안 봐도 자격증 자체는 유효하나,
+                      국가공인민간자격증의 효력을 발휘하지 못한다고 한다. 또한
+                      국가공인민간자격증으로의 전환이 될 경우에는 2급과
+                      마찬가지로 5년마다 보수교육을 통해 갱신해줘야된다. 다만,
+                      1급이 국가공인민간자격증으로 전환되기에는 응시자수가 너무
+                      적어서 실제로 전환이 될지는 미지수인 상태이다.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- //section -->
+            </div>
+            <!-- //content -->
+            <!-- bottom -->
+            <!-- quickMenu -->
+            <div class="quickMenu">
+              <h3>빠른메뉴</h3>
+              <ul>
+                <li>
+                  <a href="/introduce/1.정보처리기사.html">
+                    <img
+                      src="/imgs/card-list.svg"
+                      alt="자격소개"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">자격소개</span>
+                </li>
+                <li>
+                  <a href="/examSchedule/examSchedule.html">
+                    <img
+                      src="/imgs/calendar2-week.svg"
+                      alt="시험일정"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">시험일정</span>
+                </li>
+                <li>
+                  <a href="/serviceCenter/notice/notice.html">
+                    <img
+                      src="/imgs/megaphone-fill.svg"
+                      alt="공지사항"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">공지사항</span>
+                </li>
+                <li>
+                  <a href="/serviceCenter/FAQ/FAQ.html">
+                    <img
+                      src="/imgs/question-circle.svg"
+                      alt="FAQ"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">FAQ</span>
+                </li>
+                <li>
+                  <a href="/mypage/회원정보수정및조회/회원정보수정.html">
+                    <img
+                      src="/imgs/person-fill.svg"
+                      alt="마이페이지"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">마이페이지</span>
+                </li>
+              </ul>
+              <p class="gotoTop csp">TOP</p>
+            </div>
+            <!-- //quickMenu -->
+          </div>
+          <!-- //container-contents -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div id="footer">
+          <div class="policy">
+            <ul>
+              <li>
+                <a href="/introduce/1.정보처리기사.html">자격소개</a>
+              </li>
+              <li>
+                <a href="/serviceCenter/info/info.html">수험자 유의사항</a>
+              </li>
+            </ul>
+            <div class="policyBtn">
+              <a href="/이용약관/이용약관.html"> 이용약관 </a>
+              <a href="/login/개인정보처리방침/개인정보처리방침.html">
+                개인정보처리방침
+              </a>
+            </div>
+          </div>
+          <!-- //policy -->
+          <div class="info">
+            <p class="footLogo">
+              <img src="/imgs/로고.png" alt="dcs" />
+            </p>
+            <div class="add">
+              <p>
+                (34856) 대전광역시 중구 계룡로 825 (용두동, 희영빌딩 2층) Email:
+                nextit_center@naver.com | Fax: 042-719-8851
+              </p>
+              <p>Copyright © Next IT Edu-Center 2016</p>
+            </div>
+          </div>
+          <!-- //info -->
+        </div>
+        <!-- //footer -->
+      </div>
+      <!-- //wrap -->
+      <!-- //bottom -->
+    </div>
+
+    <script src="/introduce/introduce.js"></script>
+  </body>
+</html>
