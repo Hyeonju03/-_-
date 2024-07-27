@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inquire</title>
+    <link rel="stylesheet" href="/inquire/inquire.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 300 to 800 */
+
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* // <uniquifier>: Use a unique and descriptive class name
+      // <weight>: Use a value from 100 to 900 */
+
+      .noto-sans-kr-uniquifier {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: regular 400;
+        font-style: normal;
+      }
+
+      #dcs_home img {
+        width: 23%;
+        height: 23%;
+        object-fit: cover;
+      }
+
+      .footLogo {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        position: relative;
+        top: -20px;
+      }
+
+      .img-size {
+        height: 25px;
+        width: 25px;
+      }
+
+      .add {
+        position: relative;
+        top: 20px;
+        left: -80px;
+      }
+    </style>
+  </head>
+  <body class="noto-sans-kr-uniquifier">
+    <div id="wrap">
+      <!-- header_Top -->
+      <div id="header">
+        <div class="headerTop">
+          <!-- top_link -->
+          <div class="top_link">
+            <div>
+              <h1>
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
+                  <img src="/imgs/로고.png" alt="dcs" />
+                </a>
+              </h1>
+              <ul>
+                <li>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
+                </li>
+                <li>
+                  <a id="mypage" href="/login/1.회원가입/회원가입.html"
+                    >회원가입</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- //top_link -->
+          </div>
+          <!-- //headerTop -->
+        </div>
+        <!-- headerBottom -->
+        <div class="headerBottom">
+          <div>
+            <ul class="mainMenu">
+              <li>
+                <a href="#">자격소개</a>
+                <ul class="subMenu">
+                  <li><a href="">소프트웨어개발기술자</a></li>
+                  <li><a href="">웹개발기술자</a></li>
+                  <li><a href="">모바일앱개발기술자</a></li>
+                  <li><a href="">게임개발기술자</a></li>
+                  <li><a href="">이멥디드시스템개발기술자</a></li>
+                  <li><a href="">데이터분석기술자</a></li>
+                  <li><a href="">인공지능기술자</a></li>
+                  <li><a href="">정보처리기사</a></li>
+                  <li><a href="">머신러닝기술자</a></li>
+                  <li><a href="">네트워크관리기술자</a></li>
+                  <li><a href="">보안관리기술자</a></li>
+                  <li><a href="">시스템설계및구축기술자</a></li>
+                  <li><a href="">정보보안전문가</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">시험일정</a>
+                <ul class="subMenu">
+                  <li><a href="#">시험일정안내</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">게시판</a>
+                <ul class="subMenu">
+                  <li><a href="#">시험후기글</a></li>
+                  <li><a href="#">활용사례</a></li>
+                  <li><a href="#">기출문제</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/FAQ/FAQ.html">고객센터</a>
+                <ul class="subMenu">
+                  <li><a href="/FAQ/FAQ.html">FAQ</a></li>
+                  <li><a href="#">1대1문의</a></li>
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="/유의사항/유의사항.html">수험자유의사항</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">마이페이지</a>
+                <ul class="subMenu">
+                  <li><a href="#">회원정보수정</a></li>
+                  <li><a href="#">취득자격증관리</a></li>
+                  <li><a href="#">회원탈퇴</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+        <!-- //headerBottom -->
+        <!-- //header -->
+        <!-- nav -->
+        <div id="nav">
+          <div class="navBox">
+            <ul>
+              <li class="home">홈</li>
+              <li>고객센터</li>
+              <li>1:1 문의</li>
+            </ul>
+          </div>
+        </div>
+        <!-- //nav -->
+        <!-- container -->
+        <div id="container">
+          <div id="snb">
+            <h3>고객센터</h3>
+            <ul class="menuList">
+              <li class="has-sub has-submenu">
+                <a href="/FAQ/FAQ.html" class="holder csp"> FAQ </a>
+                <a href="" class="holder csp"> 1대1 문의 </a>
+                <a href="" class="holder csp"> 공지사항 </a>
+                <a href="/유의사항/유의사항.html" class="holder csp">
+                  수험자 유의사항
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div id="container-contents">
+            <div id="content">
+              <div class="depth_title">
+                <h2>
+                  1:1 문의
+                  <a
+                    id="writeBtn"
+                    href="/inquirer/inquirer.html"
+                    class="btn bg_darkgray text_color_white btn_m float_right"
+                  >
+                    <span>작성하기</span>
+                  </a>
+                </h2>
+              </div>
+              <!-- section -->
+              <div class="article" style="margin-bottom: 0px; margin-top: 10px">
+                <div id="search_box">
+                  <form id="selectBox">
+                    <div id="submission" class="inBlock btn2">원서접수</div>
+                    <div id="implement" class="inBlock btn2">시험시행</div>
+                    <div id="questions" class="inBlock btn2">시험문제</div>
+                    <div id="certificate" class="inBlock btn2">
+                      자격증 및 인증서
+                    </div>
+                    <div id="information" class="inBlock btn2">
+                      성적 및 회원정보
+                    </div>
+                    <div id="information" class="inBlock btn2">기타</div>
+                  </form>
+                </div>
+              </div>
+              <div id="bbsArea">
+                <div class="inqire_list">
+                  <dl id="inquireList"></dl>
+                </div>
+              </div>
+              <!-- //section -->
+            </div>
+            <!-- //content -->
+            <!-- bottom -->
+            <!-- quickMenu -->
+            <div class="quickMenu">
+              <h3>빠른메뉴</h3>
+              <ul>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/card-list.svg"
+                      alt="자격소개"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">자격소개</span>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/calendar2-week.svg"
+                      alt="시험일정"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">시험일정</span>
+                </li>
+                <li>
+                  <a href="">
+                    <img
+                      src="/imgs/megaphone-fill.svg"
+                      alt="공지사항"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">공지사항</span>
+                </li>
+                <li>
+                  <a href="/FAQ/FAQ.html">
+                    <img
+                      src="/imgs/question-circle.svg"
+                      alt="FAQ"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">FAQ</span>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="/imgs/person-fill.svg"
+                      alt="마이페이지"
+                      class="img-size"
+                    />
+                  </a>
+                  <span class="csp">마이페이지</span>
+                </li>
+              </ul>
+              <p class="gotoTop csp">TOP</p>
+            </div>
+            <!-- //quickMenu -->
+          </div>
+          <!-- //container-contents -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div id="footer">
+          <div class="policy">
+            <ul>
+              <li>
+                <a href="#">자격소개</a>
+              </li>
+              <li>
+                <a href="/유의사항/유의사항.html">수험자 유의사항</a>
+              </li>
+            </ul>
+            <div class="policyBtn">
+              <a href="/이용약관/이용약관.html"> 이용약관 </a>
+              <a href="/개인정보처리방침/개인정보처리방침.html">
+                개인정보처리방침
+              </a>
+            </div>
+          </div>
+          <!-- //policy -->
+          <div class="info">
+            <p class="footLogo">
+              <img src="/imgs/로고.png" alt="dcs" />
+            </p>
+            <div class="add">
+              <p>
+                (34856) 대전광역시 중구 계룡로 825 (용두동, 희영빌딩 2층) Email:
+                nextit_center@naver.com | Fax: 042-719-8851
+              </p>
+              <p>Copyright © Next IT Edu-Center 2016</p>
+            </div>
+          </div>
+          <!-- //info -->
+        </div>
+        <!-- //footer -->
+      </div>
+      <!-- //wrap -->
+      <!-- //bottom -->
+    </div>
+
+    <script src="/inquire/inquire.js"></script>
+  </body>
+</html>
