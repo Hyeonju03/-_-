@@ -5,44 +5,39 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // inquire로 시작하면서 inquireno가 아닌애들 뽑아내기
-  const inquireItems = [];
+  // REVIEW로 시작하면서 REVIEWno가 아닌애들 뽑아내기
+  const testReviewItems = [];
   for (let i = localStorage.length - 1; i >= 0; i--) {
     const key = localStorage.key(i);
-    if (key.startsWith("INQUIRE") && key != "INQUIREno") {
-      const inquireData = JSON.parse(localStorage.getItem(key));
-      inquireItems.push({
-        title: inquireData.title,
-        content: inquireData.content,
-        category: inquireData.category,
-        admincomment: inquireData.admincomment,
-        userId: inquireData.userId,
+    if (key.startsWith("REVIEW") && key != "REVIEWno") {
+      const testReviewItemsData = JSON.parse(localStorage.getItem(key));
+      testReviewItems.push({
+        title: testReviewItemsData.title,
+        content: testReviewItemsData.content,
+        category: testReviewItemsData.category,
+        id: testReviewItemsData.id,
       });
     }
   }
 
   //
-  const dlList = document.getElementById("inquireList");
+  const dlList = document.getElementById("testReviewList");
 
   // if (dlList) {
-  inquireItems.forEach((item, index) => {
+  testReviewItems.forEach((item, index) => {
     let userData = getUserData();
     const container = document.createElement("div");
-    container.classList.add("inquire_item_container");
+    container.classList.add("testReview_item_container");
 
     const dt = document.createElement("dt");
     const dd = document.createElement("dd");
     // 작성자 이름
     const p = document.createElement("p");
-    const textarea = document.createElement("textarea");
-    const createBtn = document.createElement("button");
     const deleteBtn = document.createElement("button");
 
-    p.classList.add("inquire_userid");
-    dt.classList.add("inquire_title");
-    dd.classList.add("inquire_view");
-    textarea.classList.add("inquire_comment");
-    createBtn.classList.add("commentBtn");
+    p.classList.add("testReview_userid");
+    dt.classList.add("testReview_title");
+    dd.classList.add("testReview_view");
     deleteBtn.classList.add("commentBtn");
 
     createBtn.textContent = "저장하기";
@@ -50,13 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
     p.textContent = `작성자: ${item.userId}`;
     dt.textContent = item.title;
     dd.textContent = item.content;
-    textarea.textContent = item.admincomment;
     dd.appendChild(p);
 
     dt.id = `dt${index}`;
     dd.style.display = "none";
-    textarea.style.display = "none";
-    createBtn.style.display = "none";
     deleteBtn.style.display = "none";
 
     // 조건에 맞게 dt 보이기
@@ -78,33 +70,19 @@ document.addEventListener("DOMContentLoaded", function () {
       //dd가 none이면
       if (dd.style.display == "none") {
         dd.style.display = "block";
-        ddclick(userData, dd, textarea, createBtn, deleteBtn);
+        ddclick(userData, dd, deleteBtn);
       } else {
         dd.style.display = "none";
-        textarea.style.display = "none";
-        createBtn.style.display = "none";
         deleteBtn.style.display = "none";
       }
 
-      createBtn.addEventListener("click", () => {
-        // local에서 불러와서 comment만 바꾸고 다시 셋해주기
-        for (let i = 0; i < localStorage.length; i++) {
-          const local = JSON.parse(localStorage.getItem(`INQUIRE${i}`));
-          if (local) {
-            if (local.title == dt.innerText) {
-              local.admincomment = textarea.value;
-              localStorage.setItem(`INQUIRE${i}`, JSON.stringify(local));
-            }
-          }
-        }
-      });
       deleteBtn.addEventListener("click", () => {
         for (let i = 0; i < localStorage.length; i++) {
-          const local = JSON.parse(localStorage.getItem(`INQUIRE${i}`));
+          const local = JSON.parse(localStorage.getItem(`REVIEW${i}`));
 
           if (local) {
             if (local.title == dt.innerText) {
-              window.localStorage.removeItem(`INQUIRE${i}`);
+              window.localStorage.removeItem(`REVIEW${i}`);
               container.remove();
               alert("삭제되었습니다.");
             }
@@ -115,8 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     container.appendChild(dt);
     container.appendChild(dd);
-    container.appendChild(textarea);
-    container.appendChild(createBtn);
     container.appendChild(deleteBtn);
     dlList.appendChild(container);
   });
@@ -129,15 +105,17 @@ document.addEventListener("DOMContentLoaded", function () {
   btns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const category = btn.textContent.trim(); // 클릭한 버튼의 카테고리
-      const containers = document.querySelectorAll(".inquire_item_container");
+      const containers = document.querySelectorAll(
+        ".testReview_item_container"
+      );
 
-      // 모든 inquire 항목을 숨기기
+      // 모든 testReview 항목을 숨기기
       containers.forEach((container) => {
         container.style.display = "none";
       });
 
-      // 클릭한 버튼의 카테고리와 일치하는 inquire 항목만 보이기
-      inquireItems.forEach((item, index) => {
+      // 클릭한 버튼의 카테고리와 일치하는 testReview 항목만 보이기
+      testReviewItems.forEach((item, index) => {
         if (item.category == category) {
           containers[index].style.display = "block";
         }
@@ -164,15 +142,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // admin이면 보여야할것 : createBtn deleteBtn textarea(활성화) dd
       // admin 아닌 유저 : textarea(비활성화) dd
       dd.style.display = "block";
-      textarea.style.display = "block";
 
       if (userData.id == "admin") {
-        textarea.disabled = false;
-        createBtn.style.display = "block";
         deleteBtn.style.display = "block";
       } else {
-        textarea.disabled = true;
-        createBtn.style.display = "none";
         deleteBtn.style.display = "none";
       }
     } else {
@@ -199,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
         saveUserData(userData);
         logoutUser(userData);
 
-        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
 
@@ -238,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } else {
       writeBtn.addEventListener("click", () => {
-        writeBtn.href = "/inquirer/inquirer.html";
+        writeBtn.href = "/writeTestReview/writeTestReview.html";
       });
     }
   }

@@ -831,7 +831,7 @@ a.holder:hover {
   border: 1px solid #c8c8d0;
 }
 
-.inquire_title {
+.testReview_title {
   background-position: 0px 15px;
   cursor: pointer;
   padding: 12px 30px;
@@ -839,7 +839,7 @@ a.holder:hover {
   border-top: 1px solid rgb(228, 228, 228);
 }
 
-.inquire_view {
+.testReview_view {
   padding: 20px;
   background-color: #f0f0f3;
   line-height: 1.6;
@@ -869,7 +869,7 @@ a.holder:hover {
   color: white;
 }
 
-.inquire_comment {
+.testReview_comment {
   width: 100%;
   height: 100px;
   margin-top: 20px;

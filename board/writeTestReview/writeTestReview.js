@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-  let INQUIREno = parseInt(localStorage.getItem("INQUIREno")) || 0; // 현재 no 값 가져오기
+  let REVIEWno = parseInt(localStorage.getItem("REVIEWno")) || 0; // 현재 no 값 가져오기
   const writeBtn = document.getElementById("writeBtn");
 
   writeBtn.addEventListener("click", () => {
@@ -13,22 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const select = document.getElementById("category");
     const category = select.options[select.selectedIndex].text;
 
-    const inquire = {
+    const testReview = {
       title: title,
       content: content,
       category: category,
-      admincomment: "",
       userId: JSON.parse(sessionStorage.getItem("loginUser")).id,
     };
 
-    localStorage.setItem(`INQUIRE${INQUIREno}`, JSON.stringify(inquire));
+    localStorage.setItem(`REVIEW${REVIEWno}`, JSON.stringify(testReview));
     alert("작성 완료 되었습니다.");
 
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
-    INQUIREno++;
-    localStorage.setItem("INQUIREno", INQUIREno);
+    REVIEWno++;
+    localStorage.setItem("REVIEWno", REVIEWno);
 
-    window.location.href = "/inquire/inquire.html";
+    window.location.href = "/testReview/testReview.html";
   });
 
   //로그인 상태 여부
@@ -48,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         saveUserData(userData);
         logoutUser(userData);
 
-        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
 
