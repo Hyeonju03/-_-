@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     INQUIREno++;
     localStorage.setItem("INQUIREno", INQUIREno);
 
-    window.location.href = "/inquire/inquire.html";
+    window.location.href = "/serviceCenter/inquire/inquire.html";
   });
 
   ////////////////////////////////// 로그인 관련 ////////////////////////////////////
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       signupLink.innerText = "마이페이지";
-      signupLink.href = "#";
+      signupLink.href = "/mypage/회원정보수정및조회/회원정보메인.html";
     } else {
       // 로그아웃 상태일 때
       loginLink.innerText = "로그인";
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } else {
       writeBtn.addEventListener("click", () => {
-        writeBtn.href = "/inquirer/inquirer.html";
+        writeBtn.href = "/serviceCenter/inquire/inquire.html";
       });
     }
   }

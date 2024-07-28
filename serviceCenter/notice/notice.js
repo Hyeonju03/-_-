@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
-  // console.log(userData);
 
   if (userData && userData.login) {
     if (userData.login == "1") {
@@ -134,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       signupLink.innerText = "마이페이지";
-      signupLink.href = "#";
+      signupLink.href = "/mypage/회원정보수정및조회/회원정보메인.html";
     } else {
       // 로그아웃 상태일 때
       loginLink.innerText = "로그인";

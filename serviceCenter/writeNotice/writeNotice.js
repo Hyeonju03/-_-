@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     NOTICEno++;
     localStorage.setItem("NOTICEno", NOTICEno);
 
-    window.location.href = "/notice/notice.html";
+    window.location.href = "/serviceCenter/notice/notice.html";
   });
 
   //로그인 상태 여부
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       signupLink.innerText = "마이페이지";
-      signupLink.href = "#";
+      signupLink.href = "/mypage/회원정보수정및조회/회원정보메인.html";
     } else {
       // 로그아웃 상태일 때
       loginLink.innerText = "로그인";
