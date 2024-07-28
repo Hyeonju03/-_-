@@ -1627,3 +1627,8 @@ a.holder:hover {
   height: 175px;
   flex-shrink: 0;
 }
+
+.li0 {
+  margin-top: 10px;
+  display: list-item;
+}
