@@ -203,3 +203,103 @@ function logoutUser(userData) {
     }
   }
 }
+
+// ////////////////////////////////////////////////시험기간. 빠른거
+// 오늘 날짜와 접수 날짜 비교,
+// 비교한 숫자가 가장 작은순서대로  배열에 추가
+// 배열에는 최대 5개만 담을것.
+const examData = JSON.parse(localStorage.getItem("examData"));
+let today = new Date();
+let min = 1000;
+
+// 날짜 차이를 계산
+function getDateDifference(date1, date2) {
+  return Math.floor(
+    Math.abs((date1.getTime() - date2.getTime()) / (1000 * 60 * 60 * 24))
+  );
+}
+
+const dateDifferences = [];
+function getClosestDates(examData, today) {
+  for (const key in examData) {
+    const receipt = new Date(examData[key].접수);
+    const diffDate = getDateDifference(today, receipt);
+    dateDifferences.push({ key, diffDate, receipt });
+  }
+
+  // 날짜 차이를 기준으로 오름차순 정렬합니다.
+  dateDifferences.sort((a, b) => a.diffDate - b.diffDate);
+
+  // 최대 5개의 요소만 남기고 잘라냅니다.
+  const closestDates = dateDifferences.slice(0, 5);
+
+  for (const key in examData) {
+    return closestDates.map((item) => ({
+      key: item.key,
+      diffDate: item.diffDate,
+      receipt: examData[key],
+    }));
+  }
+}
+
+// 결과를 가져옵니다.
+const closestDates = getClosestDates(examData, today);
+
+// 결과를 콘솔에 출력합니다.
+console.log(closestDates);
+
+const ulList = document.getElementById("receiptList");
+closestDates.forEach((item, index) => {
+  const container = document.createElement("li");
+  container.classList.add("li0");
+
+  const pTitle = document.createElement("p");
+  pTitle.classList.add("text_lg");
+
+  const pSub = document.createElement("p");
+  const spanOnline = document.createElement("span");
+  const spanTime = document.createElement("span");
+  const spanExam = document.createElement("span");
+  const spanExTime = document.createElement("span");
+  spanOnline.innerText = "온라인";
+  spanExam.innerText = "시험일";
+
+  for (let k in examData) {
+    if (item.key == k) {
+      pTitle.innerText = examData[k].과목;
+      spanTime.innerText = examData[k].접수;
+      spanExTime.innerText = examData[k].시험일;
+    }
+  }
+  pTitle.style.fontSize = "15px";
+  spanExam.style.fontWeight = "bold";
+  spanExTime.style.fontWeight = "bold";
+
+  pSub.appendChild(spanOnline);
+  pSub.appendChild(spanTime);
+  pSub.appendChild(spanExam);
+  pSub.appendChild(spanExTime);
+
+  container.appendChild(pTitle);
+  container.appendChild(pSub);
+
+  container.addEventListener("click", () => {});
+
+  ulList.appendChild(container);
+});
+
+// for (let i = 0; i < 5; i++) {
+//   for (let k in examData) {
+//     console.log(examData.k);
+//     if (dateDifferences[i].key == examData.k) {
+//     }
+//   }
+
+//   const container = document.createElement("li");
+//   container.classList.add("li0");
+
+//   const aBlock = document.createElement("a");
+//   const pTitle = document.createElement("p");
+
+//   const pSub = document.createElement("p");
+// }

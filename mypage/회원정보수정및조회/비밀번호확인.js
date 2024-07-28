@@ -42,8 +42,7 @@ function validation() {
     wPw.classList.add("warn");
   }
   if (!pwC.value) {
-    wPwC.classList.remove("warn");
-    return false;
+    wPwC.classList.remove("warn");ㅁ
   } else {
     wPwC.classList.add("warn");
   }

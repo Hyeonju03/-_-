@@ -279,6 +279,7 @@ function edit() {
     }
   }
   if (newPw) {
+    keyNo=keyCheck();
     user = {
       id: loginUser.id,
       pw: originPw,
