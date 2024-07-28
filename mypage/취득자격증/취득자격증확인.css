@@ -654,7 +654,6 @@ a.btn_m {
 
 /* 190줄 */
 #nav .navBox ul li {
-  background: url(/imgs/arrow_right.png) no-repeat right;
   padding: 0px 16px 0px 10px;
   font-weight: 400;
   float: left;
