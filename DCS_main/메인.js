@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     a.textContent = item.title;
 
     p.addEventListener("click", () => {
-      window.location.href = "/notice/notice.html";
+      window.location.href = "/serviceCenter/notice/notice.html";
     });
     p.appendChild(a);
     container.appendChild(p);
@@ -219,15 +219,15 @@ function getDateDifference(date1, date2) {
   );
 }
 
-// 가장 가까운 날짜를 찾는 함수입니다.
+// 가장 가까운 날짜찾기
 function getClosestDates(examData, today) {
   const dateDifferences = [];
 
-  // `examData`의 각 접수 날짜와 `today` 사이의 차이를 계산하여 배열에 추가합니다.
+  // examData의 접수 날짜와 today 사이의 계산해서 배열에 추가
   for (const key in examData) {
-    if (examData.hasOwnProperty(key)) {
+    if (key in examData) {
       const receipt = new Date(examData[key].접수);
-      // 오늘 날짜가 접수 날짜를 지나지 않은 경우에만 처리합니다.
+      // 오늘 날짜가 접수 날짜를 지나지 않은 경우에만 처리
       if (today <= receipt) {
         const diffDate = getDateDifference(today, receipt);
         dateDifferences.push({ key, diffDate, receipt });
