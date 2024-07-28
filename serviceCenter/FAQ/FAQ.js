@@ -79,12 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // ///////////////////////////////////////////////////
+
   //로그인 상태 여부
   const loginLink = document.getElementById("login");
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
-  // console.log(userData);
 
   if (userData && userData.login) {
     if (userData.login == "1") {
@@ -97,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
         saveUserData(userData);
         logoutUser(userData);
 
-        // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
 

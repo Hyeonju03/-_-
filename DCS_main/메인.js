@@ -283,23 +283,9 @@ closestDates.forEach((item, index) => {
   container.appendChild(pTitle);
   container.appendChild(pSub);
 
-  container.addEventListener("click", () => {});
+  container.addEventListener("click", () => {
+    window.location.href = "/examSchedule/examSchedule.html";
+  });
 
   ulList.appendChild(container);
 });
-
-// for (let i = 0; i < 5; i++) {
-//   for (let k in examData) {
-//     console.log(examData.k);
-//     if (dateDifferences[i].key == examData.k) {
-//     }
-//   }
-
-//   const container = document.createElement("li");
-//   container.classList.add("li0");
-
-//   const aBlock = document.createElement("a");
-//   const pTitle = document.createElement("p");
-
-//   const pSub = document.createElement("p");
-// }

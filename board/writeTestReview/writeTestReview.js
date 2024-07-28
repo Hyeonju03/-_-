@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "/testReview/testReview.html";
   });
 
+  ////////////////////////////////// 로그인 관련 ////////////////////////////////////
+
   //로그인 상태 여부
   const loginLink = document.getElementById("login");
   const signupLink = document.getElementById("mypage");
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       signupLink.innerText = "마이페이지";
-      signupLink.href = "#";
+      signupLink.href = "/mypage/회원정보수정및조회/회원정보메인.html";
     } else {
       // 로그아웃 상태일 때
       loginLink.innerText = "로그인";

@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "/inquire/inquire.html";
   });
 
+  ////////////////////////////////// 로그인 관련 ////////////////////////////////////
+
   //로그인 상태 여부
   const loginLink = document.getElementById("login");
   const signupLink = document.getElementById("mypage");
@@ -68,6 +70,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     signupLink.innerText = "회원가입";
     signupLink.href = "/login/1.회원가입/회원가입.html";
+  }
+
+  const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
+
+  if (!loginUser) {
+    writeBtn.addEventListener("click", () => {
+      alert("로그인이 필요한 작업입니다.");
+      writeBtn.href = "/login/2.로그인/로그인.html";
+    });
+  } else {
+    if (loginUser.login == 0) {
+      writeBtn.addEventListener("click", () => {
+        alert("로그인이 필요한 작업입니다.");
+        writeBtn.href = "/login/2.로그인/로그인.html";
+      });
+    } else {
+      writeBtn.addEventListener("click", () => {
+        writeBtn.href = "/inquirer/inquirer.html";
+      });
+    }
   }
 });
 

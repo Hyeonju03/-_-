@@ -1631,4 +1631,5 @@ a.holder:hover {
 .li0 {
   margin-top: 10px;
   display: list-item;
+  cursor: pointer;
 }
