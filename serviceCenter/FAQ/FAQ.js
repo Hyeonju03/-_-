@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const container = document.createElement("div");
     container.classList.add("faq_item_container");
 
-    const dt = document.createElement("a");
+    const dt = document.createElement("dt");
     const dd = document.createElement("dd");
 
     dt.classList.add("faq_title");

@@ -219,12 +219,20 @@ function getDateDifference(date1, date2) {
   );
 }
 
-const dateDifferences = [];
+// 가장 가까운 날짜를 찾는 함수입니다.
 function getClosestDates(examData, today) {
+  const dateDifferences = [];
+
+  // `examData`의 각 접수 날짜와 `today` 사이의 차이를 계산하여 배열에 추가합니다.
   for (const key in examData) {
-    const receipt = new Date(examData[key].접수);
-    const diffDate = getDateDifference(today, receipt);
-    dateDifferences.push({ key, diffDate, receipt });
+    if (examData.hasOwnProperty(key)) {
+      const receipt = new Date(examData[key].접수);
+      // 오늘 날짜가 접수 날짜를 지나지 않은 경우에만 처리합니다.
+      if (today <= receipt) {
+        const diffDate = getDateDifference(today, receipt);
+        dateDifferences.push({ key, diffDate, receipt });
+      }
+    }
   }
 
   // 날짜 차이를 기준으로 오름차순 정렬합니다.
@@ -233,13 +241,12 @@ function getClosestDates(examData, today) {
   // 최대 5개의 요소만 남기고 잘라냅니다.
   const closestDates = dateDifferences.slice(0, 5);
 
-  for (const key in examData) {
-    return closestDates.map((item) => ({
-      key: item.key,
-      diffDate: item.diffDate,
-      receipt: examData[key],
-    }));
-  }
+  // 결과를 반환합니다.
+  return closestDates.map((item) => ({
+    key: item.key,
+    diffDate: item.diffDate,
+    receipt: item.receipt,
+  }));
 }
 
 // 결과를 가져옵니다.
