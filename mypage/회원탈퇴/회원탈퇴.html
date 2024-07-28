@@ -61,20 +61,18 @@
           <div class="top_link">
             <div>
               <h1>
-                <a
-                  id="dcs_home"
-                  href="/메인페이지/메인.html"
-                  title="홈 바로가기"
-                >
-                  <img src="/project-main/imgs/로고.png" alt="dcs" />
+                <a id="dcs_home" href="/DCS_main/메인.html" title="홈 바로가기">
+                  <img src="/imgs/로고.png" alt="dcs" />
                 </a>
               </h1>
               <ul>
                 <li>
-                  <a id="login" href="#">로그인</a>
+                  <a id="login" href="/login/2.로그인/로그인.html">로그인</a>
                 </li>
                 <li>
-                  <a href="#">회원가입</a>
+                  <a id="mypage" href="/login/1.회원가입/회원가입.html"
+                    >회원가입</a
+                  >
                 </li>
               </ul>
             </div>
@@ -219,7 +217,7 @@
                 >
                 <ul class="subMenu">
                   <li>
-                    <a href="/mypage/회원정보수정및조회/회원정보수정.html"
+                    <a href="/mypage/회원정보수정및조회/회원정보메인.html"
                       >회원정보수정</a
                     >
                   </li>
@@ -243,7 +241,7 @@
           <ul>
             <li class="home">홈</li>
             <li>마이페이지</li>
-            <li>회원정보수정 및 조회</li>
+            <li>회원탈퇴</li>
           </ul>
         </div>
       </div>
@@ -255,10 +253,10 @@
           <ul class="menuList">
             <li class="has-sub has-submenu">
               <a
-                href="/mypage/회원정보수정및조회/회원정보수정.html"
+                href="/mypage/회원정보수정및조회/회원정보메인.html"
                 class="holder csp"
               >
-                회원정보 수정 및 조회
+                회원정보
               </a>
             </li>
             <li class="has-sub has-submenu">
@@ -270,10 +268,9 @@
               </a>
             </li>
             <li class="has-sub has-submenu">
-              <a href="" class="holder csp"> 관심시험 </a>
-            </li>
-            <li class="has-sub has-submenu">
-              <a href="#" class="holder csp"> 회원탈퇴 </a>
+              <a href="/mypage/회원탈퇴/회원탈퇴.html" class="holder csp">
+                회원탈퇴
+              </a>
             </li>
           </ul>
         </div>
@@ -341,9 +338,9 @@
             <h3>빠른메뉴</h3>
             <ul>
               <li>
-                <a href="#">
+                <a href="/introduce/1.정보처리기사.html">
                   <img
-                    src="/project-main/imgs/card-list.svg"
+                    src="/imgs/card-list.svg"
                     alt="자격소개"
                     class="img-size"
                   />
@@ -351,9 +348,9 @@
                 <span class="csp">자격소개</span>
               </li>
               <li>
-                <a href="#">
+                <a href="/examSchedule/examSchedule.html">
                   <img
-                    src="/project-main/imgs/calendar2-week.svg"
+                    src="/imgs/calendar2-week.svg"
                     alt="시험일정"
                     class="img-size"
                   />
@@ -361,9 +358,9 @@
                 <span class="csp">시험일정</span>
               </li>
               <li>
-                <a href="#">
+                <a href="/serviceCenter/notice/notice.html">
                   <img
-                    src="/project-main/imgs/megaphone-fill.svg"
+                    src="/imgs/megaphone-fill.svg"
                     alt="공지사항"
                     class="img-size"
                   />
@@ -371,15 +368,19 @@
                 <span class="csp">공지사항</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="/" alt="FAQ" class="img-size" />
+                <a href="/serviceCenter/FAQ/FAQ.html">
+                  <img
+                    src="/imgs/question-circle.svg"
+                    alt="FAQ"
+                    class="img-size"
+                  />
                 </a>
                 <span class="csp">FAQ</span>
               </li>
               <li>
-                <a href="#">
+                <a href="/mypage/회원정보수정및조회/회원정보메인.html">
                   <img
-                    src="/project-main/imgs/person-fill.svg"
+                    src="/imgs/person-fill.svg"
                     alt="마이페이지"
                     class="img-size"
                   />
@@ -395,19 +396,19 @@
       </div>
       <!-- //container -->
       <!-- footer -->
-      <div id="footer" class="noto-sans-kr-uniquifier">
+      <div id="footer">
         <div class="policy">
           <ul>
             <li>
-              <a href="#">자격소개</a>
+              <a href="/introduce/1.정보처리기사.html">자격소개</a>
             </li>
             <li>
-              <a href="/유의사항/유의사항.html">수험자 유의사항</a>
+              <a href="/serviceCenter/info/info.html">수험자 유의사항</a>
             </li>
           </ul>
           <div class="policyBtn">
-            <a href="/이용약관/이용약관.html"> 이용약관 </a>
-            <a href="/개인정보처리방침/개인정보처리방침.html">
+            <a href="/login/이용약관/이용약관.html"> 이용약관 </a>
+            <a href="/login/개인정보처리방침/개인정보처리방침.html">
               개인정보처리방침
             </a>
           </div>
@@ -415,7 +416,7 @@
         <!-- //policy -->
         <div class="info">
           <p class="footLogo">
-            <img src="/project-main/imgs/로고.png" alt="dcs" />
+            <img src="/imgs/로고.png" alt="dcs" />
           </p>
           <div class="add">
             <p>

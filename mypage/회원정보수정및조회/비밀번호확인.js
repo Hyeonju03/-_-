@@ -1,11 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const clickTop = document.querySelector(".gotoTop");
-  clickTop.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
-
 //비밀번호 타입 txt로 변경
 let count = 1;
 function pwEye() {
@@ -127,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       signupLink.innerText = "마이페이지";
-      signupLink.href = "#";
+      signupLink.href = "/mypage/회원정보수정및조회/회원정보메인.html";
     } else {
       // 로그아웃 상태일 때
       loginLink.innerText = "로그인";
