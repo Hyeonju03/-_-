@@ -87,16 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // const slides = document.querySelectorAll(".slide_item");
-
-  // for (let i = 0; i < 8; i++) {
-  //   const bannerBtn = document.getElementById(`bannerBtn${i}`);
-
-  //   bannerBtn.addEventListener("click", () => {
-
-  //   })
-  // }
-
   // 입력받은 공지 끌어오는데 반대로 5개? 4개를 가져와야하니까 for문 반대로 쓰기
 
   const noticeItems = [];
