@@ -119,37 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //   console.error("오류");
   // }
 
-  // 버튼 클릭 시 동작
-  const btns = document.querySelectorAll(".btn2");
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const category = btn.textContent.trim(); // 클릭한 버튼의 카테고리
-      const containers = document.querySelectorAll(
-        ".testReview_item_container"
-      );
-
-      // 모든 testReview 항목을 숨기기
-      containers.forEach((container) => {
-        container.style.display = "none";
-      });
-
-      // 클릭한 버튼의 카테고리와 일치하는 testReview 항목만 보이기
-      testReviewItems.forEach((item, index) => {
-        if (item.category == category) {
-          containers[index].style.display = "block";
-        }
-      });
-
-      // 클릭한 버튼의 스타일 변경
-      btns.forEach((b) => {
-        b.style.backgroundColor = "white";
-        b.style.color = "black";
-      });
-      btn.style.backgroundColor = "rgb(255, 183, 0)";
-      btn.style.color = "white";
-    });
-  });
-
   // dt 클릭시 가릴것들과 안가릴것들
   function ddclick(userData, dd, deleteBtn) {
     if (!dd || !deleteBtn) {
