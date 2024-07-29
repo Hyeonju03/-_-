@@ -459,7 +459,6 @@ document.addEventListener("DOMContentLoaded", function () {
         userData.login = "0";
         saveUserData(userData);
         logoutUser(userData);
-        sessionStorage.removeItem("loginUser");
         // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
