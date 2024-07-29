@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // 다음 번호를 위해 no를 1 증가시키고 localStorage에 저장
     REVIEWno++;
     localStorage.setItem("REVIEWno", REVIEWno);
-
-    // window.location.href = "/board/testReview/testReview.html";
   });
 
   ////////////////////////////////// 로그인 관련 ////////////////////////////////////
