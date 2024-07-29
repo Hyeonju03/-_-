@@ -256,7 +256,9 @@
             <h3>게시판</h3>
             <ul class="menuList">
               <li class="has-sub has-submenu">
-                <a href="/FAQ/FAQ.html" class="holder csp"> 시험후기글 </a>
+                <a href="/board/testReview/testReview.html" class="holder csp">
+                  시험후기글
+                </a>
                 <a href="" class="holder csp"> 기출문제 </a>
               </li>
             </ul>
@@ -268,7 +270,7 @@
                   시험후기글
                   <a
                     id="writeBtn"
-                    href="/inquirer/inquirer.html"
+                    href="/board/writeTestReview/writeTestReview.html"
                     class="btn bg_darkgray text_color_white btn_m float_right"
                   >
                     <span>작성하기</span>
@@ -277,20 +279,40 @@
               </div>
               <!-- section -->
               <div class="article" style="margin-bottom: 0px; margin-top: 10px">
-                <!-- <div id="search_box">
+                <div id="search_box">
                   <form id="selectBox">
-                    <div id="submission" class="inBlock btn2">원서접수</div>
-                    <div id="implement" class="inBlock btn2">시험시행</div>
-                    <div id="questions" class="inBlock btn2">시험문제</div>
-                    <div id="certificate" class="inBlock btn2">
-                      자격증 및 인증서
-                    </div>
-                    <div id="information" class="inBlock btn2">
-                      성적 및 회원정보
-                    </div>
-                    <div id="information" class="inBlock btn2">기타</div>
+                    <td class="tl">
+                      <select
+                        class="col-8 col-12-s"
+                        id="filter"
+                        style="margin-left: 20px; width: 80px; height: 30px"
+                      >
+                        <option name="filter" value="submit">제목</option>
+                        <option name="filter" value="content">내용</option>
+                        <option name="filter" value="subCon">
+                          제목 + 내용
+                        </option>
+                      </select>
+                      <input
+                        id="searchText"
+                        type="text"
+                        style="width: 200px; height: 30px"
+                      />
+                      <button
+                        id="searchBtn"
+                        class="bg_darkgray text_color_white"
+                        style="
+                          width: 70px;
+                          height: 30px;
+                          border-radius: 5px;
+                          cursor: pointer;
+                        "
+                      >
+                        검색하기
+                      </button>
+                    </td>
                   </form>
-                </div> -->
+                </div>
               </div>
               <div id="bbsArea">
                 <div class="testReview_list">

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // if (dlList) {
   testReviewItems.forEach((item, index) => {
+    console.log(item.title);
     let userData = getUserData();
     const container = document.createElement("div");
     container.classList.add("testReview_item_container");
@@ -40,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
     dd.classList.add("testReview_view");
     deleteBtn.classList.add("commentBtn");
 
-    createBtn.textContent = "저장하기";
     deleteBtn.textContent = "삭제하기";
     p.textContent = `작성자: ${item.userId}`;
     dt.textContent = item.title;
@@ -50,20 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dt.id = `dt${index}`;
     dd.style.display = "none";
     deleteBtn.style.display = "none";
-
-    // 조건에 맞게 dt 보이기
-    dt.style.display = "none";
-    if (userData && userData.login == "1") {
-      if (userData.id == "admin") {
-        dt.style.display = "block";
-      } else {
-        if (userData.id == item.userId) {
-          dt.style.display = "block";
-        } else {
-          dt.style.display = "none";
-        }
-      }
-    }
+    dt.style.display = "block";
 
     //dt 클릭하면 실행
     dt.addEventListener("click", () => {
@@ -89,6 +76,38 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       });
+    });
+
+    // 조건 등록시 걸러지기
+    const searchBtn = document.getElementById("searchBtn");
+
+    searchBtn.addEventListener("click", () => {
+      const select = document.querySelector("option[name=filter]:checked");
+      const searchText = document.getElementById("searchText");
+      if (select.value == "submit") {
+        let text = searchText.value;
+        if (dt.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else {
+          dt.style.display = "none";
+        }
+      } else if (select.value == "content") {
+        let text = searchText.value;
+        if (dd.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else {
+          dt.style.display = "none";
+        }
+      } else if (select.value == "subCon") {
+        let text = searchText.value;
+        if (dd.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else if (dt.innerText.includes(text)) {
+          dt.style.display = "block";
+        } else {
+          dt.style.display = "none";
+        }
+      }
     });
 
     container.appendChild(dt);
@@ -132,14 +151,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // dt 클릭시 가릴것들과 안가릴것들
-  function ddclick(userData, dd, textarea, createBtn, deleteBtn) {
-    if (!dd || !textarea || !createBtn || !deleteBtn) {
+  function ddclick(userData, dd, textarea, deleteBtn) {
+    if (!dd || !textarea || !deleteBtn) {
       console.error("입력 데이터 없음");
       return;
     }
 
     if (userData && userData.login == "1") {
-      // admin이면 보여야할것 : createBtn deleteBtn textarea(활성화) dd
+      // admin이면 보여야할것 : deleteBtn textarea(활성화) dd
       // admin 아닌 유저 : textarea(비활성화) dd
       dd.style.display = "block";
 
@@ -210,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } else {
       writeBtn.addEventListener("click", () => {
-        writeBtn.href = "/writeTestReview/writeTestReview.html";
+        writeBtn.href = "/board/writeTestReview/writeTestReview.html";
       });
     }
   }
