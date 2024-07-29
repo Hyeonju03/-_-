@@ -276,26 +276,36 @@ editInfor.addEventListener("click", () => {
   const newPw = checkPw();
   const phCh = phChange();
   //전화번호가 바뀐 경우 인증버튼을 눌러야 진행
-  if (phCh) {
-    if (newPw) {
-      keyNo = keyCheck();
-      user = {
-        id: loginUser.id,
-        pw: originPw,
-        name: loginName.value,
-        gender: genderCehck(),
-        birth: birth.value,
-        phone: originPh,
-        email: email.value,
-        delete: "0",
-        login: "1",
-        profile: newProfile,
-      };
-      console.log(user);
-      localStorage.setItem(keyNo, JSON.stringify(user));
-      sessionStorage.setItem("loginUser", JSON.stringify(user));
-      alert("수정완료");
-      return;
+  if (
+    email.value == loginUser.email &&
+    ph.value == loginUser.phone &&
+    loginName.value == loginUser.name &&
+    birth.value == loginUser.birth &&
+    genderCehck() == loginUser.gender
+  ) {
+    alert("수정사항이 없습니다.");
+  } else {
+    if (phCh) {
+      if (newPw) {
+        keyNo = keyCheck();
+        user = {
+          id: loginUser.id,
+          pw: originPw,
+          name: loginName.value,
+          gender: genderCehck(),
+          birth: birth.value,
+          phone: originPh,
+          email: email.value,
+          delete: "0",
+          login: "1",
+          profile: newProfile,
+        };
+        console.log(user);
+        localStorage.setItem(keyNo, JSON.stringify(user));
+        sessionStorage.setItem("loginUser", JSON.stringify(user));
+        alert("수정완료");
+        return;
+      }
     }
   }
 });

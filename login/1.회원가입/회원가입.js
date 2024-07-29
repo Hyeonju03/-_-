@@ -459,10 +459,10 @@ document.addEventListener("DOMContentLoaded", function () {
         userData.login = "0";
         saveUserData(userData);
         logoutUser(userData);
+
         // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
-
       signupLink.innerText = "마이페이지";
       signupLink.href = "/mypage/회원정보수정및조회/회원정보메인.html";
     } else {
