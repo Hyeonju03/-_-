@@ -151,8 +151,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // dt 클릭시 가릴것들과 안가릴것들
-  function ddclick(userData, dd, textarea, deleteBtn) {
-    if (!dd || !textarea || !deleteBtn) {
+  function ddclick(userData, dd, deleteBtn) {
+    if (!dd || !deleteBtn) {
       console.error("입력 데이터 없음");
       return;
     }
@@ -167,8 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         deleteBtn.style.display = "none";
       }
-    } else {
-      dd.style.display = "none";
     }
   }
 
