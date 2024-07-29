@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .getElementById("searchText")
       .value.trim()
       .toLowerCase();
-    var searchResults = document.getElementById("content");
+    var searchResults = document.getElementById("examList");
 
     // 모든 기출문제 목록을 가져옴
     var examLinks = document.querySelectorAll(".icon");
