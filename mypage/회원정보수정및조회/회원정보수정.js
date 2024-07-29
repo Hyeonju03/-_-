@@ -281,7 +281,10 @@ editInfor.addEventListener("click", () => {
     ph.value == loginUser.phone &&
     loginName.value == loginUser.name &&
     birth.value == loginUser.birth &&
-    genderCehck() == loginUser.gender
+    genderCehck() == loginUser.gender &&
+    !pw.value &&
+    !pw.value &&
+    !phC.value
   ) {
     alert("수정사항이 없습니다.");
   } else {
