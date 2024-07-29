@@ -891,3 +891,8 @@ a.holder:hover {
   cursor: pointer;
   display: block;
 }
+
+.commentBtn:hover {
+  background-color: rgb(255, 183, 0);
+  color: white;
+}
