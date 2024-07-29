@@ -50,10 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function goToSlide(index) {
+    currSlide = index;
+    const offset = slideWidth * currSlide;
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
+  }
+
   window.addEventListener("resize", () => {
     slideWidth = slide.clientWidth;
+    // 슬라이드 재계산을 위해 전체 슬라이드 재계산
+    let offset = slideWidth + currSlide;
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
   });
-
   let loopInterval = setInterval(() => {
     nextMove();
   }, 3000);
@@ -67,6 +79,23 @@ document.addEventListener("DOMContentLoaded", function () {
       nextMove();
     }, 3000);
   });
+
+  // 배너 버튼 클릭 시 슬라이드로 이동
+  document.querySelectorAll(".banner-btn").forEach((button, index) => {
+    button.addEventListener("click", () => {
+      goToSlide(index + 1);
+    });
+  });
+
+  // const slides = document.querySelectorAll(".slide_item");
+
+  // for (let i = 0; i < 8; i++) {
+  //   const bannerBtn = document.getElementById(`bannerBtn${i}`);
+
+  //   bannerBtn.addEventListener("click", () => {
+
+  //   })
+  // }
 
   // 입력받은 공지 끌어오는데 반대로 5개? 4개를 가져와야하니까 for문 반대로 쓰기
 
@@ -85,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     count++;
     if (count == 5) {
-      console.log(noticeItems);
       break;
     }
   }
@@ -251,9 +279,6 @@ function getClosestDates(examData, today) {
 
 // 결과를 가져옵니다.
 const closestDates = getClosestDates(examData, today);
-
-// 결과를 콘솔에 출력합니다.
-console.log(closestDates);
 
 const ulList = document.getElementById("receiptList");
 closestDates.forEach((item, index) => {
