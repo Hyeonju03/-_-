@@ -257,39 +257,76 @@ function keyCheck() {
 //수정 버튼 눌렀을 때
 //1. 비밀번호 확인
 //2. 입력된 번호랑 일치하는지 확인 다른 경우 인증번호 체크
-function edit() {
-  const newPw = checkPw();
-  //전화번호가 바뀐 경우 인증버튼을 눌러야 진행
+function phChange() {
   if (loginUser.phone != ph.value || phC.value != "") {
     if (!phConfrim) {
       alert("인증번호 버튼을 눌러주세요");
-      return;
+      return false;
     }
     if (!cerConfrim) {
       alert("인증번호 확인 버튼을 눌러주세요.");
+      return false;
+    }
+  }
+  return true;
+}
+
+const editInfor = document.getElementById("editBtn");
+editInfor.addEventListener("click", () => {
+  const newPw = checkPw();
+  const phCh = phChange();
+  //전화번호가 바뀐 경우 인증버튼을 눌러야 진행
+  if (phCh) {
+    if (newPw) {
+      keyNo = keyCheck();
+      user = {
+        id: loginUser.id,
+        pw: originPw,
+        name: loginName.value,
+        gender: genderCehck(),
+        birth: birth.value,
+        phone: originPh,
+        email: email.value,
+        delete: "0",
+        login: "1",
+        profile: newProfile,
+      };
+      console.log(user);
+      localStorage.setItem(keyNo, JSON.stringify(user));
+      sessionStorage.setItem("loginUser", JSON.stringify(user));
+      alert("수정완료");
       return;
     }
   }
-  if (newPw) {
-    keyNo = keyCheck();
-    user = {
-      id: loginUser.id,
-      pw: originPw,
-      name: loginName.value,
-      gender: genderCehck(),
-      birth: birth.value,
-      phone: originPh,
-      email: email.value,
-      delete: "0",
-      login: "1",
-      profile: newProfile,
-    };
-    console.log(user);
-    localStorage.setItem(keyNo, JSON.stringify(user));
-    sessionStorage.setItem("loginUser", JSON.stringify(user));
-    alert("수정완료");
-  }
-}
+});
+
+// function edit() {
+//   const newPw = checkPw();
+//   const phCh = phChange();
+//   //전화번호가 바뀐 경우 인증버튼을 눌러야 진행
+//   if (phCh) {
+//     if (newPw) {
+//       keyNo = keyCheck();
+//       user = {
+//         id: loginUser.id,
+//         pw: originPw,
+//         name: loginName.value,
+//         gender: genderCehck(),
+//         birth: birth.value,
+//         phone: originPh,
+//         email: email.value,
+//         delete: "0",
+//         login: "1",
+//         profile: newProfile,
+//       };
+//       console.log(user);
+//       localStorage.setItem(keyNo, JSON.stringify(user));
+//       sessionStorage.setItem("loginUser", JSON.stringify(user));
+//       alert("수정완료");
+//       return;
+//     }
+//   }
+// }
 
 //취소버튼 누르면 다시 마이페이지로 이동
 function cancel() {

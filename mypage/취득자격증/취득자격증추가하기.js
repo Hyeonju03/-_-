@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // window.location.href = "/mypage/취득자격증/취득자격증확인.html";
         CERno++;
         localStorage.setItem("CERno", CERno);
+        window.location.href = "/mypage/취득자격증/취득자격증확인.html";
       }
     }
   });

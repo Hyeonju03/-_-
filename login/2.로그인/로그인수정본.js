@@ -7,7 +7,6 @@ let idConfirm = 0;
 function idCheck() {
   const inputId = userId.value;
   let checkedId = [];
-
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     const item = JSON.parse(localStorage.getItem(key));
@@ -18,11 +17,16 @@ function idCheck() {
     checkedId.push(item.id);
   }
 
-  // for (let i = 0; i < localStorage.length; i++) {
-  //   checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
-  // }
+  const res = keyCheck();
+  const deleteUser = JSON.parse(localStorage.getItem(res)).delete;
   if (!checkedId.includes(inputId)) {
     alert("아이디가 존재하지 않습니다.");
+    idConfirm = false;
+    return false;
+  }
+  //입력한 아이디가 탈퇴한 유저일 경우
+  if (deleteUser == "1") {
+    alert("탈퇴한 유저입니다.");
     idConfirm = false;
     return false;
   }
@@ -34,13 +38,22 @@ function idCheck() {
 let key = 0;
 function keyCheck() {
   for (let i = 0; i < localStorage.length; i++) {
-    const storeDate = JSON.parse(localStorage.getItem(i));
-    if (storeDate.id == userId.value) {
-      key = i;
-      console.log("키값", key);
-      return key;
+    const storeDate = localStorage.getItem(i);
+    if (storeDate === null) {
+      continue;
+    }
+    try {
+      const userDate = JSON.parse(storeDate);
+      const id = userDate.id;
+      if (id === userId.value) {
+        key = i;
+        return key;
+      }
+    } catch (error) {
+      console.error("Error parsing stored data:", error);
     }
   }
+  return key;
 }
 
 //비밀번호 다시
@@ -49,6 +62,7 @@ function pwCheck() {
   const inputPw = userPw.value;
   const checkPw = JSON.parse(localStorage.getItem(res)).pw;
   if (inputPw != checkPw) {
+    console.log("비밀번호 확인키", res);
     alert("비밀번호가 일치하지 않습니다.");
     return false;
   }
@@ -79,16 +93,17 @@ function validationCheck() {
 function login() {
   const res = validationCheck();
   const id = idCheck();
-  const pw = pwCheck();
   const loginState = JSON.parse(localStorage.getItem(key));
-  console.log(key);
   if (res) {
-    if (id & pw) {
-      //메인사이트로 이동하게 링크 바꾸기.
-      loginState.login = "1";
-      localStorage.setItem(key, JSON.stringify(loginState));
-      sessionStorage.setItem("loginUser", JSON.stringify(loginState));
-      window.location.href = "/DCS_main/메인.html";
+    if (id) {
+      const pw = pwCheck();
+      if (pw) {
+        //메인사이트로 이동하게 링크 바꾸기.
+        loginState.login = "1";
+        localStorage.setItem(key, JSON.stringify(loginState));
+        sessionStorage.setItem("loginUser", JSON.stringify(loginState));
+        window.location.href = "/DCS_main/메인.html";
+      }
     }
   }
 }

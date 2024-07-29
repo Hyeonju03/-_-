@@ -120,8 +120,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let userData = getUserData();
 
+  //현재 로그인한 유저의 키 값을 찾고, 거기에서 delete가 0인 경우 추가하기
+  let keyNo = 0;
+  function keyCheck() {
+    for (let key = 0; key < localStorage.length; key++) {
+      const storeDate = JSON.parse(localStorage.getItem(key));
+      if (storeDate && storeDate.id == userData.id) {
+        keyNo = key;
+        return keyNo;
+      }
+    }
+  }
+
   if (userData && userData.login) {
-    if (userData.login == "1") {
+    keyNo = keyCheck();
+    const user = JSON.parse(localStorage.getItem(keyNo));
+    if (userData.login == "1" && user.delete == "0") {
       // 로그인 상태일 때
       loginLink.innerText = "로그아웃";
       loginLink.href = "#";
@@ -130,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userData.login = "0";
         saveUserData(userData);
         logoutUser(userData);
-
+        sessionStorage.removeItem("loginUser");
         // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
