@@ -784,6 +784,10 @@ a.btn_m {
   width: 171px;
 }
 
+.margin20 {
+  margin-top: 24px;
+}
+
 /* 310 */
 .btn_img_arrow span {
   background: url(/imgs/arrow_right.png) no-repeat right;
