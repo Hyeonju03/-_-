@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     REVIEWno++;
     localStorage.setItem("REVIEWno", REVIEWno);
 
-    window.location.href = "board/testReview/testReview.html";
+    // window.location.href = "/board/testReview/testReview.html";
   });
 
   ////////////////////////////////// 로그인 관련 ////////////////////////////////////
