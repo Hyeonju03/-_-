@@ -10,13 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
   writeBtn.addEventListener("click", () => {
     const title = document.getElementById("title").value;
     const content = document.getElementById("title-content").value;
-    const select = document.getElementById("category");
-    const category = select.options[select.selectedIndex].text;
 
     const testReview = {
       title: title,
       content: content,
-      category: category,
       userId: JSON.parse(sessionStorage.getItem("loginUser")).id,
     };
 
