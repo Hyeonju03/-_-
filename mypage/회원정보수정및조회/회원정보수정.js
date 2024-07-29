@@ -307,6 +307,7 @@ editInfor.addEventListener("click", () => {
         localStorage.setItem(keyNo, JSON.stringify(user));
         sessionStorage.setItem("loginUser", JSON.stringify(user));
         alert("수정완료");
+        window.location.href = "/mypage/회원정보수정및조회/회원정보메인.html";
         return;
       }
     }
