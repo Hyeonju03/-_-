@@ -549,12 +549,11 @@ a.btn_m {
 }
 
 /* 149 */
-.btn_pager a {
+.btn_pager p {
   background-position: 0px -43px;
   border-radius: 0px;
   width: 102px;
   height: 44px;
-  text-indent: -9999em;
   border-bottom-color: rgb(255, 255, 255);
   border-left-color: rgb(255, 255, 255);
   border-bottom-width: 1px;
@@ -564,36 +563,6 @@ a.btn_m {
   display: inline-block;
   background-repeat: no-repeat;
   background-color: rgb(216, 218, 226);
-}
-
-/* 153 */
-.btn_pager a.itq {
-  background-image: url(/imgs/icons8-앞으로.png);
-}
-
-/* 156 */
-.btn_pager a.erp {
-  background-image: url(/imgs/icons8-앞으로.png);
-}
-
-/* 159 */
-.btn_pager a.gtq {
-  background-image: url(/imgs/icons8-앞으로.png);
-}
-
-/* 162 */
-.btn_pager a.ieq {
-  background-image: url(/imgs/icons8-앞으로.png);
-}
-
-/* 165 */
-.btn_pager a.mat {
-  background-image: url(/imgs/icons8-앞으로.png);
-}
-
-/* 171 */
-.btn_pager a.swc {
-  background-image: url(/imgs/icons8-앞으로.png);
 }
 
 /* 181줄 */
