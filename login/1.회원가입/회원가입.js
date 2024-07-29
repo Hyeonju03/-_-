@@ -197,21 +197,6 @@ function phDup() {
   return true;
 }
 
-/////////////////////////////////////////////////////////////////
-// function phDup() {
-//   const ph = signPh.value; //입력받은 전화번호
-//   let checkPh = []; //비교할 로컬 번호
-//   for (let i = 0; i < localStorage.length; i++) {
-//     checkPh.push(JSON.parse(localStorage.getItem(i)).phone); // 키가 0인거부터 순서대로 전화번호를 담음
-//   }
-//   if (checkPh.includes(ph)) {
-//     alert("이미 사용중인 전화번호 입니다.");
-//     return false;
-//   }
-//   return true;
-// }
-/////////////////////////////////////////////////////////////////
-
 //인증번호 생성
 function randomNo() {
   let random = "";
@@ -409,7 +394,7 @@ function goSign() {
   //빠진 부분이 없을경우 비밀번호, 인증번호 확인
   if (res) {
     if (signBirth.value.length != 6) {
-      alert("6자리 숫자를 입력해주세요.");
+      alert("생년월일은 6자리 숫자를 입력해주세요.");
       return;
     }
     if (!idConfrim) {
@@ -474,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userData.login = "0";
         saveUserData(userData);
         logoutUser(userData);
-
+        sessionStorage.removeItem("loginUser");
         // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });

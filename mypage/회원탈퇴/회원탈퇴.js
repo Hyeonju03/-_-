@@ -177,8 +177,11 @@ function quitPage() {
         if (confirm("진짜로 탈퇴하시겠습니까?")) {
           // '예'를 누른 경우
           user.delete = "1";
+          user.login = "0";
           localStorage.setItem(keyNo, JSON.stringify(user));
+          sessionStorage.removeItem("loginUser");
           alert("탈퇴되었습니다.");
+          console.log(keyNo);
           // 메인 화면으로 이동 (예: index.html)
           window.location.href = "/DCS_main/메인.html";
         } else {

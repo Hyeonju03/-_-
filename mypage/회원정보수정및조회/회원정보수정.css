@@ -716,12 +716,12 @@ a.holder:hover {
 .profile {
   border: 1px solid;
   border-radius: 10px;
-  width: 120px;
+  width: 140px;
   height: 160px;
 }
 .profilePh {
   border-radius: 10px;
-  width: 110px;
+  width: 130px;
   height: 150px;
   margin-left: 4px;
   margin-top: 4px;
