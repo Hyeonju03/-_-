@@ -24,12 +24,41 @@ const newName = document.getElementById("findId_name");
 const newPh = document.getElementById("findId_ph");
 const cerNo = document.getElementById("findId_certi");
 
+//이름 한글만 입력가능하게
+newName.addEventListener("input", function () {
+  this.value = this.value.replace(/[^가-힣]/g, "");
+});
+
+newName.addEventListener("blur", function (e) {
+  let name = this.value;
+  if (name.length < 2 || name.length > 4) {
+    alert("이름은 2~5글자까지 입력가능합니다.");
+    // e.preventDefault();
+    return;
+  }
+  // user.name = name;
+  // localStorage.setItem(userNo, JSON.stringify(user));
+});
+
 //이름 입력시 로컬에 있는지 확인
 function nameCheck() {
   const inputName = newName.value;
   let checkedName = [];
   for (let i = 0; i < localStorage.length; i++) {
-    checkedName.push(JSON.parse(localStorage.getItem(i)).name); // 키가 0인거부터 순서대로 name를 담음
+    const storedName = localStorage.getItem(i);
+    if (storedName === null) {
+      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      continue; // null일 경우 다음 반복으로 넘어감
+    }
+    try {
+      const userData = JSON.parse(storedName);
+      const userName = userData.name;
+      if (userName) {
+        checkedName.push(userName);
+      }
+    } catch (error) {
+      console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
+    }
   }
   if (!checkedName.includes(inputName)) {
     alert("일치하는 이름이 없습니다.");
@@ -43,7 +72,7 @@ let keyObj = [];
 function keyCheck() {
   for (let key = 0; key < localStorage.length; key++) {
     const storeDate = JSON.parse(localStorage.getItem(key));
-    if (storeDate.name == newName.value) {
+    if (storeDate && storeDate.name == newName.value) {
       keyObj.push(key);
     }
   }
@@ -72,17 +101,20 @@ newPh.addEventListener("input", function () {
 //이름이랑 번호가 일치하는지 확인
 function namePhCheck() {
   const res = keyCheck();
+  const name = nameCheck();
   let inputPh = newPh.value;
   let checkPj = []; // 동명이인일 경우 해당 키의 전화번호를 전부 저장
-  for (item of res) {
-    checkPj.push(JSON.parse(localStorage.getItem(item)).phone);
-  }
-  if (checkPj.includes(inputPh)) {
-    alert("전화번호가 일치합니다.");
-    return true;
-  } else {
-    alert("전화번호가 일치하지 않습니다.");
-    return false;
+  if (name) {
+    for (item of res) {
+      checkPj.push(JSON.parse(localStorage.getItem(item)).phone);
+    }
+    if (checkPj.includes(inputPh)) {
+      alert("전화번호가 일치합니다.");
+      return true;
+    } else {
+      alert("전화번호가 일치하지 않습니다.");
+      return false;
+    }
   }
 }
 
@@ -126,6 +158,7 @@ function sendSms() {
   const res = phLength();
   if (res) {
     const ph = namePhCheck();
+
     if (ph) {
       ran = randomNo();
       console.log(ran);

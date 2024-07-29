@@ -29,7 +29,20 @@ function idCheck() {
   const inputId = pwId.value;
   let checkedId = [];
   for (let i = 0; i < localStorage.length; i++) {
-    checkedId.push(JSON.parse(localStorage.getItem(i)).id); // 키가 0인거부터 순서대로 id를 담음
+    const storedId = localStorage.getItem(i);
+    if (storedId === null) {
+      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      continue; // null일 경우 다음 반복으로 넘어감
+    }
+    try {
+      const userData = JSON.parse(storedId);
+      const userId = userData.id;
+      if (userId) {
+        checkedId.push(userId);
+      }
+    } catch (error) {
+      console.error(`로컬 스토리지 데이터 처리 중 오류 발생: ${error.message}`);
+    }
   }
   if (!checkedId.includes(inputId)) {
     alert("존재하지 않는 아이디입니다.");
