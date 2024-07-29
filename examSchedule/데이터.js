@@ -232,9 +232,13 @@ endDateInput.min = getTodayDateString();
 
 //---------------------------------------------------------------------------- 시험일정 출력해주는 JS
 
+// localStorage에서 시험 데이터 가져오기
 const storedExamData = JSON.parse(localStorage.getItem("examData"));
+
+// 테이블의 tbody 요소 참조
 const tableBody = document.querySelector("#examTable tbody");
 
+// 검색 버튼 클릭 시 호출되는 함수
 function searchExams() {
   const selectedType = document.getElementById("typeCertificate").value;
   const startDateInput = document.getElementById("startDate").value;

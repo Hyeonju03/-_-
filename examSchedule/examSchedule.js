@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const row = document.createElement("tr");
           row.innerHTML = `
         <td>${exam.시험일}</td>
-        <td>${exam.과목}</td>
+        <td><a href="${exam.링크}" target="_blank">${exam.과목}</a></td>
         <td>${exam.접수}</td>
         <td>${exam.수험표}</td>
         <td>${exam.결과}</td>
