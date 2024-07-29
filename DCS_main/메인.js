@@ -297,13 +297,13 @@ closestDates.forEach((item, index) => {
   const spanTime = document.createElement("span");
   const spanExam = document.createElement("span");
   const spanExTime = document.createElement("span");
-  spanOnline.innerText = "온라인";
+  spanOnline.innerText = "온라인 접수";
   spanExam.innerText = "시험일";
 
   for (let k in examData) {
     if (item.key == k) {
       pTitle.innerText = examData[k].과목;
-      spanTime.innerText = examData[k].접수;
+      spanTime.innerText = `~ ${examData[k].접수}`;
       spanExTime.innerText = examData[k].시험일;
     }
   }
