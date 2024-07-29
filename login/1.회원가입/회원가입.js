@@ -209,61 +209,8 @@ function randomNo() {
 //전화번호 형식이 맞을때 인증번호 발송
 let phConfrim = false;
 let random = "";
-function sendSms() {
-  //전화번호 유효성 검사
-  const validPh = checkPh();
-  if (!validPh) {
-    return; //전화번호 형식이 유효하지 않으면 함수 종료
-  }
 
-  //전화번호 중복 확인
-  const duplicate = phDup();
-  if (!duplicate) {
-    return; //전화번호가 이미 사용중이면 함수 종료
-  }
-
-  //전화번호 유효성 및 중복 확인 후 실행
-  const ranNo = randomNo();
-  console.log(ranNo);
-
-  phConfrim = true;
-  random = ranNo;
-
-  return ranNo;
-
-  /////////////////////////////////////////////////////////////////
-  // //1.숫자 형식 확인
-  // const ph = checkPh();
-  // if (ph) {
-  //   //2.전화중복확인
-  //   const dupli = phDup();
-  //   if (signPh.value && dupli) {
-  //     console.log(dupli);
-  //     let ranNo = randomNo();
-  //     console.log(ranNo);
-  //     //   const coolsms = require("coolsms-node-sdk").default;
-  //     // const messageService = new coolsms(
-  //     //   "NCS9L2EWZZQKBULJ",
-  //     //   "TVEIEYPKOYBZZN2ISBLHMJXUWSMJWZ0B"
-  //     // );
-
-  //     // messageService
-  //     //   .sendOne({
-  //     //     to: "01063640525",
-  //     //     from: "01063640525",
-  //     //     text: "SM 수 있습니다.",
-  //     //   })
-  //     //   .then((res) => {
-  //     //     console.log(res);
-  //     //   })
-  //     //   .catch((err) => console.error(err));
-  //     phConfrim = true;
-  //     random = ranNo;
-  //     return ranNo;
-  //   }
-  // }
-  /////////////////////////////////////////////////////////////////
-}
+/////////////////////////////////////////////////////////
 
 //인증번호 일치여부
 let cerConfrim = false;

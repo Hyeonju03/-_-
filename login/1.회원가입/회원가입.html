@@ -468,9 +468,9 @@
                     placeholder="전화번호를 입력하세요(숫자만 입력해주세요)."
                   />
                   <div
+                    id="smsBtn"
                     name="signUp_phone_check"
                     class="inBlock btn2"
-                    onclick="sendSms()"
                   >
                     인증번호받기
                   </div>
@@ -636,6 +636,40 @@
       <!-- //wrap -->
       <!-- //bottom -->
     </div>
+    <script type="commonjs" src="/login/1.회원가입/sendSms.js"></script>
     <script src="/login/1.회원가입/회원가입.js"></script>
+    <script>
+      const smsBtn = document.getElementById("smsBtn");
+      console.log(smsBtn);
+      smsBtn.addEventListener("click", () => {
+        const validPh = checkPh();
+        if (!validPh) {
+          return; //전화번호 형식이 유효하지 않으면 함수 종료
+        }
+        //전화번호 중복 확인
+        const duplicate = phDup();
+        if (!duplicate) {
+          return; //전화번호가 이미 사용중이면 함수 종료
+        }
+        //전화번호 유효성 및 중복 확인 후 실행
+        const ranNo = randomNo();
+        // console.log(ranNo);
+        //1.숫자 형식 확인
+        const ph = checkPh();
+        if (ph) {
+          // 2.전화중복확인
+          const dupli = phDup();
+          if (signPh.value && dupli) {
+            let ranNo = randomNo();
+            const sendNo = signPh.value;
+            // sendTokenToSmS(sendNo, ranNo);
+            smsTest(sendNo, ranNo);
+            phConfrim = true;
+            random = ranNo;
+            return ranNo;
+          }
+        }
+      });
+    </script>
   </body>
 </html>
