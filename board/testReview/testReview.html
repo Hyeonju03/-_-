@@ -268,7 +268,16 @@
           <div id="container-contents">
             <div id="content">
               <div class="depth_title">
-                <h2>시험후기글</h2>
+                <h2>
+                  시험후기글
+                  <a
+                    id="writeBtn"
+                    href="/board/writeTestReview/writeTestReview.html"
+                    class="btn bg_darkgray text_color_white btn_m float_right"
+                  >
+                    <span>작성하기</span>
+                  </a>
+                </h2>
               </div>
               <!-- section -->
               <div class="article" style="margin-bottom: 0px; margin-top: 10px">
@@ -292,6 +301,7 @@
                         style="width: 200px; height: 30px"
                       />
                       <button
+                        type="button"
                         id="searchBtn"
                         class="bg_darkgray text_color_white"
                         style="
@@ -300,6 +310,7 @@
                           border-radius: 5px;
                           cursor: pointer;
                         "
+                        onclick="searchBtnFunction()"
                       >
                         검색하기
                       </button>
