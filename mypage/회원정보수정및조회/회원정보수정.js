@@ -5,7 +5,7 @@ const loginUser = JSON.parse(sessionStorage.getItem("loginUser"));
 let newProfile = "0";
 function cgProfile(e) {
   const files = e.currentTarget.files;
-  img.src = `/mypage/imgs/${files[0].name}`;
+  img.src = `/imgs/${files[0].name}`;
   newProfile = files[0].name;
   return newProfile;
 }
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
     female.checked = true;
   }
   if (loginUser.profile == 0) {
-    img.src = `/mypage/imgs/프로필기본.png`;
+    img.src = `/imgs/프로필기본.png`;
   } else {
-    img.src = `/mypage/imgs/${loginUser.profile}`;
+    img.src = `/imgs/${loginUser.profile}`;
   }
 });
 
@@ -284,8 +284,10 @@ editInfor.addEventListener("click", () => {
     genderCehck() == loginUser.gender &&
     !pw.value &&
     !pw.value &&
-    !phC.value
+    !phC.value &&
+    newProfile == 0
   ) {
+    console.log(loginUser.profile);
     alert("수정사항이 없습니다.");
   } else {
     if (phCh) {

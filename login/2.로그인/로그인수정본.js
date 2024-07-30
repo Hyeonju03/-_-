@@ -2,7 +2,6 @@ const userId = document.getElementById("logIn_id_text"); //아이디
 const userPw = document.getElementById("logIn_pw_txt"); //비밀번호
 
 //아이디 확인
-// const nId = document.getElementById("noId_modar");
 let idConfirm = 0;
 function idCheck() {
   const inputId = userId.value;
@@ -10,7 +9,6 @@ function idCheck() {
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     const item = JSON.parse(localStorage.getItem(key));
-
     if (!item || !item.id) {
       continue;
     }

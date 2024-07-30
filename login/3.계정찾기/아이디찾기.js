@@ -36,8 +36,6 @@ newName.addEventListener("blur", function (e) {
     // e.preventDefault();
     return;
   }
-  // user.name = name;
-  // localStorage.setItem(userNo, JSON.stringify(user));
 });
 
 //이름 입력시 로컬에 있는지 확인
@@ -47,7 +45,7 @@ function nameCheck() {
   for (let i = 0; i < localStorage.length; i++) {
     const storedName = localStorage.getItem(i);
     if (storedName === null) {
-      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      // console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
       continue; // null일 경우 다음 반복으로 넘어감
     }
     try {
@@ -161,7 +159,7 @@ function sendSms() {
 
     if (ph) {
       ran = randomNo();
-      console.log(ran);
+      console.log("인증번호:", ran);
       //   const coolsms = require("coolsms-node-sdk").default;
       // const messageService = new coolsms(
       //   "NCS9L2EWZZQKBULJ",
@@ -193,7 +191,6 @@ function cerCheck() {
     ceConfirm = false;
   } else {
     alert("인증번호가 일치합니다.");
-    console.log(cerNo.value);
     ceConfirm = true;
   }
 }

@@ -13,8 +13,8 @@
 //   });
 //   console.log(phone + `번호로 인증번호` + ranNo + `을 전송합니다.`);
 // }
-const coolsms = require("./login/node_modules/coolsms-node-sdk").default;
 function smsTest(phone, random) {
+  const coolsms = require("./login/node_modules/coolsms-node-sdk").default;
   // import * as coolsms from "coolsms-node-sdk";
   // import coolsms from "coolsms-node-sdk";
   const messageService = new coolsms(
@@ -23,9 +23,9 @@ function smsTest(phone, random) {
   );
   messageService
     .sendOne({
-      to: `${signPh.value}`,
+      to: `01063640525`,
       from: "01063640525",
-      text: `인증번호는 ${ranNo}입니다. `,
+      text: `인증번호는 12345입니다. `,
     })
     .then((res) => {
       console.log(res);

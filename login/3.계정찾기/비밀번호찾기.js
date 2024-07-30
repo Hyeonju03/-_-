@@ -31,7 +31,7 @@ function idCheck() {
   for (let i = 0; i < localStorage.length; i++) {
     const storedId = localStorage.getItem(i);
     if (storedId === null) {
-      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      // console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
       continue; // null일 경우 다음 반복으로 넘어감
     }
     try {
@@ -118,7 +118,7 @@ function sendSms() {
     return false;
   }
   random = randomNo();
-  console.log(random);
+  console.log("랜덤번호: ", random);
   //   const coolsms = require("coolsms-node-sdk").default;
   // const messageService = new coolsms(
   //   "NCS9L2EWZZQKBULJ",

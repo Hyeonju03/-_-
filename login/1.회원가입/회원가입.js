@@ -21,26 +21,19 @@ const certiPh = document.getElementById("certiNo"); // 입력받는 인증번호
 const signEmail = document.getElementById("signUp_email"); //입력받는 이메일
 const signGender = document.querySelectorAll("[name='gender']"); //성별
 
-// 이부분 폼의 라디오박스 부분 확인하기
-
 //아이디 확인 함수
-
 let idConfrim = false;
 function idCheck() {
   const newId = signId.value; //입력받은 아이디
-
   for (let i = 0; i < localStorage.length; i++) {
     const storedItem = localStorage.getItem(i);
-
     if (storedItem === null) {
       // console.log("null");
       continue;
     }
-
     try {
       const userData = JSON.parse(storedItem);
       const userId = userData.id;
-
       if (userId == newId) {
         alert("이미 존재하는 아이디입니다.");
         idConfrim = false;
@@ -50,14 +43,6 @@ function idCheck() {
       // console.error(`${error.message}`);
       //예외처리
     }
-
-    //로컬스토리지 돌면서 비교
-    // const userId = JSON.parse(localStorage.getItem(i)).id; // 키가 0인거부터 순서대로 id를 담음
-    // if (userId == newId) {
-    //   alert("이미 존재하는 아이디입니다.");
-    //   idConfrim = false;
-    //   return;
-    // }
   }
   idConfrim = true;
   alert("사용 가능한 아이디입니다.");
@@ -82,7 +67,6 @@ function rePw() {
     return;
   } else {
     alert("비밀번호가 일치하지 않습니다.");
-    // e.preventDefault();
     pwConfirm = false;
   }
 }
@@ -106,11 +90,8 @@ signName.addEventListener("blur", function (e) {
   let name = this.value;
   if (name.length < 2 || name.length > 4) {
     alert("이름은 2~5글자까지 입력가능합니다.");
-    // e.preventDefault();
     return;
   }
-  // user.name = name;
-  // localStorage.setItem(userNo, JSON.stringify(user));
 });
 
 // //성별체크 값 받는 함수
@@ -169,16 +150,13 @@ function phDup() {
 
   for (let i = 0; i < localStorage.length; i++) {
     const storedItem = localStorage.getItem(i);
-
     if (storedItem === null) {
-      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      // console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
       continue; // null일 경우 다음 반복으로 넘어감
     }
-
     try {
       const userData = JSON.parse(storedItem);
       const userPhone = userData.phone;
-
       if (userPhone) {
         // phone 필드가 유효한 경우에만 배열에 추가
         checkPh.push(userPhone);
@@ -188,12 +166,10 @@ function phDup() {
       // 예외 처리
     }
   }
-
   if (checkPh.includes(ph)) {
     alert("이미 사용중인 전화번호 입니다.");
     return false;
   }
-
   return true;
 }
 
@@ -211,6 +187,33 @@ let phConfrim = false;
 let random = "";
 
 /////////////////////////////////////////////////////////
+const smsBtn = document.getElementById("smsBtn");
+smsBtn.addEventListener("click", () => {
+  const validPh = checkPh();
+  if (!validPh) {
+    return; //전화번호 형식이 유효하지 않으면 함수 종료
+  }
+  //전화번호 중복 확인
+  const duplicate = phDup();
+  if (!duplicate) {
+    return; //전화번호가 이미 사용중이면 함수 종료
+  }
+  //전화번호 유효성 및 중복 확인 후 실행
+
+  //1.숫자 형식 확인
+  const ph = checkPh();
+  if (ph) {
+    // 2.전화중복확인
+    const dupli = phDup();
+    if (signPh.value && dupli) {
+      let ranNo = randomNo();
+      console.log("인증번호: ", ranNo);
+      random = ranNo;
+      phConfrim = true;
+      return ranNo;
+    }
+  }
+});
 
 //인증번호 일치여부
 let cerConfrim = false;
@@ -242,8 +245,6 @@ signEmail.addEventListener("blur", function () {
     );
     return false;
   }
-  // user.email = signEmail.value;
-  // localStorage.setItem(userNo, JSON.stringify(user));
 });
 
 //유효성검사
@@ -395,9 +396,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
-
+  let keyNo = 0;
+  function keyCheck() {
+    for (let key = 0; key < localStorage.length; key++) {
+      const storeDate = JSON.parse(localStorage.getItem(key));
+      if (storeDate && storeDate.id == userData.id) {
+        keyNo = key;
+        return keyNo;
+      }
+    }
+  }
   if (userData && userData.login) {
-    if (userData.login == "1") {
+    keyNo = keyCheck();
+    const user = JSON.parse(localStorage.getItem(keyNo));
+    if (userData.login == "1" && user.delete == "0") {
       // 로그인 상태일 때
       loginLink.innerText = "로그아웃";
       loginLink.href = "#";
@@ -406,7 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userData.login = "0";
         saveUserData(userData);
         logoutUser(userData);
-
+        sessionStorage.removeItem("loginUser");
         // localStorage.setItem(`loginUser`, JSON.stringify(userData));
         location.reload(); // 페이지 새로고침
       });
