@@ -218,13 +218,11 @@ smsBtn.addEventListener("click", () => {
 //인증번호 일치여부
 let cerConfrim = false;
 function phCheck() {
-  console.log(random);
   if (random != certiPh.value) {
     alert("인증번호가 일치하지 않습니다.");
     cerConfrim = false;
   } else {
     alert("인증번호가 일치합니다.");
-    console.log(certiPh.value);
     cerConfrim = true;
   }
 }
