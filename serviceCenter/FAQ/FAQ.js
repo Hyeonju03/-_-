@@ -28,25 +28,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dt = document.createElement("dt");
     const dd = document.createElement("dd");
+    const deleteBtn = document.createElement("button");
 
     dt.classList.add("faq_title");
     dd.classList.add("faq_view");
+    deleteBtn.classList.add("commentBtn");
 
+    deleteBtn.textContent = "삭제하기";
     dt.textContent = item.title;
     dd.textContent = item.content;
     dt.id = `dt${index}`;
     dd.style.display = "none";
+    deleteBtn.style.display = "none";
 
     dt.addEventListener("click", () => {
       if (dd.style.display == "none") {
         dd.style.display = "block";
+        ddclick(userData, dd, deleteBtn);
       } else {
         dd.style.display = "none";
+        deleteBtn.style.display = "none";
       }
-    });
 
+      deleteBtn.addEventListener("click", () => {
+        for (let i = 0; i < localStorage.length; i++) {
+          const local = JSON.parse(localStorage.getItem(`REVIEW${i}`));
+
+          if (local) {
+            if (local.title == dt.innerText) {
+              window.localStorage.removeItem(`REVIEW${i}`);
+              container.remove();
+              alert("삭제되었습니다.");
+            }
+          }
+        }
+      });
+    });
     container.appendChild(dt);
     container.appendChild(dd);
+    container.appendChild(deleteBtn);
     dlList.appendChild(container);
   });
 
@@ -179,6 +199,26 @@ function logoutUser(userData) {
       }
     } else {
       console.log("if문 통과 못함");
+    }
+  }
+}
+
+// dt 클릭시 가릴것들과 안가릴것들
+function ddclick(userData, dd, deleteBtn) {
+  if (!dd || !deleteBtn) {
+    console.error("입력 데이터 없음");
+    return;
+  }
+
+  if (userData && userData.login == "1") {
+    // admin이면 보여야할것 : deleteBtn textarea(활성화) dd
+    // admin 아닌 유저 : textarea(비활성화) dd
+    dd.style.display = "block";
+
+    if (userData.id == "admin") {
+      deleteBtn.style.display = "block";
+    } else {
+      deleteBtn.style.display = "none";
     }
   }
 }
