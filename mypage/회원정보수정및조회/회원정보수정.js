@@ -7,6 +7,7 @@ function cgProfile(e) {
   const files = e.currentTarget.files;
   img.src = `/imgs/${files[0].name}`;
   newProfile = files[0].name;
+  loginUser.profile = newProfile;
   return newProfile;
 }
 
@@ -134,7 +135,7 @@ function comparePh() {
   for (let i = 0; i < localStorage.length; i++) {
     const storedPh = localStorage.getItem(i);
     if (storedPh === null) {
-      console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
+      // console.log(`로컬 스토리지에서 ${i} 인덱스의 데이터가 null입니다.`);
       continue; // null일 경우 다음 반복으로 넘어감
     }
     try {
@@ -189,7 +190,7 @@ function phCheck() {
     if (updatePh) {
       if (userPh) {
         let ranNo = randomNo();
-        console.log(ranNo);
+        console.log("인증번호: ", ranNo);
         // const coolsms = require("coolsms-node-sdk").default;
         // const messageService = new coolsms(
         //   "개인키",
@@ -303,7 +304,7 @@ editInfor.addEventListener("click", () => {
           email: email.value,
           delete: "0",
           login: "1",
-          profile: newProfile,
+          profile: loginUser.profile,
         };
         console.log(user);
         localStorage.setItem(keyNo, JSON.stringify(user));

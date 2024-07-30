@@ -118,7 +118,7 @@ function sendSms() {
     return false;
   }
   random = randomNo();
-  console.log("랜덤번호: ", random);
+  console.log("인증번호: ", random);
   //   const coolsms = require("coolsms-node-sdk").default;
   // const messageService = new coolsms(
   //   "NCS9L2EWZZQKBULJ",
