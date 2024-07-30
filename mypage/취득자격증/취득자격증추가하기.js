@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
           cerDate: date.value,
           cerOrg: org.value,
         };
-        console.log(cer);
         localStorage.setItem(`cer${CERno}`, JSON.stringify(cer));
         alert("자격증 추가 완료");
         // window.location.href = "/mypage/취득자격증/취득자격증확인.html";

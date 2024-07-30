@@ -183,26 +183,6 @@ function logoutUser(userData) {
   }
 }
 
-// // dt 클릭시 가릴것들과 안가릴것들
-// function ddclick(userData, dd, deleteBtn) {
-//   if (!dd || !deleteBtn) {
-//     console.error("입력 데이터 없음");
-//     return;
-//   }
-
-//   if (userData && userData.login == "1") {
-//     // admin이면 보여야할것 : deleteBtn textarea(활성화) dd
-//     // admin 아닌 유저 : textarea(비활성화) dd
-//     dd.style.display = "block";
-
-//     if (userData.id == "admin") {
-//       deleteBtn.style.display = "block";
-//     } else {
-//       deleteBtn.style.display = "none";
-//     }
-//   }
-// }
-
 function searchBtnFunction() {
   let num = 0;
   for (let i = 0; i < localStorage.length; i++) {
@@ -215,9 +195,6 @@ function searchBtnFunction() {
   for (let i = 0; i < num; i++) {
     const dt = document.getElementById("dt" + i);
     const dd = document.getElementById("dd" + i);
-
-    console.log(dd);
-    console.log(dt);
 
     if (!dd || !dt) return;
     const select = document.querySelector("option[name=filter]:checked");

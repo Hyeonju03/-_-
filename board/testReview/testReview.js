@@ -231,9 +231,6 @@ function searchBtnFunction() {
     const dt = document.getElementById("dt" + i);
     const dd = document.getElementById("dd" + i);
 
-    console.log(dd);
-    console.log(dt);
-
     if (!dd || !dt) return;
     const select = document.querySelector("option[name=filter]:checked");
     const searchText = document.getElementById("searchText");

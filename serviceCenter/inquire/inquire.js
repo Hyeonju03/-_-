@@ -157,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // dt 클릭시 가릴것들과 안가릴것들
   function ddclick(userData, dd, textarea, createBtn, deleteBtn) {
     if (!dd || !textarea || !createBtn || !deleteBtn) {
-      console.error("입력 데이터 없음");
       return;
     }
 

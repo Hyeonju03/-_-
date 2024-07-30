@@ -288,7 +288,6 @@ editInfor.addEventListener("click", () => {
     !phC.value &&
     newProfile == 0
   ) {
-    console.log(loginUser.profile);
     alert("수정사항이 없습니다.");
   } else {
     if (phCh) {
@@ -306,7 +305,6 @@ editInfor.addEventListener("click", () => {
           login: "1",
           profile: loginUser.profile,
         };
-        console.log(user);
         localStorage.setItem(keyNo, JSON.stringify(user));
         sessionStorage.setItem("loginUser", JSON.stringify(user));
         alert("수정완료");

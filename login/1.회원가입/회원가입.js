@@ -371,7 +371,6 @@ function goSign() {
       login: "0",
       profile: "0",
     };
-    console.log(user);
     localStorage.setItem(`${USERno}`, JSON.stringify(user));
     USERno++;
     localStorage.setItem("USERno", USERno);

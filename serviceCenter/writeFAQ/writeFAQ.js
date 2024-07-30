@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const signupLink = document.getElementById("mypage");
 
   let userData = getUserData();
-  // console.log(userData);
 
   if (userData && userData.login) {
     if (userData.login == "1") {
