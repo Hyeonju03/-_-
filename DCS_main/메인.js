@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
       category: noticeData.category,
     });
     count++;
-    if (count == 5) {
+    if (count == 6) {
       break;
     }
   }
