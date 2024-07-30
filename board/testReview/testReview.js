@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       testReviewItems.push({
         title: testReviewItemsData.title,
         content: testReviewItemsData.content,
-        category: testReviewItemsData.category,
-        id: testReviewItemsData.id,
+        userId: testReviewItemsData.userId,
       });
     }
   }
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // if (dlList) {
   testReviewItems.forEach((item, index) => {
-    console.log(item.title);
     let userData = getUserData();
     const container = document.createElement("div");
     container.classList.add("testReview_item_container");
