@@ -865,3 +865,24 @@ a.holder:hover {
   background-color: rgb(255, 183, 0);
   color: white;
 }
+
+.commentBtn {
+  border: 1px solid rgb(255, 183, 0);
+  background: white;
+  color: #201818;
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  display: block;
+}
+
+.commentBtn:hover {
+  background-color: rgb(255, 183, 0);
+  color: white;
+}
